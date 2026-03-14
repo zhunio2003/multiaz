@@ -96,4 +96,4 @@ Meta de precisión del **90% o superior** en las predicciones generadas por los 
 ### 5.5 Crecimiento
 
 - **Inicio de operaciones:** 5 modelos de IA especializados.
-- **Meta al final del primer año:** Escalar a 12 modelos o más.
+- **Meta al final del primer año:** Escalar a 12 modelos o más
