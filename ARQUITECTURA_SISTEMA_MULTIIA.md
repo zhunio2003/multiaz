@@ -335,7 +335,7 @@ Directorio dinámico donde cada microservicio se registra al levantarse.
 
 ---
 
-### 7.3 Config Service (Servicio de Configuración Centralizada)
+### 7.3  Config Service (Servicio de Configuración Centralizada)
 
 Almacén único de configuraciones para todos los microservicios.
 
