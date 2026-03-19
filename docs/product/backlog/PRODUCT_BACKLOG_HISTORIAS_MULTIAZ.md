@@ -94,7 +94,7 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 2. Un servicio puede almacenar y recuperar datos desde la caché correctamente.
 3. Los datos cacheados tienen un tiempo de expiración configurable (TTL) para evitar servir información desactualizada.
 4. Ante un cache miss (dato no encontrado en caché), la consulta se redirige a la base de datos, y el resultado se almacena en caché para futuras consultas.
-5. Los tipos de datos cacheables están definidos: predicciones batch frecuentes, metadata de modelos del Model Registry y sesiones de usuario.
+5. Los tipos de datos cacheables se definirán cuando se desarrolle cada servicio en su fase correspondiente.
 
 ---
 
@@ -108,7 +108,7 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 2. Dentro de los servidores, cada microservicio tiene su propio esquema o base de datos lógica independiente, siguiendo el patrón Database per Service.
 3. Los datos transaccionales (usuarios, predicciones, metadata de modelos) se almacenan en base de datos relacional (SQL).
 4. Los datos no estructurados (logs, eventos) se almacenan en base de datos NoSQL.
-5. Los esquemas iniciales están creados con las tablas y colecciones necesarias para los servicios core del sistema.
+5. Cada microservicio tiene su propia base de datos lógica creada dentro del servidor correspondiente, vacía y sin tablas ni colecciones. Las estructuras de tablas y colecciones se definirán cuando se desarrolle cada servicio en su fase correspondiente.
 6. Se cuenta con una estrategia de backups configurada para evitar pérdida de datos.
 
 ---
