@@ -123,7 +123,7 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 | 13 | EP-12 | Gestión de Usuarios |
 | 14 | EP-13 | Análisis de Predicciones Globales |
 
-**Justificación:** Para la operación continua de la plataforma, el administrador necesita gestionar modelos, actualizar datos de entrenamiento, monitorear la salud del sistema y administrar usuarios. Estas funcionalidades son operativas y necesarias antes de agregar mejoras avanzadas.
+**Justificación:** Para la operación continua de la plataforma, el administrador necesita gestionar modelos, actualizar datos de entrenamiento, monitorear la salud del sistema y administrar usuarios. Estas funcionalidades son operativas y necesarias antes de agregar mejoras avanEmpecemos por entender la estructura general de un DoD profesional para microservicios. Un DoD típicamente tiene dos niveles:zadas.
 
 ---
 
