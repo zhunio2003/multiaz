@@ -1,13 +1,13 @@
 # ADR-001 — APLICAR REFINAMIENTO PROGRESIVO EN LAS TS-15.1 y TS-15.2
 
-**Fecha:** 19 de Marzo del 2026
+**Fecha:** 20 de Marzo del 2026
 **Estado:** Aceptado
 
 ---
 
 ## Contexto  
 
-Las Technical Stories TS-15.1 (Cache Service) y TS-15.2 (Base de Datos Principal) pertenecen a la Fase 1 (Fundación). Sus criterios de aceptación actuales incluyen la definición de tipos de datos cacheables (TS-15.1, criterio 5) y la creación de esquemas iniciales con tablas y colecciones para los servicios core (TS-15.2, criterio 5). Sin embargo, los microservicios que consumirían esas estructuras (Auth Service, Model Registry, Prediction Storage, etc.) no se desarrollarán hasta la Fase 2. En la Fase 1 no existe ningún servicio que requiera tablas, colecciones ni datos cacheados.
+Las Technical Stories TS-15.1 (Cache Service) y TS-15.2 (Base de Datos Principal) pertenecen a la Fase 1 (Fundación). Sus criterios de aceptación actuales incluyen la definición de tipos de datos cacheables (TS-15.1, criterio 5) y la creación de esquemas iniciales con tablas y colecciones para los servicios core (TS-15.2, criterio 4 y 5). Sin embargo, los microservicios que consumirían esas estructuras (Auth Service, Model Registry, Prediction Storage, etc.) no se desarrollarán hasta la Fase 2. En la Fase 1 no existe ningún servicio que requiera tablas, colecciones ni datos cacheados.
 
 ---
 
