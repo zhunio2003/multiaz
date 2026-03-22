@@ -1,6 +1,6 @@
-# ADR-001 — APLICAR REFINAMIENTO PROGRESIVO EN LAS TS-15.1 y TS-15.2
+# ADR-002 — Diferir la infraestructura de producción: usar Docker Compose como orquestador y limitar el CI/CD al ambiente de desarrollo
 
-**Fecha:** 19 de Marzo del 2026
+**Fecha:** 20 de Marzo del 2026
 **Estado:** Aceptado
 
 ---
