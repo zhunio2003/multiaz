@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgresql-prod:5432/dataset-management
+    username: dataset_management_user
+    password: dataset_management_password

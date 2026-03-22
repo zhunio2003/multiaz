@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongodb-staging:27017/prediction-storage-details
+  datasource:
+    url: jdbc:postgresql://postgresql-staging:5432/prediction-storage
+    username: prediction_storage_user
+    password: prediction_storage_password

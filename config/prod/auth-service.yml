@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgresql-prod:5432/auth
+    username: auth_user
+    password: auth_password

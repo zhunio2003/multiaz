@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgresql-staging:5432/scheduler
+    username: scheduler_user
+    password: scheduler_password
