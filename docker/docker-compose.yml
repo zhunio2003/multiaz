@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  config-service: 
+    build:
+       context: ../backend/infrastructure/config-service/
+       dockerfile: Dockerfile
+    container_name: config-service
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=native
+    networks:
+      - net-gateway
+    volumes:
+      - ../config:/config
+
+networks:
+  net-gateway:
+    driver: bridge
+
