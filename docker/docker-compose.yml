@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
   config-service: 
     build:
        context: ../backend/infrastructure/config-service/
@@ -14,8 +15,21 @@ services:
       - net-gateway
     volumes:
       - ../config:/config
+    
+  service-discovery:
+    build: 
+      context: ../backend/infrastructure/service-discovery/
+      dockerfile: Dockerfile
+    container_name: service-discovery
+    ports:
+      - "8761:8761"
+    networks:
+      - net-gateway
+      - net-prediction
 
 networks:
   net-gateway:
+    driver: bridge
+  net-prediction:
     driver: bridge
 
