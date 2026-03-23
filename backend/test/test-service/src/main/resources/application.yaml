@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: test-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-discovery:8761/eureka
+
+server:
+  port: 9090

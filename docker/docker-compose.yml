@@ -27,6 +27,17 @@ services:
       - net-gateway
       - net-prediction
 
+  # TEST
+  test-service:
+    build: 
+      context: ../backend/test/test-service/
+      dockerfile: Dockerfile
+    container_name: test-service
+    ports:
+      - "9090:9090"
+    networks:
+      - net-gateway
+
 networks:
   net-gateway:
     driver: bridge
