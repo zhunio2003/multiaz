@@ -1,0 +1,6 @@
+# ENVIRONMENT VARIABLE
+docker/.env
+
+# IDEA
+.idea/
+.vscode/
