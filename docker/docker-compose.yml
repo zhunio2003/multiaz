@@ -26,10 +26,30 @@ services:
     networks:
       - net-gateway
       - net-prediction
+  
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+    volumes:
+      - vol-rabbitmq:/var/lib/rabbitmq
+    networks:
+      - net-message
+
+volumes:
+  vol-rabbitmq:
+    driver: local
 
 networks:
   net-gateway:
     driver: bridge
   net-prediction:
+    driver: bridge
+  net-message:
     driver: bridge
 
