@@ -1,6 +1,8 @@
 spring:
   application:
     name: test-service
+  config:
+    import: optional:configserver:http://config-service:8888
 
 eureka:
   client:

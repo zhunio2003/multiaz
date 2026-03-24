@@ -33,8 +33,13 @@ services:
     container_name: test-service
     ports:
       - "9090:9090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
     networks:
       - net-gateway
+    depends_on:
+      - config-service
+      - service-discovery
 
 networks:
   net-gateway:
