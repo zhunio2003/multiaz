@@ -40,9 +40,24 @@ services:
       - vol-rabbitmq:/var/lib/rabbitmq
     networks:
       - net-message
+  
+  # STORAGE
+  redis:
+    image: redis:8
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "${REDIS_PASS}"]
+    volumes:
+      - vol-redis:/data
+    networks:
+      - net-database
+
 
 volumes:
   vol-rabbitmq:
+    driver: local
+  vol-redis:
     driver: local
 
 networks:
@@ -52,4 +67,5 @@ networks:
     driver: bridge
   net-message:
     driver: bridge
-
+  net-database:
+    driver: bridge
