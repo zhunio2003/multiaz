@@ -79,7 +79,22 @@ services:
       - vol-mongodb:/data/db
     networks:
       - net-database
-
+  
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=${MINIO_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_PASS}
+    command: ["server", "/data", "--console-address", ":9001"]
+    volumes:
+      - vol-minio:/data
+    networks:
+      - net-database
+    
 
 volumes:
   vol-rabbitmq:
@@ -89,6 +104,8 @@ volumes:
   vol-postgresql:
     driver: local
   vol-mongodb:
+    driver: local
+  vol-minio:
     driver: local
 
 networks:
