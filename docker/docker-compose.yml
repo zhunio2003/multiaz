@@ -53,11 +53,42 @@ services:
     networks:
       - net-database
 
+  postgresql:
+    image: postgres:17
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRESQL_USER}
+      - POSTGRES_PASSWORD=${POSTGRESQL_PASS}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - vol-postgresql:/var/lib/postgresql/data
+    networks:
+      - net-database
+  
+  mongodb:
+    image: mongo:8
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASS}
+    volumes:
+      - vol-mongodb:/data/db
+    networks:
+      - net-database
+
 
 volumes:
   vol-rabbitmq:
     driver: local
   vol-redis:
+    driver: local
+  vol-postgresql:
+    driver: local
+  vol-mongodb:
     driver: local
 
 networks:
