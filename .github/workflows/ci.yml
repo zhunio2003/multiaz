@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build config-service
+        run: config-service
+
+      - name: Buld service-discovery
+        run: docker build -t service-discovery ./backend/infraestructur/service-discovery
