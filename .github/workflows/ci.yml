@@ -12,8 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build config-service
-        run: config-service
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Buld service-discovery
-        run: docker build -t service-discovery ./backend/infraestructur/service-discovery
+      - name: Build config-service
+        run: docker build -t config-service ./backend/infrastructure/config-service
+
+      - name: Build service-discovery
+        run: docker build -t service-discovery ./backend/infrastructure/service-discovery
