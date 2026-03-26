@@ -73,6 +73,8 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 | EP-14 | Comunicación y Configuración | Message Broker, Service Discovery, Config Service |
 | EP-15 | Almacenamiento | Cache Service, Base de Datos Principal, Object Storage |
 | EP-16 | Operaciones | Container Orchestrator, CI/CD Pipeline |
+| EP-17 | Fundación Frontend | Admin Web App (React), Mobile App (Flutter) |
+
 
 **Nota sobre EP-16:** El Log Aggregator, aunque está en el grupo de Operaciones de la arquitectura, se relaciona directamente con la épica EP-11 (Logs y Monitoreo) desde el punto de vista funcional.
 
@@ -89,8 +91,12 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 | 1 | EP-14 | Comunicación y Configuración |
 | 2 | EP-15 | Almacenamiento |
 | 3 | EP-16 | Operaciones |
+| 4 | EP-17 | Fundación Frontend |
+
 
 **Justificación:** Sin base de datos, sin API Gateway, sin orquestador de contenedores ni pipeline de despliegue, no hay donde ejecutar ni desplegar los microservicios. Los modelos de IA pueden estar pre-entrenados y registrados manualmente en esta fase.
+
+> Nota (EP-17): Las historias de Mobile App (TS-17.1, TS-17.2, TS-17.3) se ejecutan antes de Fase 2 (Experiencia del Usuario). Las historias de Admin Web App (TS-17.4, TS-17.5) se ejecutan antes de Fase 3 (Administración de la Plataforma). La TS-17.2 (Design System) define las decisiones de diseño para ambos clientes, pero la implementación en React se completa junto con TS-17.4.
 
 ---
 
@@ -144,9 +150,9 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 
 | Concepto | Valor |
 |----------|-------|
-| Total de épicas | 16 |
+| Total de épicas | 17 |
 | Épicas de usuario | 7 |
 | Épicas de administrador | 6 |
-| Épicas técnicas | 3 |
+| Épicas técnicas | 4 |
 | Fases de desarrollo | 4 |
 | Usuarios cubiertos | Usuario Persona, Usuario Empresa, Administrador del Sistema |

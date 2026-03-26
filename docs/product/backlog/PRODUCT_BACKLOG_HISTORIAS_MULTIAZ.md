@@ -2,9 +2,11 @@
 
 **Proyecto:** MultIAZ — Plataforma de Predicción Especializada  
 **Metodología:** Scrum  
-**Versión del documento:** 1.0  
+**Versión del documento:** 1.1  
 **Fecha:** 17 de Marzo del 2026  
-**Autor:** Miguel Angel Zhunio Remache
+**Autor:** Miguel Angel Zhunio Remache  
+**Ultima actualizacion:** 26 de Marzo del 2026  
+
 
 ---
 
@@ -158,6 +160,88 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 3. Si las pruebas pasan, se construye automáticamente la imagen del contenedor del servicio modificado.
 4. La imagen construida se despliega automáticamente en el ambiente de staging para validación.
 5. Tras aprobación manual, se despliega en el ambiente de producción a través del Container Orchestrator (TS-16.1).
+
+---
+
+### EP-17 — Fundación Frontend
+
+---
+
+#### TS-17.1 — Inicialización de la Mobile App (Flutter)
+
+**Story:** "Como equipo de desarrollo, necesitamos el proyecto de la Mobile App creado y configurado con su estructura base, herramientas de calidad de código y entorno de pruebas, para que las historias de usuario de Fase 2 tengan dónde implementar sus pantallas."
+
+**Criterios de aceptación:**
+
+1. El proyecto Flutter está creado en la ruta `frontend/mobile-app/` del monorepo con la estructura de carpetas estándar de Flutter.
+2. El linter `dart analyze` está configurado con las reglas recomendadas por Flutter (`flutter_lints`) y se ejecuta sin errores ni warnings sobre el proyecto base.
+3. El formatter `dart format` está configurado y el código base cumple las reglas de formato.
+4. El framework de testing (`flutter_test`) está configurado y se puede ejecutar al menos un test de ejemplo exitosamente.
+5. La app se compila y ejecuta mostrando una pantalla base placeholder sin errores.
+6. La estructura de carpetas sigue una organización por feature/módulo que soporte el crecimiento del proyecto: separación de pantallas, widgets, servicios, modelos y utilidades.
+
+---
+
+#### TS-17.2 — Design System de MultIAZ
+
+**Story:** "Como equipo de desarrollo, necesitamos un sistema de diseño unificado que defina la identidad visual de la plataforma e implemente los componentes base reutilizables, para que todas las pantallas de ambos clientes mantengan consistencia visual y no se rehaga trabajo de estilos en cada historia."
+
+**Criterios de aceptación:**
+
+1. La paleta de colores de MultIAZ está definida: colores primario, secundario, de acento, de fondo, de superficie, de texto, de éxito, de error y de advertencia, con sus variantes para modo claro.
+2. La tipografía está definida: familia tipográfica, tamaños para headings (h1-h6), body, caption y button, con sus pesos correspondientes.
+3. El spacing system está definido: escala de espaciado consistente (por ejemplo, 4px, 8px, 12px, 16px, 24px, 32px, 48px) aplicable a márgenes, paddings y gaps.
+4. Los componentes base reutilizables están implementados en Flutter: botón primario, botón secundario, campo de texto (input), card, app bar personalizada y layout de pantalla base.
+5. Cada componente base acepta las variantes necesarias (por ejemplo, botón habilitado/deshabilitado/loading, input con/sin error).
+6. Los tokens de diseño (colores, tipografía, spacing) están centralizados en archivos de tema de Flutter (`ThemeData`) y no hardcodeados en los componentes.
+7. Las decisiones de diseño están documentadas en `docs/guides/DESIGN_SYSTEM_MULTIAZ.md` como referencia para la implementación futura en React.
+
+---
+
+#### TS-17.3 — Conexión con el Backend desde la Mobile App
+
+**Story:** "Como sistema, necesita la Mobile App un módulo de comunicación HTTP configurado para conectarse con el API Gateway, para que todas las pantallas de Fase 2 puedan enviar y recibir datos del backend sin implementar la conexión desde cero en cada historia."
+
+**Criterios de aceptación:**
+
+1. Existe un servicio HTTP centralizado en la Mobile App que dirige todas las peticiones al API Gateway como punto de entrada único.
+2. El servicio HTTP agrega automáticamente el token JWT en el header `Authorization` de cada petición autenticada.
+3. Si una petición recibe un error 401 (token expirado), el servicio intenta renovar el token usando el refresh token antes de reintentar la petición original.
+4. Si el refresh token también ha expirado o es inválido, el usuario es redirigido automáticamente a la pantalla de login.
+5. Los errores de red (timeout, sin conexión, errores 5xx) se capturan de forma centralizada y se presentan al usuario con mensajes claros, sin exponer detalles técnicos.
+6. La URL base del API Gateway se obtiene desde la configuración de la app, no está hardcodeada en el código.
+
+---
+
+#### TS-17.4 — Inicialización del Admin Web App (React)
+
+**Story:** "Como equipo de desarrollo, necesitamos el proyecto del Admin Web App creado y configurado con su estructura base, herramientas de calidad de código, entorno de pruebas y el design system implementado, para que las historias de Fase 3 tengan dónde implementar sus pantallas de administración."
+
+**Criterios de aceptación:**
+
+1. El proyecto React con TypeScript está creado en la ruta `frontend/admin-web-app/` del monorepo con la estructura de carpetas estándar.
+2. El linter ESLint está configurado con reglas recomendadas para React + TypeScript y se ejecuta sin errores ni warnings sobre el proyecto base.
+3. El formatter Prettier está configurado y el código base cumple las reglas de formato.
+4. El framework de testing (Jest + React Testing Library) está configurado y se puede ejecutar al menos un test de ejemplo exitosamente.
+5. La app se compila y ejecuta mostrando una pantalla base placeholder sin errores.
+6. La estructura de carpetas sigue una organización por feature/módulo que soporte el crecimiento del proyecto: separación de páginas, componentes, servicios, modelos y utilidades.
+7. Los tokens de diseño definidos en TS-17.2 están implementados como CSS variables / tema del proyecto, siguiendo la documentación de `docs/guides/DESIGN_SYSTEM_MULTIAZ.md`.
+8. Los componentes base reutilizables están implementados en React: botón primario, botón secundario, campo de texto (input), card, sidebar de navegación y layout de página base.
+
+---
+
+#### TS-17.5 — Conexión con el Backend desde el Admin Web App
+
+**Story:** "Como sistema, necesita el Admin Web App un módulo de comunicación HTTP configurado para conectarse con el API Gateway, para que todas las pantallas de Fase 3 puedan enviar y recibir datos del backend sin implementar la conexión desde cero en cada historia."
+
+**Criterios de aceptación:**
+
+1. Existe un servicio HTTP centralizado en el Admin Web App que dirige todas las peticiones al API Gateway como punto de entrada único.
+2. El servicio HTTP agrega automáticamente el token JWT en el header `Authorization` de cada petición autenticada.
+3. Si una petición recibe un error 401 (token expirado), el servicio intenta renovar el token usando el refresh token antes de reintentar la petición original.
+4. Si el refresh token también ha expirado o es inválido, el usuario es redirigido automáticamente a la pantalla de login.
+5. Los errores de red (timeout, sin conexión, errores 5xx) se capturan de forma centralizada y se presentan al usuario con mensajes claros, sin exponer detalles técnicos.
+6. La URL base del API Gateway se obtiene desde variables de entorno del proyecto, no está hardcodeada en el código.
 
 ---
 
@@ -575,7 +659,7 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 
 | Fase | Épicas | Technical Stories / Historias | Estado |
 |------|--------|------------------------------|--------|
-| Fase 1 — Fundación | EP-14, EP-15, EP-16 | 8 Technical Stories | ✅ Completado |
+| Fase 1 — Fundación | EP-14, EP-15, EP-16, EP-17 | 13 Technical Stories (8 completadas + 5 nuevas) | ✅ Completado |
 | Fase 2 — Experiencia del Usuario | EP-01, EP-02, EP-03, EP-04, EP-05 | 11 Historias de Usuario | ✅ Completado |
 | Fase 3 — Administración | EP-08, EP-09, EP-10, EP-11, EP-12, EP-13 | 22 Historias de Usuario (sin criterios) | 🟡 Definido |
 | Fase 4 — Mejoras Avanzadas | EP-06, EP-07 | 6 Historias de Usuario (sin criterios) | 🟡 Definido |
