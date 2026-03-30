@@ -27,6 +27,7 @@ class AppTheme {
       bodySmall: AppTypography.caption,
       labelLarge: AppTypography.button      
     ), 
+    
     cardTheme: const CardThemeData(
       color: AppColors.surface,
     ),
