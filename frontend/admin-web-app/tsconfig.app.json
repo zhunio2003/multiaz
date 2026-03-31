@@ -5,7 +5,7 @@
     "useDefineForClassFields": true,
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -22,7 +22,8 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
   },
-  "include": ["src"]
+  "include": ["src"],
 }
