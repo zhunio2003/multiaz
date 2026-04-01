@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.content {
+  flex: 1;
+  padding: var(--spacing-xl);
+  overflow-y: auto;
+  
+}

@@ -1,0 +1,17 @@
+.input {
+  width: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  outline: none;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--font-size-caption);
+  margin-top: var(--spacing-xs);
+}
