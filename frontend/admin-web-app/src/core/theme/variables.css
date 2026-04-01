@@ -1,0 +1,51 @@
+/* ============================================
+   DESIGN TOKENS — MultIAZ
+   ============================================ */
+
+/* COLORS */
+:root {
+    --color-primary: #25C278;
+    --color-secondary: #1FA362;
+    --color-accent: #0097A7;
+    --color-bg: #121212;
+    --color-surface: #1E1E1E;
+
+    --color-on-primary: #000000;
+    --color-on-bg: #FFFFFF;
+    --color-on-surface: #E0E0E0;
+
+    --color-success: #25C278;
+    --color-error: #F44336;
+    --color-warning: #FFC107;
+}
+
+/* TYPOGRAPHY*/
+:root {
+    --font-family-base: 'Poppins', sans-serif;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.75rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.25rem;
+    --font-size-h5: 1.125rem;
+    --font-size-h6: 1rem;
+    --font-size-body: .875rem;
+    --font-size-caption: .75rem;
+    --font-size-button: 0.875rem;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+
+/* SPACING*/
+:root {
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+    --spacing-3xl: 48px;
+    
+}
