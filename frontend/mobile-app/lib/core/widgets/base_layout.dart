@@ -20,6 +20,7 @@ class BaseLayout extends StatelessWidget{
       appBar: AppBarWidget(title: title),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.xl),
+        child: child,
       ),
     );
   }
