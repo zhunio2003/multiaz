@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_app/core/network/network_exception.dart';
 
 class AuthInterceptor extends Interceptor{
 
@@ -40,7 +41,12 @@ class AuthInterceptor extends Interceptor{
         handler.next(err);
       }
     } else {
-      handler.next(err);
+      handler.reject(
+        DioException(
+          requestOptions: err.requestOptions,
+          error: NetworkException.fromDioException(err)
+        )
+      );
     }
 
   }
