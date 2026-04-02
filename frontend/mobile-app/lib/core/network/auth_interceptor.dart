@@ -1,14 +1,17 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class AuthInterceptor extends Interceptor{
 
   String? token;
   final Dio _refreshDio = Dio();
   String? refreshToken;
+  final VoidCallback? onLogout;
 
   AuthInterceptor( {
     required this.token,
     this.refreshToken,
+    this.onLogout,
   });
 
   @override
@@ -33,6 +36,7 @@ class AuthInterceptor extends Interceptor{
         token = response.data['accessToken'];
         handler.resolve(await _refreshDio.fetch(err.requestOptions));
       } catch (e) {
+        onLogout?.call();
         handler.next(err);
       }
     } else {
