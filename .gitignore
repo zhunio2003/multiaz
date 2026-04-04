@@ -4,3 +4,6 @@ docker/.env
 # IDEA
 .idea/
 .vscode/
+
+# Environment variables
+.env
