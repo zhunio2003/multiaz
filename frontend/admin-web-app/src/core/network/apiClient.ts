@@ -1,4 +1,5 @@
 import axios from "axios";
+import { NetworkError } from "./networkError";
 
 const apiClient = axios.create({
     baseURL: import.meta.env.VITE_API_GATEWAY_URL,
@@ -52,11 +53,13 @@ apiClient.interceptors.response.use(
                     localStorage.removeItem('accessToken')
                     localStorage.removeItem('refreshToken')
                     window.location.href = '/login'
-                    return Promise.reject(error)
+                    return Promise.reject(NetworkError.fromAxiosError(error))
                 }
 
             }
+            
         }
+        return Promise.reject(NetworkError.fromAxiosError(error))
     }
 )
 
