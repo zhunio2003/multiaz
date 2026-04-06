@@ -27,6 +27,22 @@ services:
       - net-gateway
       - net-prediction
   
+
+  # CORES
+  api-gateway:
+    build: 
+      context: ../backend/core/api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - net-gateway
+    depends_on:
+      - config-service
+      - service-discovery
+
+  # MESSAGES
   rabbitmq:
     image: rabbitmq:4-management
     container_name: rabbitmq
