@@ -2,9 +2,10 @@
 
 **Proyecto:** MultIAZ — Plataforma de Predicción Especializada  
 **Metodología:** Scrum  
-**Versión del documento:** 1.0  
+**Versión del documento:** 1.1  
 **Fecha:** 17 de Marzo del 2026  
-**Autor:** Miguel Angel Zhunio Remache
+**Autor:** Miguel Angel Zhunio Remache  
+**Última actualización:** 06 de Abril del 2026
 
 ---
 
@@ -35,7 +36,7 @@ Las épicas se organizaron en 4 fases siguiendo esta lógica:
 
 ## 3. Épicas del Sistema
 
-Se identificaron **16 épicas** clasificadas en tres categorías según su origen:
+Se identificaron **17 épicas** clasificadas en tres categorías según su origen:
 
 ### 3.1 Épicas de Usuario (Usuario Persona + Usuario Empresa)
 
@@ -66,7 +67,7 @@ Derivadas de las responsabilidades del Administrador del Sistema y de los módul
 
 ### 3.3 Épicas Técnicas (Infraestructura Transversal)
 
-Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la arquitectura. Son **Technical Stories / Enabler Stories** que no aportan valor directo al usuario pero son imprescindibles para que la plataforma funcione.
+Derivadas de los componentes de la Capa de Infraestructura Transversal de la arquitectura. Son **Technical Stories / Enabler Stories** que no aportan valor directo al usuario pero son imprescindibles para que la plataforma funcione.
 
 | ID | Épica | Componentes involucrados |
 |----|-------|--------------------------|
@@ -74,9 +75,11 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 | EP-15 | Almacenamiento | Cache Service, Base de Datos Principal, Object Storage |
 | EP-16 | Operaciones | Container Orchestrator, CI/CD Pipeline |
 | EP-17 | Fundación Frontend | Admin Web App (React), Mobile App (Flutter) |
-
+| EP-18 | Exposición y Enrutamiento de Servicios | API Gateway |
 
 **Nota sobre EP-16:** El Log Aggregator, aunque está en el grupo de Operaciones de la arquitectura, se relaciona directamente con la épica EP-11 (Logs y Monitoreo) desde el punto de vista funcional.
+
+**Nota sobre EP-18:** El API Gateway pertenece conceptualmente a Fase 1 — Fundación. Su implementación se difirió al Sprint 3 porque su prerequisito real no era temporal sino la existencia de al menos un microservicio real que enrutar.
 
 ---
 
@@ -92,11 +95,13 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 | 2 | EP-15 | Almacenamiento |
 | 3 | EP-16 | Operaciones |
 | 4 | EP-17 | Fundación Frontend |
-
+| 5 | EP-18 | Exposición y Enrutamiento de Servicios |
 
 **Justificación:** Sin base de datos, sin API Gateway, sin orquestador de contenedores ni pipeline de despliegue, no hay donde ejecutar ni desplegar los microservicios. Los modelos de IA pueden estar pre-entrenados y registrados manualmente en esta fase.
 
-> Nota (EP-17): Las historias de Mobile App (TS-17.1, TS-17.2, TS-17.3) se ejecutan antes de Fase 2 (Experiencia del Usuario). Las historias de Admin Web App (TS-17.4, TS-17.5) se ejecutan antes de Fase 3 (Administración de la Plataforma). La TS-17.2 (Design System) define las decisiones de diseño para ambos clientes, pero la implementación en React se completa junto con TS-17.4.
+> **Nota (EP-17):** Las historias de Mobile App (TS-17.1, TS-17.2, TS-17.3) se ejecutan antes de Fase 2 (Experiencia del Usuario). Las historias de Admin Web App (TS-17.4, TS-17.5) se ejecutan antes de Fase 3 (Administración de la Plataforma). La TS-17.2 (Design System) define las decisiones de diseño para ambos clientes, pero la implementación en React se completa junto con TS-17.4.
+
+> **Nota (EP-18):** La TS-18.1 (API Gateway) se implementa en Sprint 3 una vez que existe el Auth Service como primer microservicio real que enrutar. Antes de Sprint 3 no había servicios internos que exponer al exterior.
 
 ---
 
@@ -106,11 +111,11 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 
 | Prioridad | ID | Épica |
 |-----------|----|-------|
-| 4 | EP-01 | Autenticación de Usuarios |
-| 5 | EP-02 | Realización de Predicciones |
-| 6 | EP-03 | Historial de Predicciones |
-| 7 | EP-04 | Gestión de Perfil de Usuario |
-| 8 | EP-05 | Predicciones Automáticas |
+| 6 | EP-01 | Autenticación de Usuarios |
+| 7 | EP-02 | Realización de Predicciones |
+| 8 | EP-03 | Historial de Predicciones |
+| 9 | EP-04 | Gestión de Perfil de Usuario |
+| 10 | EP-05 | Predicciones Automáticas |
 
 **Justificación:** Autenticación es el prerequisito para todo. Después, el flujo básico de predicción es el core del sistema. El historial y perfil complementan la experiencia básica. Las predicciones automáticas habilitan el caso de uso empresarial.
 
@@ -122,14 +127,14 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 
 | Prioridad | ID | Épica |
 |-----------|----|-------|
-| 9 | EP-08 | Gestión de Modelos de IA |
-| 10 | EP-09 | Gestión de Datasets |
-| 11 | EP-10 | Entrenamiento de Modelos de IA |
-| 12 | EP-11 | Logs y Monitoreo |
-| 13 | EP-12 | Gestión de Usuarios |
-| 14 | EP-13 | Análisis de Predicciones Globales |
+| 11 | EP-08 | Gestión de Modelos de IA |
+| 12 | EP-09 | Gestión de Datasets |
+| 13 | EP-10 | Entrenamiento de Modelos de IA |
+| 14 | EP-11 | Logs y Monitoreo |
+| 15 | EP-12 | Gestión de Usuarios |
+| 16 | EP-13 | Análisis de Predicciones Globales |
 
-**Justificación:** Para la operación continua de la plataforma, el administrador necesita gestionar modelos, actualizar datos de entrenamiento, monitorear la salud del sistema y administrar usuarios. Estas funcionalidades son operativas y necesarias antes de agregar mejoras avanEmpecemos por entender la estructura general de un DoD profesional para microservicios. Un DoD típicamente tiene dos niveles:zadas.
+**Justificación:** Para la operación continua de la plataforma, el administrador necesita gestionar modelos, actualizar datos de entrenamiento, monitorear la salud del sistema y administrar usuarios. Estas funcionalidades son operativas y necesarias antes de agregar mejoras avanzadas.
 
 ---
 
@@ -139,8 +144,8 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 
 | Prioridad | ID | Épica |
 |-----------|----|-------|
-| 15 | EP-06 | Notificaciones |
-| 16 | EP-07 | Recomendaciones Automatizadas |
+| 17 | EP-06 | Notificaciones |
+| 18 | EP-07 | Recomendaciones Automatizadas |
 
 **Justificación:** Las notificaciones mejoran la experiencia pero el sistema funciona sin ellas. Las recomendaciones automatizadas son la funcionalidad más avanzada y con mayor complejidad técnica, pertenecen al plan de pago empresarial.
 
@@ -150,9 +155,9 @@ Derivadas de los 9 componentes de la Capa de Infraestructura Transversal de la a
 
 | Concepto | Valor |
 |----------|-------|
-| Total de épicas | 17 |
+| Total de épicas | 18 |
 | Épicas de usuario | 7 |
 | Épicas de administrador | 6 |
-| Épicas técnicas | 4 |
+| Épicas técnicas | 5 |
 | Fases de desarrollo | 4 |
 | Usuarios cubiertos | Usuario Persona, Usuario Empresa, Administrador del Sistema |
