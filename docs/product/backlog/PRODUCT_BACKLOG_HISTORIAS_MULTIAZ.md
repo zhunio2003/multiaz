@@ -2,11 +2,9 @@
 
 **Proyecto:** MultIAZ — Plataforma de Predicción Especializada  
 **Metodología:** Scrum  
-**Versión del documento:** 1.1  
-**Fecha:** 17 de Marzo del 2026  
-**Autor:** Miguel Angel Zhunio Remache  
-**Ultima actualizacion:** 26 de Marzo del 2026  
-
+**Versión del documento:** 1.2  
+**Fecha:** 26 de Marzo del 2026  
+**Autor:** Miguel Angel Zhunio Remache
 
 ---
 
@@ -242,6 +240,26 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 4. Si el refresh token también ha expirado o es inválido, el usuario es redirigido automáticamente a la pantalla de login.
 5. Los errores de red (timeout, sin conexión, errores 5xx) se capturan de forma centralizada y se presentan al usuario con mensajes claros, sin exponer detalles técnicos.
 6. La URL base del API Gateway se obtiene desde variables de entorno del proyecto, no está hardcodeada en el código.
+
+---
+
+### EP-18 — Exposición y Enrutamiento de Servicios
+
+---
+
+#### TS-18.1 — Configuración del API Gateway
+
+**Story:** "Como sistema, necesito un punto de entrada centralizado para todas las peticiones externas, para que los clientes nunca accedan directamente a los microservicios internos y todas las peticiones pasen por un único componente de enrutamiento y seguridad."
+
+**Criterios de aceptación:**
+
+1. El API Gateway está desplegado, accesible y responde health checks correctamente.
+2. Las peticiones entrantes son enrutadas al microservicio correspondiente según la ruta solicitada, utilizando el Service Discovery (Eureka) para resolver la ubicación del servicio.
+3. Las rutas públicas (registro, login, recuperación de contraseña) son accesibles sin token. Las rutas protegidas rechazan peticiones sin token válido con HTTP 401.
+4. El API Gateway valida el JWT antes de enrutar la petición a cualquier servicio protegido. Si el token es inválido o expirado, la petición es rechazada con HTTP 401 sin llegar al microservicio.
+5. La configuración de CORS está centralizada en el API Gateway, permitiendo peticiones desde los clientes autorizados (Flutter mobile y React admin web).
+
+> **Nota:** Esta épica pertenece conceptualmente a Fase 1 — Fundación. Su implementación se difirió al Sprint 3 porque su prerequisito real no era temporal sino la existencia de al menos un microservicio real que enrutar.
 
 ---
 
@@ -659,7 +677,7 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 
 | Fase | Épicas | Technical Stories / Historias | Estado |
 |------|--------|------------------------------|--------|
-| Fase 1 — Fundación | EP-14, EP-15, EP-16, EP-17 | 13 Technical Stories (8 completadas + 5 nuevas) | ✅ Completado |
-| Fase 2 — Experiencia del Usuario | EP-01, EP-02, EP-03, EP-04, EP-05 | 11 Historias de Usuario | ✅ Completado |
+| Fase 1 — Fundación | EP-14, EP-15, EP-16, EP-17, EP-18 | 14 Technical Stories (13 completadas + 1 pendiente) | 🔄 En progreso |
+| Fase 2 — Experiencia del Usuario | EP-01, EP-02, EP-03, EP-04, EP-05 | 11 Historias de Usuario | 🟡 Definido |
 | Fase 3 — Administración | EP-08, EP-09, EP-10, EP-11, EP-12, EP-13 | 22 Historias de Usuario (sin criterios) | 🟡 Definido |
 | Fase 4 — Mejoras Avanzadas | EP-06, EP-07 | 6 Historias de Usuario (sin criterios) | 🟡 Definido |
