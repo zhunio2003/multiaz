@@ -29,7 +29,8 @@ public class JwtAuthFilter implements Filter{
     private static final List<String> PUBLIC_ROUTES = List.of(
         "/auth/register",
         "/auth/login",
-        "/auth/recover"
+        "/auth/recover",
+        "/actuator/health"
     );
 
 

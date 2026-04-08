@@ -41,6 +41,12 @@ services:
     depends_on:
       - config-service
       - service-discovery
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
 
   # MESSAGES
   rabbitmq:
