@@ -24,8 +24,8 @@ spring:
               uri: lb://auth-service
               predicates:
                 - Path=/auth/**
-
-
+jwt:
+  secret: miClaveSecretaMuyLargaParaQueSeaSegura123456
 eureka: 
   client: 
     serviceUrl:
