@@ -46,7 +46,30 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 60s
+    
+  auth-service:
+    build:
+      context: ../backend/core/auth-service
+      dockerfile: Dockerfile
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - net-gateway
+      - net-database
+    depends_on:
+      - config-service
+      - service-discovery
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   # MESSAGES
   rabbitmq:
@@ -86,6 +109,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - vol-postgresql:/var/lib/postgresql/data
+      - ../backend/core/auth-service/src/main/resources/migration/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - net-database
   
