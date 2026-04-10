@@ -3,27 +3,63 @@
     <img src="docs/brand/logo-multiaz.jpg" alt="logo multiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/estado-en%20desarrollo-yellow" alt="Estado"/>
+    <br/><br/>
+    <!-- ══════ Clientes ══════ -->
+    <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
+    <img src="https://img.shields.io/badge/Dart-3.11.4-0175C2?logo=dart&logoColor=white" alt="Dart"/>
+    <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React"/>
+    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
+    <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite"/>
     <br/>
-    <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B" alt="Flutter"/>
-    <img src="https://img.shields.io/badge/React-planned-61DAFB?logo=react&logoColor=black" alt="React"/>    <br/>
-    <img src="https://img.shields.io/badge/Java-21-orange" alt="Java"/>
-    <img src="https://img.shields.io/badge/Spring%20Boot-4.0.4-green" alt="Spring Boot"/>
-    <img src="https://img.shields.io/badge/Python-3.12.4-blue" alt="Python"/>
-    <img src="https://img.shields.io/badge/FastAPI-latest-teal" alt="FastAPI"/>
+    <!-- ══════ Backend Core ══════ -->
+    <img src="https://img.shields.io/badge/Java-21-F80000?logo=openjdk&logoColor=white" alt="Java"/>
+    <img src="https://img.shields.io/badge/Spring%20Boot-4.0.4-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot"/>
+    <img src="https://img.shields.io/badge/Spring%20Cloud-2025.1.1-6DB33F?logo=spring&logoColor=white" alt="Spring Cloud"/>
+    <img src="https://img.shields.io/badge/Maven-3.9-C71A36?logo=apachemaven&logoColor=white" alt="Maven"/>
     <br/>
-    <img src="https://img.shields.io/badge/MongoDB-8-47A248?logo=mongodb&logoColor=white" alt="MongoDB"/>
+    <!-- ══════ Backend IA ══════ -->
+    <img src="https://img.shields.io/badge/Python-3.12.4-3776AB?logo=python&logoColor=white" alt="Python"/>
+    <img src="https://img.shields.io/badge/FastAPI-latest-009688?logo=fastapi&logoColor=white" alt="FastAPI"/>
+    <br/>
+    <!-- ══════ Bases de Datos ══════ -->
     <img src="https://img.shields.io/badge/PostgreSQL-17-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+    <img src="https://img.shields.io/badge/MongoDB-8-47A248?logo=mongodb&logoColor=white" alt="MongoDB"/>
     <img src="https://img.shields.io/badge/Redis-8-DC382D?logo=redis&logoColor=white" alt="Redis"/>
     <img src="https://img.shields.io/badge/MinIO-latest-C72E49?logo=minio&logoColor=white" alt="MinIO"/>
+    <br/>
+    <!-- ══════ Infraestructura ══════ -->
+    <img src="https://img.shields.io/badge/Spring%20Cloud%20Gateway-MVC-6DB33F?logo=spring&logoColor=white" alt="Gateway"/>
+    <img src="https://img.shields.io/badge/Eureka-Service%20Discovery-6DB33F?logo=spring&logoColor=white" alt="Eureka"/>
+    <img src="https://img.shields.io/badge/Spring%20Cloud%20Config-Centralizado-6DB33F?logo=spring&logoColor=white" alt="Config"/>
     <img src="https://img.shields.io/badge/RabbitMQ-4-FF6600?logo=rabbitmq&logoColor=white" alt="RabbitMQ"/>
     <br/>
-    <img src="https://img.shields.io/badge/Docker-Compose-2496ED" alt="Docker"/>
+    <!-- ══════ Observabilidad (ELK) ══════ -->
+    <img src="https://img.shields.io/badge/Elasticsearch-8-005571?logo=elasticsearch&logoColor=white" alt="Elasticsearch"/>
+    <img src="https://img.shields.io/badge/Logstash-8-005571?logo=logstash&logoColor=white" alt="Logstash"/>
+    <img src="https://img.shields.io/badge/Kibana-8-005571?logo=kibana&logoColor=white" alt="Kibana"/>
+    <br/>
+    <!-- ══════ DevOps ══════ -->
+    <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker"/>
     <img src="https://img.shields.io/badge/Kubernetes-planned-326CE5?logo=kubernetes&logoColor=white" alt="Kubernetes"/>
     <img src="https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+    <br/>
+    <!-- ══════ Seguridad ══════ -->
+    <img src="https://img.shields.io/badge/Spring%20Security-JWT%20%2B%20OAuth2-6DB33F?logo=springsecurity&logoColor=white" alt="Spring Security"/>
+    <img src="https://img.shields.io/badge/jjwt-0.12.6-orange" alt="jjwt"/>
+    <br/>
+    <!-- ══════ Testing ══════ -->
+    <img src="https://img.shields.io/badge/JUnit%205-+%20Mockito-25A162?logo=junit5&logoColor=white" alt="JUnit"/>
+    <img src="https://img.shields.io/badge/Vitest-Testing%20Web-6E9F18?logo=vitest&logoColor=white" alt="Vitest"/>
+    <img src="https://img.shields.io/badge/Pytest-Testing%20Python-0A9EDC?logo=pytest&logoColor=white" alt="Pytest"/>
+    <img src="https://img.shields.io/badge/Flutter%20Test-Testing%20Mobile-02569B?logo=flutter&logoColor=white" alt="Flutter Test"/>
+    <br/>
+    <!-- ══════ Herramientas ══════ -->
+    <img src="https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?logo=swagger&logoColor=black" alt="Swagger"/>
     <br/>
     <img src="https://img.shields.io/badge/licencia-privada-red" alt="License"/>
     <br/><br/>
 </div>
+
 
 > Plataforma genérica, escalable y agnóstica para registrar, orquestar y consumir modelos de IA como plugins independientes. Predicciones en tiempo real y por lotes, accesibles desde una app móvil y un panel de administración web.
 
