@@ -4,7 +4,7 @@ SET search_path TO auth;
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name VARCHAR(100) NOT NULL,
-  email VARCHAR(250) NOT NULL UNIQUE,
+  email VARCHAR(320) NOT NULL UNIQUE,
   password_hash VARCHAR(60) NOT NULL,
   creation_date TIMESTAMP NOT NULL DEFAULT NOW()  
 );
