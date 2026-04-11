@@ -56,6 +56,8 @@ services:
     ports:
       - "8081:8081"
     environment:
+      - POSTGRESQL_USER=${POSTGRESQL_USER}
+      - POSTGRESQL_PASS=${POSTGRESQL_PASS}
       - JWT_SECRET=${JWT_SECRET}
       - SPRING_PROFILES_ACTIVE=dev
     networks:

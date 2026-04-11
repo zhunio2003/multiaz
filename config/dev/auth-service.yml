@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql:5432/auth
-    username: auth_user
-    password: auth_password
+    url: jdbc:postgresql://postgresql:5432/postgres
+    username: ${POSTGRESQL_USER}
+    password: ${POSTGRESQL_PASS}
