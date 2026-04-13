@@ -31,4 +31,8 @@ class ApiClient {
     _authInterceptor.token = token;
   }
 
+  Future<Response> post(String path, {dynamic data}) async {
+    return await _dio.post(path, data: data);
+  } 
+
 } 
