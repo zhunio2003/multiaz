@@ -3,3 +3,6 @@ spring:
     url: jdbc:postgresql://postgresql:5432/postgres
     username: ${POSTGRESQL_USER}
     password: ${POSTGRESQL_PASS}
+
+jwt:
+  secret: ${JWT_SECRET}
