@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
 
   config-service: 
@@ -15,6 +13,12 @@ services:
       - net-gateway
     volumes:
       - ../config:/config
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
     
   service-discovery:
     build: 
@@ -26,6 +30,12 @@ services:
     networks:
       - net-gateway
       - net-prediction
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
   
 
   # CORES
@@ -64,8 +74,10 @@ services:
       - net-gateway
       - net-database
     depends_on:
-      - config-service
-      - service-discovery
+      config-service:
+        condition: service_healthy
+      service-discovery:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
       interval: 30s
