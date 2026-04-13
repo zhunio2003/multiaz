@@ -11,7 +11,7 @@ class ApiClient {
   ApiClient._internal(VoidCallback? onLogout) {
     _dio = Dio(
       BaseOptions(
-        baseUrl: String.fromEnvironment('API_GATEWAY_URL', defaultValue: 'http://10.0.2.2:8080'),
+        baseUrl: const String.fromEnvironment('API_GATEWAY_URL', defaultValue: 'http://10.0.2.2:8080'),
         connectTimeout: Duration(seconds: 30),
         receiveTimeout: Duration(seconds: 30),
       ),
