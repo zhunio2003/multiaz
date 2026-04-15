@@ -5,14 +5,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
+import com.multiaz.authservice.dto.LogoutRequestDTO;
 import com.multiaz.authservice.dto.RegisterRequestDTO;
+import com.multiaz.authservice.repository.RefreshTokenRepository;
 import com.multiaz.authservice.service.AuthService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,6 +40,14 @@ public class AuthController {
       
       return ResponseEntity.status(HttpStatus.OK).body(response);
   }
-  
 
+  @PostMapping("/logout")
+  public ResponseEntity<Void> logout(@Valid @RequestBody LogoutRequestDTO dto) {
+      
+    authService.logout(dto);    
+
+    return ResponseEntity.ok().build();
+
+  }
+  
 }
