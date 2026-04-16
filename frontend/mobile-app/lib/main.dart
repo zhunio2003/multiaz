@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/core/theme/app_theme.dart';
+import 'package:mobile_app/screens/auth/login_screen.dart';
 import 'package:mobile_app/screens/auth/register_screen.dart';
 
 void main() {
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MULTIAZ',
       theme: AppTheme.darkTheme,
-      initialRoute: '/',
+      initialRoute: '/login',
       routes: {
-        '/': (context) => RegisterScreen(),
+        '/register': (context) => RegisterScreen(),
         '/home': (context) => Scaffold(body: Center(child: Text('HOME'))),
+        '/login': (context) => LoginScreen(),
       },
     );
   }
