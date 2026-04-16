@@ -9,4 +9,9 @@ class AuthService {
     final response = await _apiClient.post('/auth/register', data: {'name': name, 'email': email, 'password': password});
     return response.data;
   }
+
+  Future<Map<String, dynamic>> login(String email, String password) async {
+    final response = await _apiClient.post('/auth/login', data: {'email': email, 'password': password});
+    return response.data;
+  }
 }
