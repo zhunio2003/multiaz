@@ -5,6 +5,7 @@ import 'package:mobile_app/core/widgets/app_text_field.dart';
 import 'package:mobile_app/core/widgets/base_layout.dart';
 import 'package:mobile_app/core/widgets/primary_button.dart';
 import 'package:mobile_app/services/auth_service.dart';
+import 'package:mobile_app/services/token_service.dart';
 
 class RegisterScreen extends StatefulWidget {
   
@@ -20,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _passwordController = TextEditingController();
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  final _authService = AuthService(ApiClient(null));
+  final _authService = AuthService(ApiClient(null), TokenService());
 
   @override
   Widget build(BuildContext context) {
