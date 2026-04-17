@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
 import com.multiaz.authservice.dto.LogoutRequestDTO;
+import com.multiaz.authservice.dto.RefreshRequestDTO;
 import com.multiaz.authservice.dto.RegisterRequestDTO;
 import com.multiaz.authservice.model.RefreshToken;
 import com.multiaz.authservice.model.Role;
@@ -55,19 +56,12 @@ public class AuthService {
     String access = jwtService.generateAccessToken(user);
     String refresh = jwtService.generateRefreshToken(user);
 
-    RefreshToken refreshToken = RefreshToken.builder()
-        .id(refresh)
-        .userId(user.getId())
-        .expiresAt(LocalDateTime.now().plusDays(7))
-        .used(false)
-        .build();
-    
-    refreshTokenRepository.save(refreshToken);
+    createAndSaveRefreshToken(user, refresh);
 
-    return new AuthResponseDTO(
-      access, 
-      refresh
-    );
+    return AuthResponseDTO.builder()
+      .accessToken(access)
+      .refreshToken(refresh)
+      .build();
 
   }
 
@@ -84,19 +78,12 @@ public class AuthService {
     String access = jwtService.generateAccessToken(user);
     String refresh = jwtService.generateRefreshToken(user);
 
-    RefreshToken refreshToken = RefreshToken.builder()
-        .id(refresh)
-        .userId(user.getId())
-        .expiresAt(LocalDateTime.now().plusDays(7))
-        .used(false)
-        .build();
-    
-    refreshTokenRepository.save(refreshToken);
+    createAndSaveRefreshToken(user, refresh);
 
-    return new AuthResponseDTO(
-      access, 
-      refresh
-    );
+    return AuthResponseDTO.builder()
+      .accessToken(access)
+      .refreshToken(refresh)
+      .build();
 
   }
 
@@ -107,6 +94,47 @@ public class AuthService {
       refreshTokenRepository.save(token);
     });
       
+  }
+
+  public AuthResponseDTO refreshToken(RefreshRequestDTO dto) {
+
+    RefreshToken refreshToken = refreshTokenRepository.findById(dto.getRefreshToken()).
+      orElseThrow(() -> new RuntimeException("Refresh Token no found"));
+
+    if (refreshToken.isUsed()) {
+      throw new RuntimeException("Refresh Token already used");      
+    }
+
+    refreshToken.setUsed(true);
+
+    refreshTokenRepository.save(refreshToken);
+
+    User user = userRepository.findById(refreshToken.getUserId()).
+      orElseThrow(() -> new RuntimeException("User not found"));
+
+    String access = jwtService.generateAccessToken(user);
+    String refresh = jwtService.generateRefreshToken(user);
+
+    createAndSaveRefreshToken(user, refresh);
+
+    return AuthResponseDTO.builder()
+      .accessToken(access)
+      .refreshToken(refresh)
+      .build();
+    
+  }
+
+  private void createAndSaveRefreshToken(User user, String token) {
+
+    RefreshToken refreshToken = RefreshToken.builder()
+      .id(token)
+      .userId(user.getId())
+      .expiresAt(LocalDateTime.now().plusDays(7))
+      .used(false)
+      .build();
+    
+      refreshTokenRepository.save(refreshToken);
+
   }
 
 }

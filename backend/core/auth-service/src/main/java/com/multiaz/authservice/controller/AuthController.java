@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
 import com.multiaz.authservice.dto.LogoutRequestDTO;
+import com.multiaz.authservice.dto.RefreshRequestDTO;
 import com.multiaz.authservice.dto.RegisterRequestDTO;
 import com.multiaz.authservice.repository.RefreshTokenRepository;
 import com.multiaz.authservice.service.AuthService;
@@ -47,6 +48,15 @@ public class AuthController {
     authService.logout(dto);    
 
     return ResponseEntity.ok().build();
+
+  }
+
+  @PostMapping("/refresh")
+  public ResponseEntity<AuthResponseDTO> refreshToken(@Valid @RequestBody RefreshRequestDTO dto) {
+      
+    AuthResponseDTO response = authService.refreshToken(dto);    
+
+    return ResponseEntity.status(HttpStatus.OK).body(response);
 
   }
   
