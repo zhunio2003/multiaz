@@ -14,7 +14,7 @@ services:
     volumes:
       - ../config:/config
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8888/actuator/health"]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -31,7 +31,7 @@ services:
       - net-gateway
       - net-prediction
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8761/actuator/health"]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -49,10 +49,12 @@ services:
     networks:
       - net-gateway
     depends_on:
-      - config-service
-      - service-discovery
+      config-service:
+        condition: service_healthy
+      service-discovery:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/actuator/health"]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -68,6 +70,8 @@ services:
     environment:
       - POSTGRESQL_USER=${POSTGRESQL_USER}
       - POSTGRESQL_PASS=${POSTGRESQL_PASS}
+      - MAILTRAP_USER=${MAILTRAP_USER}
+      - MAILTRAP_PASSWORD=${MAILTRAP_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
       - SPRING_PROFILES_ACTIVE=dev
     networks:
@@ -79,7 +83,7 @@ services:
       service-discovery:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8081/actuator/health"]
       interval: 30s
       timeout: 10s
       retries: 5
