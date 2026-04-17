@@ -30,6 +30,7 @@ public class JwtAuthFilter implements Filter{
         "/auth/register",
         "/auth/login",
         "/auth/recover",
+        "/auth/refresh",
         "/actuator/health"
     );
 
