@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
 import com.multiaz.authservice.dto.LogoutRequestDTO;
+import com.multiaz.authservice.dto.PasswordRecoverRequestDTO;
 import com.multiaz.authservice.dto.RefreshRequestDTO;
 import com.multiaz.authservice.dto.RegisterRequestDTO;
-import com.multiaz.authservice.repository.RefreshTokenRepository;
 import com.multiaz.authservice.service.AuthService;
 
 import jakarta.validation.Valid;
@@ -59,5 +59,14 @@ public class AuthController {
     return ResponseEntity.status(HttpStatus.OK).body(response);
 
   }
+
+  @PostMapping("/recover")
+  public ResponseEntity<Void> recoverPassword(@RequestBody PasswordRecoverRequestDTO dto) {
+      
+    authService.recoverPassword(dto);
+      
+    return ResponseEntity.ok().build();
+  }
+  
   
 }
