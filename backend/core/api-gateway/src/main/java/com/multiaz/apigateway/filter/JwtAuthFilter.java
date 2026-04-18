@@ -31,7 +31,8 @@ public class JwtAuthFilter implements Filter{
         "/auth/login",
         "/auth/recover",
         "/auth/refresh",
-        "/actuator/health"
+        "/actuator/health",
+        "/auth/reset-password"
     );
 
 
