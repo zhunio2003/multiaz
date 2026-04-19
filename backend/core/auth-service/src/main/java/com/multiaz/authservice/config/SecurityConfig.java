@@ -23,6 +23,8 @@ public class SecurityConfig {
             "/auth/register", 
             "/auth/login", 
             "/auth/recover", 
+            "/auth/refresh",
+            "/auth/reset-password",
             "/actuator/health"
         ).permitAll()
         .anyRequest().authenticated()

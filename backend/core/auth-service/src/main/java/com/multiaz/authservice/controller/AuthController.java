@@ -7,8 +7,10 @@ import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
 import com.multiaz.authservice.dto.LogoutRequestDTO;
 import com.multiaz.authservice.dto.PasswordRecoverRequestDTO;
+import com.multiaz.authservice.dto.PasswordResetRequestDTO;
 import com.multiaz.authservice.dto.RefreshRequestDTO;
 import com.multiaz.authservice.dto.RegisterRequestDTO;
+import com.multiaz.authservice.model.PasswordResetToken;
 import com.multiaz.authservice.service.AuthService;
 
 import jakarta.validation.Valid;
@@ -67,6 +69,15 @@ public class AuthController {
       
     return ResponseEntity.ok().build();
   }
+
+  @PostMapping("/reset-password")
+  public ResponseEntity<Void> resetPassword(@Valid @RequestBody PasswordResetRequestDTO dto) {
+    
+    authService.resetPassword(dto);
+      
+    return ResponseEntity.ok().build();
+  }
+  
   
   
 }

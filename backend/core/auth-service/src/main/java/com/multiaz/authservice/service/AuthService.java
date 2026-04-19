@@ -7,6 +7,7 @@ import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.HexFormat;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import org.springframework.mail.MailException;
@@ -19,6 +20,7 @@ import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
 import com.multiaz.authservice.dto.LogoutRequestDTO;
 import com.multiaz.authservice.dto.PasswordRecoverRequestDTO;
+import com.multiaz.authservice.dto.PasswordResetRequestDTO;
 import com.multiaz.authservice.dto.RefreshRequestDTO;
 import com.multiaz.authservice.dto.RegisterRequestDTO;
 import com.multiaz.authservice.model.PasswordResetToken;
@@ -203,6 +205,54 @@ public class AuthService {
     } catch (MailException e) {
       throw new RuntimeException("Error sending recovery email" + e);
     }
+
+  }
+
+  public void resetPassword(PasswordResetRequestDTO dto) {
+    
+    // Hashear Token 
+    String tokenHash;
+
+    try {
+
+      MessageDigest digest = MessageDigest.getInstance("SHA-256");
+      byte[] hashBytes = digest.digest(dto.getToken().getBytes(StandardCharsets.UTF_8));
+      tokenHash = HexFormat.of().formatHex(hashBytes);
+
+    } catch (NoSuchAlgorithmException e) {
+
+      throw new RuntimeException("Algorithm not available");
+
+    }
+
+    Optional<PasswordResetToken> passwordResetTokenOptional = passwordResetTokenRepository.findByTokenHash(tokenHash);
+
+    if (passwordResetTokenOptional.isEmpty()) {
+      throw new RuntimeException("CODE ERROR");
+    }
+    
+    PasswordResetToken passwordResetToken = passwordResetTokenOptional.get();
+
+    if (passwordResetToken.isUsed()) {
+      throw new RuntimeException("EL CODE WAS USED");
+    }
+
+    if (LocalDateTime.now().isAfter(passwordResetToken.getExpiration())) {
+      throw new RuntimeException("CODE EXPIRATION");
+    }
+
+    String hashedPassword = passwordEncoder.encode(dto.getPassword());
+    
+    User user = userRepository.findById(passwordResetToken.getUserId()).orElseThrow(() -> new RuntimeException("user not found"));
+    user.setPasswordHash(hashedPassword);
+    userRepository.save(user);
+    
+    passwordResetToken.setUsed(true);
+    passwordResetTokenRepository.save(passwordResetToken);
+
+    List<RefreshToken> refreshTokens = refreshTokenRepository.findByUserId(user.getId());
+
+    refreshTokenRepository.deleteAll(refreshTokens);
 
   }
 
