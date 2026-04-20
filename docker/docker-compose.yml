@@ -74,6 +74,7 @@ services:
       - MAILTRAP_PASSWORD=${MAILTRAP_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
       - SPRING_PROFILES_ACTIVE=dev
+      - REDIS_PASS=${REDIS_PASS}
     networks:
       - net-gateway
       - net-database
