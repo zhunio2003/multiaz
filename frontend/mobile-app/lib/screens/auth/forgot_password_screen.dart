@@ -5,21 +5,19 @@ import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/widgets/app_text_field.dart';
 import 'package:mobile_app/core/widgets/base_layout.dart';
 import 'package:mobile_app/core/widgets/primary_button.dart';
-import 'package:mobile_app/core/widgets/secondary_button.dart';
 import 'package:mobile_app/services/auth_service.dart';
 import 'package:mobile_app/services/token_service.dart';
 
-class LoginScreen extends StatefulWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   
   @override
-  State<StatefulWidget> createState() => _LoginScreenState();
+  State<StatefulWidget> createState() => _ForgotPasswordScreenState();
   
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
   final _authService = AuthService(ApiClient(() => navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
@@ -28,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
 
     return BaseLayout(
-      title: 'Login',
+      title: 'Recuperar contraseña',
       child: Form(
         key: _formKey,
         child: Column(
@@ -39,21 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
               validator: (value) => value!.isEmpty?  'Campo requerido' : null,
             ),
             SizedBox(height: AppSpacing.lg),
-            AppTextField(
-              label: "password",
-              controller: _passwordController,
-              validator: (value) => value!.isEmpty?  'Campo requerido' : null,
-              obscureText: true,
-            ),
-            SizedBox(height: AppSpacing.lg),
             PrimaryButton(
-              label: 'Login',
+              label: 'enviar codigo',
               onPressed: _isLoading ? null : _submit,
-            ),
-            SizedBox(height: AppSpacing.lg),
-            SecondaryButton(
-              label: 'Recuperar contraseña',
-              onPressed: () => Navigator.pushNamed(context, '/forgot-password'),
             ),
             SizedBox(height: AppSpacing.lg),
           ],
@@ -63,17 +49,16 @@ class _LoginScreenState extends State<LoginScreen> {
   
   }
 
-  Future<void>_submit() async {
+  Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isLoading = true);
 
     try {
-      await _authService.login(
-        _emailController.text, 
-        _passwordController.text,
+      await _authService.recoverPassword(
+        _emailController.text
         );
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/reset-password');
     } catch(e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error  ${e.toString()}'))
@@ -87,7 +72,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void dispose() {
     _emailController.dispose();
-    _passwordController.dispose();
     super.dispose();
   }
   

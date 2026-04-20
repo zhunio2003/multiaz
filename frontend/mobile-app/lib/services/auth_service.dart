@@ -21,4 +21,12 @@ class AuthService {
     await _tokenService.saveTokens(response.data['accessToken'], response.data['refreshToken']);
     return response.data;
   }
+
+  Future<void> recoverPassword(String email) async {
+    await _apiClient.post('/auth/recover', data: {'email': email});
+  }
+
+  Future<void> resetPassword(String token, String password) async {
+    await _apiClient.post('/auth/reset-password', data: {'token': token, 'password': password});
+  }
 }
