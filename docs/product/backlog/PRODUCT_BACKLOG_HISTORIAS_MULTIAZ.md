@@ -3,7 +3,7 @@
 **Proyecto:** MultIAZ — Plataforma de Predicción Especializada  
 **Metodología:** Scrum  
 **Versión del documento:** 1.2  
-**Fecha:** 26 de Marzo del 2026  
+**Fecha:** 21 de Abril del 2026  
 **Autor:** Miguel Angel Zhunio Remache
 
 ---
@@ -469,6 +469,23 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 
 ---
 
+#### TS-08.1 — Model Registry Service
+
+**Story:** "Como sistema, necesito un registro centralizado de modelos de IA con su metadata, para que el administrador pueda gestionar el catálogo de modelos disponibles y el Prediction Orchestrator pueda resolver el destino correcto de cada predicción."
+
+**Estimación:** 5 SP | **Sprint:** 4
+
+**Criterios de aceptación:**
+
+1. El servicio levanta correctamente y responde `UP` en `GET /actuator/health`.
+2. El servicio se registra automáticamente en Eureka al arrancar.
+3. Existe un `@Document` con la metadata del modelo, su `MongoRepository` y service con lógica de negocio.
+4. Endpoints disponibles: `POST /models`, `GET /models?status=ACTIVE`, `GET /models/{id}`.
+5. El servicio está containerizado en `docker-compose.yml` y levanta con el stack completo.
+6. Un test verifica que `GET /models/{id}` retorna el documento correcto desde MongoDB.
+
+---
+
 #### HU-08.1 — Registro de Nuevos Modelos
 
 **Story:** "Como administrador, quiero registrar nuevos modelos de IA con su metadata completa, para que queden disponibles automáticamente en la plataforma."
@@ -677,7 +694,11 @@ Este documento contiene las **Historias de Usuario** y **Technical Stories** del
 
 | Fase | Épicas | Technical Stories / Historias | Estado |
 |------|--------|------------------------------|--------|
-| Fase 1 — Fundación | EP-14, EP-15, EP-16, EP-17, EP-18 | 14 Technical Stories (13 completadas + 1 pendiente) | 🔄 En progreso |
-| Fase 2 — Experiencia del Usuario | EP-01, EP-02, EP-03, EP-04, EP-05 | 11 Historias de Usuario | 🟡 Definido |
-| Fase 3 — Administración | EP-08, EP-09, EP-10, EP-11, EP-12, EP-13 | 22 Historias de Usuario (sin criterios) | 🟡 Definido |
+| Fase 1 — Fundación | EP-14, EP-15, EP-16, EP-17, EP-18 | 15 Technical Stories (13 completadas + 2 pendientes) | 🔄 En progreso |
+| Fase 2 — Experiencia del Usuario | EP-01, EP-02, EP-03, EP-04, EP-05 | 11 Historias de Usuario | 🟡 En progreso |
+| Fase 3 — Administración | EP-08, EP-09, EP-10, EP-11, EP-12, EP-13 | 1 TS + 22 Historias de Usuario | 🟡 Definido |
 | Fase 4 — Mejoras Avanzadas | EP-06, EP-07 | 6 Historias de Usuario (sin criterios) | 🟡 Definido |
+
+---
+
+*MultIAZ — Product Backlog v1.2 | Abril 2026*
