@@ -70,8 +70,6 @@ services:
     environment:
       - POSTGRESQL_USER=${POSTGRESQL_USER}
       - POSTGRESQL_PASS=${POSTGRESQL_PASS}
-      - MAILTRAP_USER=${MAILTRAP_USER}
-      - MAILTRAP_PASSWORD=${MAILTRAP_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
       - SPRING_PROFILES_ACTIVE=dev
       - REDIS_PASS=${REDIS_PASS}
@@ -83,6 +81,8 @@ services:
         condition: service_healthy
       service-discovery:
         condition: service_healthy
+      mailhog:
+        condition: service_started
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:8081/actuator/health"]
       interval: 30s
@@ -159,6 +159,16 @@ services:
     command: ["server", "/data", "--console-address", ":9001"]
     volumes:
       - vol-minio:/data
+    networks:
+      - net-database
+  
+  # MAIL
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "1025:1025" # STMP (Enviar email)
+      - "8025:8025" # Web interface
     networks:
       - net-database
     
