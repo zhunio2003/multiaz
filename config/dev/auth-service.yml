@@ -20,3 +20,8 @@ spring:
 
 jwt:
   secret: ${JWT_SECRET}
+
+# loggging TRACER
+logging:
+  level:
+    '[org.springframework.security]': TRACE 
