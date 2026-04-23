@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.multiaz.authservice.dto.AuthResponseDTO;
 import com.multiaz.authservice.dto.LoginRequestDTO;
+import com.multiaz.authservice.dto.RegisterRequestDTO;
 import com.multiaz.authservice.model.Role;
 import com.multiaz.authservice.model.User;
 import com.multiaz.authservice.repository.PasswordResetTokenRepository;
@@ -120,6 +121,28 @@ public class AuthServiceTest {
     when(passwordEncoder.matches(anyString(), anyString())).thenReturn(false);
 
     assertThrows(BadCredentialsException.class, () -> authService.login(dto));
+  }
+  
+  @Test
+  void registerEmailAlreadyExistsThrowsException() {
+
+    RegisterRequestDTO dto = RegisterRequestDTO.builder()
+                            .name("test")
+                            .email("test@gmail.com")
+                            .password("12345")
+                        .build();
+
+    User user = User.builder()
+                  .id(UUID.randomUUID())
+                  .name("tests")
+                  .email("test@gmail.com")
+                  .passwordHash("hashedPassword")
+                .build();
+    
+    when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(user));
+
+    assertThrows(RuntimeException.class, () -> authService.register(dto));
+
   }
 
 }
