@@ -13,10 +13,8 @@ spring:
       hibernate:
         default_schema: auth
   mail:
-    host: sandbox.smtp.mailtrap.io
-    port: 587
-    username: ${MAILTRAP_USER}
-    password: ${MAILTRAP_PASSWORD}
+    host: mailhog
+    port: 1025
 
 jwt:
   secret: ${JWT_SECRET}
