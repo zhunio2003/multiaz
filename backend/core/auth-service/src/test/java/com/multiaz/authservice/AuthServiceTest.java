@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -125,24 +126,49 @@ public class AuthServiceTest {
   
   @Test
   void registerEmailAlreadyExistsThrowsException() {
-
+      
+    User user = User.builder()
+                    .id(UUID.randomUUID())
+                    .name("tests")
+                    .email("test@gmail.com")
+                    .passwordHash("hashedPassword")
+                  .build();
+                  
     RegisterRequestDTO dto = RegisterRequestDTO.builder()
                             .name("test")
                             .email("test@gmail.com")
                             .password("12345")
                         .build();
 
-    User user = User.builder()
-                  .id(UUID.randomUUID())
-                  .name("tests")
-                  .email("test@gmail.com")
-                  .passwordHash("hashedPassword")
-                .build();
     
     when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(user));
 
     assertThrows(RuntimeException.class, () -> authService.register(dto));
 
   }
+
+  @Test
+  void verifiedEncryptedPassword() {
+
+    Role role = Role.builder().name("CUSTOMER").build();
+                
+    RegisterRequestDTO dto = RegisterRequestDTO.builder()
+                            .name("test")
+                            .email("test@gmail.com")
+                            .password("12345")
+                        .build();
+
+    
+    when(userRepository.findByEmail(anyString())).thenReturn(Optional.empty());
+    when(roleRepository.findByName(anyString())).thenReturn(Optional.of(role));
+    when(jwtService.generateAccessToken(any())).thenReturn("accessToken");
+    when(jwtService.generateRefreshToken(any())).thenReturn("refreshToken");
+
+    authService.register(dto);
+
+    verify(passwordEncoder).encode("12345");
+  }
+
+  
 
 }
