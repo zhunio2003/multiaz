@@ -63,6 +63,21 @@ public class JwtServiceTest {
 
   }
 
-  
+  @Test
+  void verifyExtractionUsernameFromToken() {
+
+    User user = User.builder()
+                  .id(UUID.randomUUID())
+                  .name("test")
+                  .email("test@gmail.com")
+                  .roles(Set.of(Role.builder().name("CUSTOMER").build()))
+                .build();
+
+    String token = jwtService.generateAccessToken(user);
+
+    assertTrue(jwtService.validateToken(token));
+
+  }
+
 
 }
