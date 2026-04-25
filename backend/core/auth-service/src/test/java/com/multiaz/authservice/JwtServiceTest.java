@@ -64,7 +64,9 @@ public class JwtServiceTest {
   }
 
   @Test
-  void verifyExtractionUsernameFromToken() {
+  void verifyExpiredTokenDetection() {
+
+    SecretKey key  = Keys.hmacShaKeyFor(Decoders.BASE64.decode("dGVzdFNlY3JldEtleUZvckp3dFRlc3RpbmdQdXJwb3Nlc09ubHkxMjM0NTY3OA"));
 
     User user = User.builder()
                   .id(UUID.randomUUID())
@@ -73,11 +75,20 @@ public class JwtServiceTest {
                   .roles(Set.of(Role.builder().name("CUSTOMER").build()))
                 .build();
 
-    String token = jwtService.generateAccessToken(user);
+    String token = Jwts.builder()
+                    .subject(user.getId().toString())
+                    .claim("email", user.getEmail())
+                    .claim("role", user.getRoles().iterator().next().getName())
+                    .issuedAt(new Date())
+                    .expiration(new Date(0))
+                    .signWith(key)
+                    .compact();
 
-    assertTrue(jwtService.validateToken(token));
+    assertFalse(jwtService.validateToken(token));
 
   }
+  
 
+  
 
 }
