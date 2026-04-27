@@ -174,14 +174,25 @@ multiaz/
 │   └── admin-web-app/            # Admin Web App — React/TypeScript
 ├── docker/
 │   └── docker-compose.yml        # Orquestación de todos los contenedores
+├── infra/
+│   └── k8s/                      # Manifiestos Kubernetes (Deployments, Services, Ingress)
+├── scripts/
+│   ├── setup.sh                  # Setup inicial del entorno de desarrollo
+│   ├── seed-data.sh              # Carga de datos de prueba
+│   └── health-check.sh           # Verificación de salud de todos los servicios
 ├── config-repo/                  # Repositorio de configuraciones centralizadas
 ├── docs/
 │   ├── architecture/             # Arquitectura y diagramas
 │   ├── product/                  # Vision Board, backlog, tech stack
 │   ├── guides/                   # Design System, guías técnicas
-│   └── diagrams/                 # Diagramas UML, ER y de secuencia
+│   ├── diagrams/                 # Diagramas UML, ER y de secuencia
+│   └── brand/                    # Logo y activos de marca
 ├── .github/
 │   └── workflows/                # GitHub Actions CI/CD pipelines
+├── .env.example                  # Variables de entorno de referencia (sin valores reales)
+├── .gitignore                    # Archivos y carpetas excluidos del repositorio
+├── CHANGELOG.md                  # Historial de cambios por versión
+├── LICENSE                       # Licencia del proyecto
 └── README.md
 ```
  

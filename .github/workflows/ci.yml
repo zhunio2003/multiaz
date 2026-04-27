@@ -20,7 +20,7 @@ jobs:
           cache: maven  
       
       - name: Run tests on auth service
-        run: mvn test -f backend/core/auth-service
+        run: mvn test -f backend/core/auth-service/pom.xml
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
