@@ -14,7 +14,7 @@ for DB in "${DATABASES[@]}"; do
     --authenticationDatabase admin \
     --db $DB --out /backups/tmp/${DB}_${FECHA}
 
-  if [ $? -ne 0 ]; 
+  if [ $? -ne 0 ]; then
     echo "ERROR backup de $DB FALLO"
   else
     tar -czf /backups/${DB}_${FECHA}.tar.gz -C /backups/tmp ${DB}_${FECHA}
