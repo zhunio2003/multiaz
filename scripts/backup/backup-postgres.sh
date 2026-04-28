@@ -17,3 +17,6 @@ for DB in "${DATABASES[@]}"; do
     echo "Backup de  $DB completado: /backups/${DB}_${FECHA}.sql.gz"
   fi
 done
+
+mc cp /backups/*.sql.gz multiaz/backups/
+rm -f /backups/*.sql.gz 

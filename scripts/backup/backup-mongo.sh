@@ -14,7 +14,7 @@ for DB in "${DATABASES[@]}"; do
     --authenticationDatabase admin \
     --db $DB --out /backups/tmp/${DB}_${FECHA}
 
-  if [ $? -ne 0 ]; then
+  if [ $? -ne 0 ] || [ ! -d "/backups/tmp/${DB}_${FECHA}" ] || [ -z "$(ls -A /backups/tmp/${DB}_${FECHA})" ] ; then
     echo "ERROR backup de $DB FALLO"
   else
     tar -czf /backups/${DB}_${FECHA}.tar.gz -C /backups/tmp ${DB}_${FECHA}
@@ -22,3 +22,7 @@ for DB in "${DATABASES[@]}"; do
     echo "Backup de  $DB completado: /backups/${DB}_${FECHA}.tar.gz"
   fi
 done
+
+mc cp /backups/*.tar.gz multiaz/backups/
+
+rm -f /backups/*.tar.gz 
