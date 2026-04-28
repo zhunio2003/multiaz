@@ -171,6 +171,31 @@ services:
       - "8025:8025" # Web interface
     networks:
       - net-database
+  
+  # BACKUP
+  backup:
+    build: 
+      context: ../
+      dockerfile: backend/infrastructure/backup-service/Dockerfile
+    container_name: backup
+    environment:
+      - POSTGRESQL_USER=${POSTGRESQL_USER}
+      - POSTGRESQL_PASS=${POSTGRESQL_PASS}
+      - MONGODB_USER=${MONGODB_USER}
+      - MONGODB_PASS=${MONGODB_PASS}
+      - MINIO_USER=${MINIO_USER}
+      - MINIO_PASS=${MINIO_PASS}
+    networks:
+      - net-database
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      mongodb:
+        condition: service_started
+      minio:
+        condition: service_started
+      
+
     
 
 volumes:
