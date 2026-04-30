@@ -1,13 +1,13 @@
-package com.multiaz.modelregistry_service;
+package com.multiaz.modelregistry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ModelRegistryServiceApplication {
+public class ModelRegistryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ModelRegistryServiceApplication.class, args);
+		SpringApplication.run(ModelRegistryApplication.class, args);
 	}
 
 }

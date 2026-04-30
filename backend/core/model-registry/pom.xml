@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.multiaz</groupId>
-	<artifactId>model-registry-service</artifactId>
+	<artifactId>model-registry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>model-registry-service</name>
+	<name>model-registry</name>
 	<description/>
 	<url/>
 	<licenses>
