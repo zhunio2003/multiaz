@@ -1,4 +1,4 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/model-registry
+      uri: mongodb://mongodb:27017/model_registry
