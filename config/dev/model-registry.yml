@@ -1,5 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://postgresql:5432/model-registry
-    username: model_registry_user
-    password: model_registry_password
+  data:
+    mongodb:
+      uri: mongodb://mongodb:27017/model-registry
