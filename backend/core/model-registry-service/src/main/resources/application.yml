@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: model-registry-service
+  config:
+    import: optional:configserver:http://config-service:8888
+  profiles:
+    active: dev
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-discovery:8761/eureka/
+
+server:
+  port: 8083
