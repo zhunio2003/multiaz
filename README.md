@@ -383,5 +383,4 @@ docker-compose -f docker/docker-compose.yml ps
  
 <!-- TODO: Completar links de contacto -->
 - GitHub: [@zhunio2003](https://github.com/zhunio2003)
-- LinkedIn: <!-- Agregar URL -->
-- Email: <!-- Agregar email -->
+- LinkedIn: [miguel-angel-zhunio-remache](https://www.linkedin.com/in/miguel-angel-zhunio-remache-753298330/)
