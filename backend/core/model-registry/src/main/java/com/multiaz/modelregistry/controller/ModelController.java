@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,14 +27,14 @@ public class ModelController {
 
   private final ModelService modelService;
 
-  @PostMapping("")
+  @PostMapping
   public ResponseEntity<AiModel> save(@RequestBody AiModel request) {
       
     AiModel model = modelService.save(request);
       return ResponseEntity.status(HttpStatus.CREATED).body(model);
   }
   
-  @GetMapping("/models")
+  @GetMapping
   public ResponseEntity<List<AiModel>> findAllByStatus(@RequestParam String status) {
       List<AiModel> models = modelService.findAllByStatus(status);
       return ResponseEntity.status(HttpStatus.OK).body(models);
@@ -45,7 +44,5 @@ public class ModelController {
       AiModel model = modelService.findById(id);
       return ResponseEntity.status(HttpStatus.OK).body(model);
   }
-  
-  
 
 }

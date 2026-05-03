@@ -89,6 +89,32 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
+    
+  model-registry:
+    build: 
+      context: ../backend/core/model-registry
+      dockerfile: Dockerfile
+    container_name: model-registry
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - net-gateway
+      - net-database
+    depends_on:
+      config-service:
+        condition: service_healthy
+      service-discovery:
+        condition: service_healthy
+      mongodb:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget","-q", "--spider", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   # MESSAGES
   rabbitmq:
