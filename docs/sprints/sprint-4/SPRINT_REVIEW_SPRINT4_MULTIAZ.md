@@ -42,7 +42,7 @@
 
 ---
 
-#### DT-005 — Fix HTTP 403 en `POST /auth/login` (Spring Boot 4.x)
+#### DT-001 — Fix HTTP 403 en `POST /auth/login` (Spring Boot 4.x)
 **Estado:** ✅ Done  
 **Story Points:** 3
 
@@ -57,7 +57,7 @@
 
 ---
 
-#### DT-006 — MailHog reemplaza Mailtrap en Docker
+#### DT-002 — MailHog reemplaza Mailtrap en Docker
 **Estado:** ✅ Done  
 **Story Points:** 2
 
@@ -67,7 +67,7 @@
 - Flujo de recuperación de contraseña verificado end-to-end: email capturado en `http://localhost:8025` con token de reset visible.
 
 **Decisiones técnicas relevantes:**
-- MailHog sobre Mailtrap para entorno Docker — MailHog corre en la misma red Docker (`net-services`), eliminando la dependencia de red externa. Puerto 587 externo estaba bloqueado en la red del host (DT-006 original).
+- MailHog sobre Mailtrap para entorno Docker — MailHog corre en la misma red Docker (`net-services`), eliminando la dependencia de red externa. Puerto 587 externo estaba bloqueado en la red del host (DT-002 original).
 - Sin autenticación SMTP en desarrollo — convención de industria para servidores de mail locales. Las credenciales SMTP se configuran exclusivamente en los ambientes de staging y producción.
 
 ---
@@ -172,7 +172,7 @@ Componentes implementados:
 
 **T-08.1.6 — Test de integración:**
 - `ModelControllerTest` implementado con `MockMvcBuilders.webAppContextSetup` — reemplazo de `@AutoConfigureMockMvc` incompatible con Spring Boot 4.x.
-- Test marcado con `@Disabled` — Flapdoodle `spring3x:4.18.0` incompatible con Spring Boot 4.x. Registrado como DT-007.
+- Test marcado con `@Disabled` — Flapdoodle `spring3x:4.18.0` incompatible con Spring Boot 4.x. Registrado como DT-002.
 
 **Decisiones técnicas relevantes:**
 - `MongoRepository` sobre `MongoTemplate` — el repositorio provee operaciones CRUD y query derivation sin SQL manual. `MongoTemplate` se reserva para queries complejas que el repositorio no puede expresar.
@@ -217,14 +217,14 @@ Componentes implementados:
 
 ## 7. Cierre de EP-01 — Autenticación
 
-> Con la resolución de DT-005 y DT-006 en este sprint, **EP-01 Autenticación queda formalmente cerrada**. El flujo completo de autenticación es funcional end-to-end.
+> Con la resolución de DT-001 y DT-002 en este sprint, **EP-01 Autenticación queda formalmente cerrada**. El flujo completo de autenticación es funcional end-to-end.
 
 | Historia | Descripción | SP | Estado |
 |---|---|---|---|
 | HU-01.1 | Registro de usuario | 5 SP | ✅ Completa (Sprint 3) |
-| HU-01.2 | Inicio de sesión | 5 SP | ✅ Completa (Sprint 4 — DT-005) |
+| HU-01.2 | Inicio de sesión | 5 SP | ✅ Completa (Sprint 4 — DT-001) |
 | HU-01.3 | Refresh token | 5 SP | ✅ Completa (Sprint 3) |
-| HU-01.4 | Recuperación de contraseña | 8 SP | ✅ Completa (Sprint 4 — DT-006) |
+| HU-01.4 | Recuperación de contraseña | 8 SP | ✅ Completa (Sprint 4 — DT-002) |
 | **EP-01 Total** | | **23 SP** | **✅ Cerrada** |
 
 El sistema cuenta ahora con:
