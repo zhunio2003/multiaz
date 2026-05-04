@@ -1,4 +1,4 @@
-package com.multiaz.modelregistry_service;
+package com.multiaz.modelregistry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,0 +1,5 @@
+spring:
+  config:
+    import: "optional:configserver:"
+  mongodb:
+    uri: mongodb://localhoost:27017/test_db
