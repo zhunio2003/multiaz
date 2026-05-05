@@ -1,6 +1,6 @@
 # ADR-003 — MIGRAR DE JEST A VITEST COMO FRAMEWORK DE TESTING EN EL ADMIN WEB APP EN LA HISTORIA TS 17.4
 
-**Fecha:** 31 de Marzo del 2026
+**Fecha:** 31 de Marzo del 2026  
 **Estado:** Aceptado
 
 ---

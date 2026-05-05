@@ -1,6 +1,6 @@
 # ADR-004 — AXIS VERSION PINNING ANTE SUPPLY CHAIN ATTACK EN LA HISTORIA TS 17.5
 
-**Fecha:** 04 de Abril del 2026
+**Fecha:** 04 de Abril del 2026  
 **Estado:** Aceptado
 
 ---
