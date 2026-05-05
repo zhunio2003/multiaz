@@ -5,7 +5,7 @@ CREATE TABLE predictions (
     model_name VARCHAR(255)NOT NULL,
     status VARCHAR(255)NOT NULL,
     input_data JSONB NOT NULL,
-    output_data JSONB NOT NULL,
+    output_data JSONB,
     created_at TIMESTAMP NOT NULL, 
     completed_at TIMESTAMP
 );
