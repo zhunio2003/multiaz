@@ -28,6 +28,10 @@ spring:
               uri: lb://model-registry
               predicates:
               - Path=/models/**
+            - id: prediction-orchestrator
+              uri: lb://prediction-orchestrator
+              predicates:
+                - Path=/predictions/**
 
 eureka: 
   client: 
