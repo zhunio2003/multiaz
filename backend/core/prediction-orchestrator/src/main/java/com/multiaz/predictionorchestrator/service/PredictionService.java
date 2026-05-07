@@ -12,6 +12,9 @@ import com.multiaz.predictionorchestrator.dto.ModelDTO;
 import com.multiaz.predictionorchestrator.dto.PredictionRequestDTO;
 import com.multiaz.predictionorchestrator.dto.PredictionResponseDTO;
 import com.multiaz.predictionorchestrator.enums.PredictionStatus;
+import com.multiaz.predictionorchestrator.exception.AiServiceException;
+import com.multiaz.predictionorchestrator.exception.ModelNotActiveException;
+import com.multiaz.predictionorchestrator.exception.ModelNotFoundException;
 import com.multiaz.predictionorchestrator.model.Prediction;
 import com.multiaz.predictionorchestrator.repository.PredictionRepository;
 
@@ -31,7 +34,7 @@ public class PredictionService {
     ModelDTO model = modelRegistryClient.getModelById(dto.getModelId());
 
     if (!model.getStatus().equals("ACTIVE")) {
-      throw new RuntimeException("Model is not active " + dto.getModelId());  
+      throw new ModelNotActiveException("Model is not active " + dto.getModelId());  
     }
 
     Prediction prediction = Prediction.builder()
@@ -54,7 +57,7 @@ public class PredictionService {
                                               .retrieve()
                                               .onStatus(
                                                 status -> status.value() == 404,
-                                                response -> Mono.error(new RuntimeException("IA not found " + model.getName()))
+                                                response -> Mono.error(new ModelNotFoundException("IA not found " + model.getName()))
                                               )
                                               .bodyToMono(new ParameterizedTypeReference<Map<String,Object>>() {})
                                               .block();
@@ -76,7 +79,7 @@ public class PredictionService {
     } catch (Exception e) {
 
       prediction.setStatus(PredictionStatus.FAILED);
-      throw new RuntimeException("IA service ERROR: " + e.getMessage());
+      throw new AiServiceException("IA service ERROR: " + e.getMessage());
 
     } finally {
 
