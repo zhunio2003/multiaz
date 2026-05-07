@@ -116,6 +116,34 @@ services:
       retries: 5
       start_period: 60s
 
+  prediction-orchestrator:
+    build:
+      context: ../backend/core/prediction-orchestrator
+      dockerfile: Dockerfile
+    container_name: prediction-orchestrator
+    ports:
+      - "8084:8084"
+    environment:
+      - POSTGRESQL_USER=${POSTGRESQL_USER}
+      - POSTGRESQL_PASS=${POSTGRESQL_PASS}
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - net-gateway
+      - net-database
+    depends_on:
+      config-service:
+        condition: service_healthy
+      service-discovery:
+        condition: service_healthy
+      postgresql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget","-q", "--spider", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
   # MESSAGES
   rabbitmq:
     image: rabbitmq:4-management
