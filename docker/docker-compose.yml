@@ -184,7 +184,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - vol-postgresql:/var/lib/postgresql/data
-      - ../backend/core/auth-service/src/main/resources/migration/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./initdatabases.sh:/docker-entrypoint-initdb.d/initdatabases.sh
     networks:
       - net-database
     healthcheck:
