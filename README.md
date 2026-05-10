@@ -327,9 +327,8 @@ docker-compose -f docker/docker-compose.yml ps
 | [Arquitectura Detallada](docs/architecture/ARQUITECTURA_DETALLADA_MULTIAZ.md) | 26 componentes, 5 capas, responsabilidades de cada servicio |
 | [Diagrama de Arquitectura](docs/diagrams/ARQUITECTURA_INICIAL_MULTIAZ.mermaid) | Diagrama Mermaid del sistema completo |
 | [Design System](docs/guides/DESIGN_SYSTEM_MULTIAZ.md) | Identidad visual, tokens de diseño, componentes base |
-<!-- TODO: Agregar cuando existan -->
-<!-- | [Diagramas UML](docs/diagrams/) | Diagramas de componentes, secuencia y clases | -->
-<!-- | [Diagramas ER](docs/diagrams/) | Modelos de base de datos por microservicio | -->
+| [Diagramas UML](docs/diagrams/) | Diagramas de componentes, secuencia y clases |  
+| [Diagramas ER](docs/diagrams/) | Modelos de base de datos por microservicio |
  
 ### Producto
  
@@ -382,5 +381,5 @@ docker-compose -f docker/docker-compose.yml ps
 **Miguel Angel Zhunio Remache**
  
 <!-- TODO: Completar links de contacto -->
-- GitHub: [@zhunio2003](https://github.com/zhunio2003)
+- GitHub: [zhunio2003](https://github.com/zhunio2003)
 - LinkedIn: [miguel-angel-zhunio-remache](https://www.linkedin.com/in/miguel-angel-zhunio-remache-753298330/)
