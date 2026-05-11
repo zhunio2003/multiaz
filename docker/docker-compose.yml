@@ -182,9 +182,16 @@ services:
       - POSTGRES_USER=${POSTGRESQL_USER}
       - POSTGRES_PASSWORD=${POSTGRESQL_PASS}
       - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_AUTH_PASS=${POSTGRES_AUTH_PASS}
+      - POSTGRES_MODEL_REGISTRY_PASS=${POSTGRES_MODEL_REGISTRY_PASS}
+      - POSTGRES_PREDICTION_ORCHESTRATOR_PASS=${POSTGRES_PREDICTION_ORCHESTRATOR_PASS}
+      - POSTGRES_SCHEDULER_PASS=${POSTGRES_SCHEDULER_PASS}
+      - POSTGRES_DATASET_MANAGEMENT_PASS=${POSTGRES_DATASET_MANAGEMENT_PASS}
+      - POSTGRES_NOTIFICATION_PASS=${POSTGRES_NOTIFICATION_PASS}
+      
     volumes:
       - vol-postgresql:/var/lib/postgresql/data
-      - ./initdatabases.sh:/docker-entrypoint-initdb.d/initdatabases.sh
+      - ../scripts/postgres/init-databases.sh:/docker-entrypoint-initdb.d/initdatabases.sh
     networks:
       - net-database
     healthcheck:
