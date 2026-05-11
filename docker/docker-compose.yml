@@ -4,7 +4,7 @@ services:
     build:
        context: ../backend/infrastructure/config-service/
        dockerfile: Dockerfile
-    container_name: config-service
+    container_name: config_service_multiaz
     ports:
       - "8888:8888"
     environment:
@@ -24,7 +24,7 @@ services:
     build: 
       context: ../backend/infrastructure/service-discovery/
       dockerfile: Dockerfile
-    container_name: service-discovery
+    container_name: service_discovery_multiaz
     ports:
       - "8761:8761"
     networks:
@@ -43,7 +43,7 @@ services:
     build: 
       context: ../backend/core/api-gateway
       dockerfile: Dockerfile
-    container_name: api-gateway
+    container_name: api_gateway_multiaz
     ports:
       - "8080:8080"
     networks:
@@ -64,7 +64,7 @@ services:
     build:
       context: ../backend/core/auth-service
       dockerfile: Dockerfile
-    container_name: auth-service
+    container_name: auth_service_multiaz
     ports:
       - "8081:8081"
     environment:
@@ -94,7 +94,7 @@ services:
     build: 
       context: ../backend/core/model-registry
       dockerfile: Dockerfile
-    container_name: model-registry
+    container_name: model_registry_multiaz
     ports:
       - "8083:8083"
     environment:
@@ -120,7 +120,7 @@ services:
     build:
       context: ../backend/core/prediction-orchestrator
       dockerfile: Dockerfile
-    container_name: prediction-orchestrator
+    container_name: prediction_orchestrator_multiaz
     ports:
       - "8084:8084"
     environment:
@@ -147,7 +147,7 @@ services:
   # MESSAGES
   rabbitmq:
     image: rabbitmq:4-management
-    container_name: rabbitmq
+    container_name: rabbitmq_multiaz
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -162,7 +162,7 @@ services:
   # STORAGE
   redis:
     image: redis:8
-    container_name: redis
+    container_name: redis_multiaz
     environment:
       - REDIS_PASSWORD=${REDIS_PASS}
     ports:
@@ -175,7 +175,7 @@ services:
 
   postgresql:
     image: postgres:17
-    container_name: postgresql
+    container_name: postgresql_multiaz
     ports:
       - "5432:5432"
     environment:
@@ -196,7 +196,7 @@ services:
   
   mongodb:
     image: mongo:8
-    container_name: mongodb
+    container_name: mongodb_multiaz
     ports:
       - "27017:27017"
     environment:
@@ -209,7 +209,7 @@ services:
   
   minio:
     image: minio/minio:latest
-    container_name: minio
+    container_name: minio_multiaz
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -225,7 +225,7 @@ services:
   # MAIL
   mailhog:
     image: mailhog/mailhog
-    container_name: mailhog
+    container_name: mailhog_multiaz
     ports:
       - "1025:1025" # STMP (Enviar email)
       - "8025:8025" # Web interface
@@ -237,7 +237,7 @@ services:
     build: 
       context: ../
       dockerfile: backend/infrastructure/backup-service/Dockerfile
-    container_name: backup
+    container_name: backup_multiaz
     environment:
       - POSTGRESQL_USER=${POSTGRESQL_USER}
       - POSTGRESQL_PASS=${POSTGRESQL_PASS}
@@ -255,8 +255,6 @@ services:
       minio:
         condition: service_started
       
-
-    
 
 volumes:
   vol-rabbitmq:
