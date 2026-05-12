@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users", schema = "auth")
+@Table(name = "users")
 public class User {
   
   @Id
@@ -50,7 +50,6 @@ public class User {
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
     name = "user_role",
-    schema = "auth",
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id")
   )
