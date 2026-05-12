@@ -12,6 +12,8 @@ import com.multiaz.predictionorchestrator.enums.PredictionStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,6 +44,7 @@ public class Prediction {
     @Column(name = "model_name", nullable = false)
     private String modelName;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private PredictionStatus status;
 
