@@ -148,51 +148,57 @@ El sistema se organiza en **5 capas** con **26 componentes**:
  
 ## Estructura del Monorepo
  
+ 
 ```
 multiaz/
 ├── backend/
-│   ├── api-gateway/              # Spring Cloud Gateway
-│   ├── config-service/           # Spring Cloud Config Server
-│   ├── service-discovery/        # Eureka Server
-│   ├── auth-service/             # Autenticación y usuarios
-│   ├── model-registry/           # Catálogo de modelos de IA
-│   ├── prediction-orchestrator/  # Orquestación de predicciones
-│   ├── scheduler-service/        # Programación de predicciones batch
-│   ├── prediction-storage/       # Almacenamiento de resultados
-│   ├── dataset-management/       # Gestión de datasets
-│   ├── logging-monitoring/       # Logs y monitoreo
-│   ├── notification-service/     # Notificaciones
-│   └── training-service/         # Entrenamiento de modelos (Python)
-├── ai-services/
-│   ├── ia-service-1/             # Servicio de IA 1 (Python/FastAPI)
-│   ├── ia-service-2/             # Servicio de IA 2
-│   ├── ia-service-3/             # Servicio de IA 3
-│   ├── ia-service-4/             # Servicio de IA 4
-│   └── ia-service-5/             # Servicio de IA 5
-├── frontend/
-│   ├── mobile-app/               # App Móvil — Flutter/Dart
-│   └── admin-web-app/            # Admin Web App — React/TypeScript
+│   ├── core/
+│   │   ├── api-gateway/
+│   │   ├── auth-service/
+│   │   ├── model-registry/
+│   │   └── prediction-orchestrator/
+│   ├── ia-services/
+│   │   ├── fake-news-detector/
+│   │   ├── job-recommender/
+│   │   ├── personality-classifier/
+│   │   ├── university-ranking-predictor/
+│   │   └── vehicle-price-predictor/
+│   ├── infrastructure/
+│   │   ├── backup-service/
+│   │   ├── config-service/
+│   │   └── service-discovery/
+│   └── training-service/
+├── config/
+│   ├── dev/
+│   ├── prod/
+│   └── staging/
 ├── docker/
-│   └── docker-compose.yml        # Orquestación de todos los contenedores
-├── infra/
-│   └── k8s/                      # Manifiestos Kubernetes (Deployments, Services, Ingress)
-├── scripts/
-│   ├── setup.sh                  # Setup inicial del entorno de desarrollo
-│   ├── seed-data.sh              # Carga de datos de prueba
-│   └── health-check.sh           # Verificación de salud de todos los servicios
-├── config-repo/                  # Repositorio de configuraciones centralizadas
+│   ├── .env
+│   ├── .env.example
+│   └── docker-compose.yml
 ├── docs/
-│   ├── architecture/             # Arquitectura y diagramas
-│   ├── product/                  # Vision Board, backlog, tech stack
-│   ├── guides/                   # Design System, guías técnicas
-│   ├── diagrams/                 # Diagramas UML, ER y de secuencia
-│   └── brand/                    # Logo y activos de marca
-├── .github/
-│   └── workflows/                # GitHub Actions CI/CD pipelines
-├── .env.example                  # Variables de entorno de referencia (sin valores reales)
-├── .gitignore                    # Archivos y carpetas excluidos del repositorio
-├── CHANGELOG.md                  # Historial de cambios por versión
-├── LICENSE                       # Licencia del proyecto
+│   ├── adr/
+│   ├── api/
+│   ├── architecture/
+│   ├── brand/
+│   ├── diagrams/
+│   ├── dt/
+│   ├── guides/
+│   ├── models/
+│   ├── product/
+│   ├── runbooks/
+│   └── sprints/
+├── frontend/
+│   ├── admin-web-app/
+│   └── mobile-app/
+├── infra/
+├── scripts/
+│   └── postgres/
+│       └── init-databases.sh
+├── .gitignore
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE
 └── README.md
 ```
  
