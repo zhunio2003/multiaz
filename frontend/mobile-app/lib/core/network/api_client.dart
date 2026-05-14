@@ -8,7 +8,7 @@ class ApiClient {
   static ApiClient? _instance;
   late final Dio _dio;
   late final AuthInterceptor _authInterceptor;
-  final String baseUrl = String.fromEnvironment('API_GATEWAY_URL', defaultValue: 'http://10.0.2.2:8080');
+  static const String baseUrl = String.fromEnvironment('API_GATEWAY_URL', defaultValue: 'http://10.0.2.2:8080');
 
   ApiClient._internal(VoidCallback? onLogout) {
     _dio = Dio(
