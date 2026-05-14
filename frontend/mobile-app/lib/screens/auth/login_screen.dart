@@ -4,7 +4,6 @@ import 'package:mobile_app/core/network/api_client.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/widgets/app_text_field.dart';
 import 'package:mobile_app/core/widgets/auth_layout.dart';
-import 'package:mobile_app/core/widgets/base_layout.dart';
 import 'package:mobile_app/core/widgets/primary_button.dart';
 import 'package:mobile_app/core/widgets/secondary_button.dart';
 import 'package:mobile_app/services/auth_service.dart';
