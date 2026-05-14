@@ -360,7 +360,8 @@ docker-compose -f docker/docker-compose.yml ps
  
 | Pantalla | Captura |
 |----------|---------|
-| Login | `📱 Placeholder` |
+| Login | ![LoginScreenshot](docs/brand/login.jpg)|
+| Register | ![RegisterScreenshot](docs/brand/register.jpg) |
 | Catálogo de Modelos | `📱 Placeholder` |
 | Resultado de Predicción | `📱 Placeholder` |
  
