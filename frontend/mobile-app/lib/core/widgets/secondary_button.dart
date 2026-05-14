@@ -22,7 +22,7 @@ class SecondaryButton extends StatelessWidget {
         side: const BorderSide(color: AppColors.secondary),
         foregroundColor: AppColors.secondary,
         textStyle: AppTypography.button,
-        minimumSize: Size(double.infinity, 55),
+        minimumSize: Size(double.infinity, 60),
       ),
       onPressed: onPressed, 
       child: isLoading?

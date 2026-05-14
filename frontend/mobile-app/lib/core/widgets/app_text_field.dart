@@ -38,11 +38,16 @@ class AppTextField extends StatelessWidget{
         errorText: errorText,
         floatingLabelStyle: AppTypography.body.copyWith(color: AppColors.primary),
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 23),
+        labelStyle: AppTypography.caption.copyWith(color: AppColors.onSurface.withAlpha(75)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15)
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15)
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide (
+            color: AppColors.onSurface.withAlpha(50)
+          ),
+          
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),

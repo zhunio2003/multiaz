@@ -48,13 +48,13 @@ class AppTypography {
 
   static const TextStyle caption = TextStyle(
     fontFamily: 'Poppins',
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: FontWeight.w400
   );
 
   static const TextStyle button = TextStyle(
     fontFamily: 'Poppins',
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: FontWeight.w600
   );
   
