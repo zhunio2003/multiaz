@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/forgot-password': (context) => ForgotPasswordScreen(),
         '/reset-password': (context) => ResetPasswordScreen(),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
