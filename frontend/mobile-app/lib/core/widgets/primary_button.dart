@@ -24,7 +24,8 @@ class PrimaryButton extends StatelessWidget{
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         foregroundColor: AppColors.onPrimary,
-        textStyle: AppTypography.button
+        textStyle: AppTypography.button,
+        minimumSize: Size(double.infinity, 60)
       ), 
       child: isLoading? 
       CircularProgressIndicator(): 

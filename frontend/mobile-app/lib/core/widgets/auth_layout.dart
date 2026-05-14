@@ -27,14 +27,41 @@ class AuthLayout extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(AppSpacing.xxl),
+            padding: EdgeInsets.all(AppSpacing.xxl),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: AppSpacing.xxl,),
+              Image.asset(
+                'assets/images/logo.png',
+                height: 130,
+              ),
+              SizedBox(height: AppSpacing.sm,),
               Text(
                 title,
                 style: AppTypography.h1.copyWith(color: AppColors.onBackground),
               ),
+              SizedBox(height: AppSpacing.xl,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "If You Nedd Any Support ",
+                    style: AppTypography.caption.copyWith(color: AppColors.onSurface),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushReplacementNamed(context, "/help"),
+                    child: Text(
+                      "Click Here",
+                      style: AppTypography.caption.copyWith(color: AppColors.primary),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: AppSpacing.xl,),
+              child,
               subtitle != null ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     subtitle!,
@@ -49,7 +76,6 @@ class AuthLayout extends StatelessWidget {
                   )
                 ],
               ): SizedBox.shrink(),
-              child,
             ],
           ),
         )

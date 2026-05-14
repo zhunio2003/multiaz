@@ -3,7 +3,7 @@ import 'package:mobile_app/core/navigation/app_router.dart';
 import 'package:mobile_app/core/network/api_client.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/widgets/app_text_field.dart';
-import 'package:mobile_app/core/widgets/base_layout.dart';
+import 'package:mobile_app/core/widgets/auth_layout.dart';
 import 'package:mobile_app/core/widgets/primary_button.dart';
 import 'package:mobile_app/services/auth_service.dart';
 import 'package:mobile_app/services/token_service.dart';
@@ -27,8 +27,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return BaseLayout(
+    return AuthLayout(
       title: 'Register',
+      subtitle: "Do you have an account? ",
+      subtitleLink: "Sign In",
+      subtitleLinkTap: () => Navigator.pushReplacementNamed(context, "/login"),
       child: Form(
         key: _formKey,
         child: Column(

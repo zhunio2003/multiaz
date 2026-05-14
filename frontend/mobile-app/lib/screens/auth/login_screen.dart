@@ -3,6 +3,7 @@ import 'package:mobile_app/core/navigation/app_router.dart';
 import 'package:mobile_app/core/network/api_client.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/widgets/app_text_field.dart';
+import 'package:mobile_app/core/widgets/auth_layout.dart';
 import 'package:mobile_app/core/widgets/base_layout.dart';
 import 'package:mobile_app/core/widgets/primary_button.dart';
 import 'package:mobile_app/core/widgets/secondary_button.dart';
@@ -27,8 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return BaseLayout(
-      title: 'Login',
+    return AuthLayout(
+      title: 'Sign In',
+      subtitle: "Not a Member? ",
+      subtitleLink: "Register Now",
+      subtitleLinkTap: () => Navigator.pushReplacementNamed(context, "/register"),
       child: Form(
         key: _formKey,
         child: Column(
