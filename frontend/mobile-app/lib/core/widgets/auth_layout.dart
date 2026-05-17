@@ -32,7 +32,7 @@ class AuthLayout extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: AppSpacing.xxl,),
+              SizedBox(height: AppSpacing.lg,),
               Image.asset(
                 'assets/images/logo.png',
                 height: 130,
@@ -59,7 +59,7 @@ class AuthLayout extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: AppSpacing.xxxl,),
+              SizedBox(height: AppSpacing.xl,),
               child,
               Row(
                 children: [
