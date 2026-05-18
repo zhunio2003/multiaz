@@ -1,0 +1,27 @@
+# pnpm-workspace.yaml — Configuración de seguridad supply chain (ADR-006)
+# pnpm 11: toda la configuración no-auth va aquí, NO en .npmrc
+# Referencia: docs/adr/ADR-006-MIGRATE-NPM-TO-PNPM-SUPPLY-CHAIN-SECURITY.md
+
+# === Capa 1: Control de build scripts (reemplaza onlyBuiltDependencies de pnpm 10) ===
+# Mapa explícito: true = permitido ejecutar scripts, false = bloqueado
+# Lista vacía = ningún paquete autorizado por defecto (máxima seguridad)
+allowBuilds: {}
+
+# === Capa 2: Control temporal — 7 días en minutos (CISA recommendation) ===
+# 7 días × 24 horas × 60 minutos = 10080 minutos
+# Default de pnpm 11 es 1440 (1 día) — nosotros usamos 7 días (más estricto)
+minimumReleaseAge: 10080
+
+# === Capa 3: Control de peers ===
+autoInstallPeers: false
+strictPeerDependencies: true
+
+# === Capa 4: Aislamiento de dependencias ===
+nodeLinker: isolated
+
+# === Capa 5: Higiene de runtime ===
+engineStrict: true
+
+# === Capa 6: Bloqueo de subdependencias exóticas (default en pnpm 11) ===
+# Git URLs, tarballs directos bloqueados en dependencias transitivas
+blockExoticSubdeps: true
