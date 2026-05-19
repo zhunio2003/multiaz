@@ -5,6 +5,7 @@ import 'package:mobile_app/screens/auth/forgot_password_screen.dart';
 import 'package:mobile_app/screens/auth/login_screen.dart';
 import 'package:mobile_app/screens/auth/register_screen.dart';
 import 'package:mobile_app/screens/auth/reset_password_screen.dart';
+import 'package:mobile_app/screens/catalog/model_catalog_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/forgot-password': (context) => ForgotPasswordScreen(),
         '/reset-password': (context) => ResetPasswordScreen(),
+        '/catalog': (context) => ModelCatalogScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
