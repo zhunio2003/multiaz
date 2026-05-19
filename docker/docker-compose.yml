@@ -1,10 +1,12 @@
+name: multiaz
+
 services:
 
-  config-service: 
+  config-service-multiaz: 
     build:
        context: ../backend/infrastructure/config-service/
        dockerfile: Dockerfile
-    container_name: config_service_multiaz
+    container_name: config-service-multiaz
     ports:
       - "8888:8888"
     environment:
@@ -20,11 +22,11 @@ services:
       retries: 5
       start_period: 30s
     
-  service-discovery:
+  service-discovery-multiaz:
     build: 
       context: ../backend/infrastructure/service-discovery/
       dockerfile: Dockerfile
-    container_name: service_discovery_multiaz
+    container_name: service-discovery-multiaz
     ports:
       - "8761:8761"
     networks:
@@ -39,19 +41,19 @@ services:
   
 
   # CORES
-  api-gateway:
+  api-gateway-multiaz:
     build: 
       context: ../backend/core/api-gateway
       dockerfile: Dockerfile
-    container_name: api_gateway_multiaz
+    container_name: api-gateway-multiaz
     ports:
       - "8080:8080"
     networks:
       - net-gateway
     depends_on:
-      config-service:
+      config-service-multiaz:
         condition: service_healthy
-      service-discovery:
+      service-discovery-multiaz:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/actuator/health"]
@@ -60,11 +62,11 @@ services:
       retries: 5
       start_period: 60s
     
-  auth-service:
+  auth-service-multiaz:
     build:
       context: ../backend/core/auth-service
       dockerfile: Dockerfile
-    container_name: auth_service_multiaz
+    container_name: auth-service-multiaz
     ports:
       - "8081:8081"
     environment:
@@ -77,13 +79,13 @@ services:
       - net-gateway
       - net-database
     depends_on:
-      config-service:
+      config-service-multiaz:
         condition: service_healthy
-      service-discovery:
+      service-discovery-multiaz:
         condition: service_healthy
-      mailhog:
+      mailhog-multiaz:
         condition: service_started
-      postgresql:
+      postgresql-multiaz:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:8081/actuator/health"]
@@ -92,24 +94,25 @@ services:
       retries: 5
       start_period: 60s
     
-  model-registry:
+  model-registry-multiaz:
     build: 
       context: ../backend/core/model-registry
       dockerfile: Dockerfile
-    container_name: model_registry_multiaz
+    container_name: model-registry-multiaz
     ports:
       - "8083:8083"
     environment:
       - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb-multiaz:27017/model_registry
     networks:
       - net-gateway
       - net-database
     depends_on:
-      config-service:
+      config-service-multiaz:
         condition: service_healthy
-      service-discovery:
+      service-discovery-multiaz:
         condition: service_healthy
-      mongodb:
+      mongodb-multiaz:
         condition: service_started
     healthcheck:
       test: ["CMD", "wget","-q", "--spider", "http://localhost:8083/actuator/health"]
@@ -118,11 +121,11 @@ services:
       retries: 5
       start_period: 60s
 
-  prediction-orchestrator:
+  prediction-orchestrator-multiaz:
     build:
       context: ../backend/core/prediction-orchestrator
       dockerfile: Dockerfile
-    container_name: prediction_orchestrator_multiaz
+    container_name: prediction-orchestrator-multiaz
     ports:
       - "8084:8084"
     environment:
@@ -133,11 +136,11 @@ services:
       - net-gateway
       - net-database
     depends_on:
-      config-service:
+      config-service-multiaz:
         condition: service_healthy
-      service-discovery:
+      service-discovery-multiaz:
         condition: service_healthy
-      postgresql:
+      postgresql-multiaz:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget","-q", "--spider", "http://localhost:8084/actuator/health"]
@@ -147,9 +150,9 @@ services:
       start_period: 60s
 
   # MESSAGES
-  rabbitmq:
+  rabbitmq-multiaz:
     image: rabbitmq:4-management
-    container_name: rabbitmq_multiaz
+    container_name: rabbitmq-multiaz
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -162,9 +165,9 @@ services:
       - net-message
   
   # STORAGE
-  redis:
+  redis-multiaz:
     image: redis:8
-    container_name: redis_multiaz
+    container_name: redis-multiaz
     environment:
       - REDIS_PASSWORD=${REDIS_PASS}
     ports:
@@ -175,9 +178,9 @@ services:
     networks:
       - net-database
 
-  postgresql:
+  postgresql-multiaz:
     image: postgres:17
-    container_name: postgresql_multiaz
+    container_name: postgresql-multiaz
     ports:
       - "5432:5432"
     environment:
@@ -202,22 +205,22 @@ services:
       retries: 5
       start_period: 30s
   
-  mongodb:
+  mongodb-multiaz:
     image: mongo:8
-    container_name: mongodb_multiaz
+    container_name: mongodb-multiaz
     ports:
       - "27017:27017"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASS}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASS}  
     volumes:
       - vol-mongodb:/data/db
     networks:
       - net-database
   
-  minio:
+  minio-multiaz:
     image: minio/minio:latest
-    container_name: minio_multiaz
+    container_name: minio-multiaz
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -231,9 +234,9 @@ services:
       - net-database
   
   # MAIL
-  mailhog:
+  mailhog-multiaz:
     image: mailhog/mailhog
-    container_name: mailhog_multiaz
+    container_name: mailhog-multiaz
     ports:
       - "1025:1025" # STMP (Enviar email)
       - "8025:8025" # Web interface
@@ -241,11 +244,11 @@ services:
       - net-database
   
   # BACKUP
-  backup:
+  backup-multiaz:
     build: 
       context: ../
       dockerfile: backend/infrastructure/backup-service/Dockerfile
-    container_name: backup_multiaz
+    container_name: backup-multiaz
     environment:
       - POSTGRESQL_USER=${POSTGRESQL_USER}
       - POSTGRESQL_PASS=${POSTGRESQL_PASS}
@@ -256,11 +259,11 @@ services:
     networks:
       - net-database
     depends_on:
-      postgresql:
+      postgresql-multiaz:
         condition: service_healthy
-      mongodb:
+      mongodb-multiaz:
         condition: service_started
-      minio:
+      minio-multiaz:
         condition: service_started
       
 
