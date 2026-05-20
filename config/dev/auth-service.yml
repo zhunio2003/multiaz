@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql_multiaz:5432/auth_db
+    url: jdbc:postgresql://postgresql-multiaz:5432/auth_db
     username: ${AUTH_DB_USER}
     password: ${POSTGRES_AUTH_PASS}
 
   data:
     redis:
-      host: redis
+      host: redis-multiaz
       port: 6379
       password: ${REDIS_PASS}
 
@@ -15,7 +15,7 @@ spring:
       ddl-auto: none
       
   mail:
-    host: mailhog
+    host: mailhog-multiaz
     port: 1025
 
   flyway:
