@@ -1,8 +1,9 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://service-discovery:8761/eureka
+      defaultZone: http://service-discovery-multiaz:8761/eureka
 
 rabbitmq:
   host: rabbitmq
   port: 5672
+  

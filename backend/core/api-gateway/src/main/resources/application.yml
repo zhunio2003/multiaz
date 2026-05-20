@@ -2,7 +2,9 @@ spring:
   application:
     name: api-gateway
   config: 
-    import: optional:configserver:http://config-service:8888
+    import: optional:configserver:http://config-service-multiaz:8888
+  profiles:
+    active: dev
   cloud:
     gateway:
       server:
@@ -36,7 +38,7 @@ spring:
 eureka: 
   client: 
     serviceUrl:
-      defaultZone: http://service-discovery:8761/eureka/
+      defaultZone: http://service-discovery-multiaz:8761/eureka/
 
 server: 
   port: 8080
