@@ -9,6 +9,8 @@ import 'package:mobile_app/services/auth_service.dart';
 import 'package:mobile_app/services/token_service.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
+
+  const ResetPasswordScreen({super.key});
   
   @override
   State<StatefulWidget> createState() => _ResetPasswordScreenState();
@@ -21,7 +23,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final _newPasswordController = TextEditingController();
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  final _authService = AuthService(ApiClient(() => navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
+  final _authService = AuthService(ApiClient(() => AppRouter.navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         _tokenController.text, 
         _newPasswordController.text,
         );
-        Navigator.pushReplacementNamed(context, '/login');
+      if (!context.mounted) return;
+      Navigator.pushReplacementNamed(context, '/login');
     } catch(e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error  ${e.toString()}'))

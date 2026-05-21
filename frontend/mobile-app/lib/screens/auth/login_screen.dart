@@ -10,6 +10,8 @@ import 'package:mobile_app/services/auth_service.dart';
 import 'package:mobile_app/services/token_service.dart';
 
 class LoginScreen extends StatefulWidget {
+
+  const LoginScreen({super.key});
   
   @override
   State<StatefulWidget> createState() => _LoginScreenState();
@@ -22,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  final _authService = AuthService(ApiClient(() => navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
+  final _authService = AuthService(ApiClient(() => AppRouter.navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,8 @@ class _LoginScreenState extends State<LoginScreen> {
         _emailController.text, 
         _passwordController.text,
         );
-        Navigator.pushReplacementNamed(context, '/home');
+      if (!context.mounted) return;
+      Navigator.pushReplacementNamed(context, '/home');
     } catch(e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error  ${e.toString()}'))

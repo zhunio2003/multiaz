@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/core/navigation/app_router.dart';
 import 'package:mobile_app/core/theme/app_theme.dart';
-import 'package:mobile_app/screens/auth/forgot_password_screen.dart';
-import 'package:mobile_app/screens/auth/login_screen.dart';
-import 'package:mobile_app/screens/auth/register_screen.dart';
-import 'package:mobile_app/screens/auth/reset_password_screen.dart';
-import 'package:mobile_app/screens/catalog/model_catalog_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,18 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigatorKey,
+      navigatorKey: AppRouter.navigatorKey,
       title: 'MULTIAZ',
       theme: AppTheme.darkTheme,
       initialRoute: '/login',
-      routes: {
-        '/register': (context) => RegisterScreen(),
-        '/home': (context) => Scaffold(body: Center(child: Text('HOME'))),
-        '/login': (context) => LoginScreen(),
-        '/forgot-password': (context) => ForgotPasswordScreen(),
-        '/reset-password': (context) => ResetPasswordScreen(),
-        '/catalog': (context) => ModelCatalogScreen(),
-      },
+      routes: AppRouter.routes,
       debugShowCheckedModeBanner: false,
     );
   }

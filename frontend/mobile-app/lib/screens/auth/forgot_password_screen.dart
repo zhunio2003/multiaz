@@ -9,6 +9,8 @@ import 'package:mobile_app/services/auth_service.dart';
 import 'package:mobile_app/services/token_service.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
+
+  const ForgotPasswordScreen({super.key});
   
   @override
   State<StatefulWidget> createState() => _ForgotPasswordScreenState();
@@ -20,7 +22,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _emailController = TextEditingController();
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  final _authService = AuthService(ApiClient(() => navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
+  final _authService = AuthService(ApiClient(() => AppRouter.navigatorKey.currentState?.pushReplacementNamed("/login")), TokenService());
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       await _authService.recoverPassword(
         _emailController.text
         );
-        Navigator.pushReplacementNamed(context, '/reset-password');
+      if (!context.mounted) return;
+      Navigator.pushReplacementNamed(context, '/reset-password');
     } catch(e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error  ${e.toString()}'))
