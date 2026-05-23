@@ -4,6 +4,7 @@ import 'package:mobile_app/screens/auth/login_screen.dart';
 import 'package:mobile_app/screens/auth/register_screen.dart';
 import 'package:mobile_app/screens/auth/reset_password_screen.dart';
 import 'package:mobile_app/screens/catalog/model_catalog_screen.dart';
+import 'package:mobile_app/screens/home/home_screen.dart';
 
 class AppRouter {
 
@@ -13,7 +14,7 @@ class AppRouter {
 
   static final Map<String, WidgetBuilder> routes = {
     '/register': (context) => RegisterScreen(),
-    '/home': (context) => Scaffold(body: Center(child: Text('HOME'))),
+    '/home': (context) => HomeScreen(),
     '/login': (context) => LoginScreen(),
     '/forgot-password': (context) => ForgotPasswordScreen(),
     '/reset-password': (context) => ResetPasswordScreen(),
