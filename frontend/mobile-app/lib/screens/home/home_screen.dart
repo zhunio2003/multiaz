@@ -221,11 +221,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [Text("Modelos disponibles"), Text("Explorar modelos")],
             ),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
