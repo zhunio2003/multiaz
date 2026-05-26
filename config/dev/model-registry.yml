@@ -1,4 +1,6 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/model_registry
+      host: mongodb-multiaz
+      port: 27017
+      database: model_registry
