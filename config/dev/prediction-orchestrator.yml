@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql:5432/prediction_orchestrator_db
+    url: jdbc:postgresql://postgresql-multiaz:5432/prediction_orchestrator_db
     username: ${PREDICTION_ORCHESTRATOR_DB_USER}
     password: ${POSTGRES_PREDICTION_ORCHESTRATOR_PASS}
   jpa:
