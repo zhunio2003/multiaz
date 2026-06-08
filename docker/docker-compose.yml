@@ -137,6 +137,7 @@ services:
     networks:
       - net-gateway
       - net-database
+      - net-prediction
     depends_on:
       config-service-multiaz:
         condition: service_healthy
@@ -146,6 +147,23 @@ services:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget","-q", "--spider", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # IAs
+  fake-news-detector-multiaz:
+    build:
+      context: ../backend/ia-services/fake-news-detector
+      dockerfile: Dockerfile
+    container_name: fake-news-detector-multiaz
+    ports:
+      - "8091:8091"
+    networks:
+      - net-prediction
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8091/health"]
       interval: 30s
       timeout: 10s
       retries: 5
