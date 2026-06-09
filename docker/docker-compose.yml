@@ -163,7 +163,7 @@ services:
     networks:
       - net-prediction
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8091/health"]
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8091/health\")'"]
       interval: 30s
       timeout: 10s
       retries: 5
