@@ -193,6 +193,10 @@ multiaz/
 │   └── mobile-app/
 ├── infra/
 ├── scripts/
+│   ├── backup/
+│   |   ├── backup-mongo.sh
+│   |   ├── backup-postgres.sh
+│   |   ├── entrypoint.sh
 │   └── postgres/
 │       └── init-databases.sh
 ├── .gitignore
@@ -360,8 +364,8 @@ docker-compose -f docker/docker-compose.yml ps
  
 | Pantalla | Captura |
 |----------|---------|
-| Login | ![LoginScreenshot](docs/brand/login.jpg)|
-| Register | ![RegisterScreenshot](docs/brand/register.jpg) |
+| Login | <img src="docs/brand/login.jpg" alt="Login Screenshot" width="300">|
+| Register | <img src="docs/brand/register.jpg" alt="Login Screenshot" width="300">|
 | Catálogo de Modelos | `📱 Placeholder` |
 | Resultado de Predicción | `📱 Placeholder` |
  
