@@ -364,8 +364,8 @@ docker-compose -f docker/docker-compose.yml ps
  
 | Pantalla | Captura |
 |----------|---------|
-| Login | <img src="docs/brand/login.jpg" alt="Login Screenshot" width="300">|
-| Register | <img src="docs/brand/register.jpg" alt="Login Screenshot" width="300">|
+| Login | <center> <img src="docs/brand/login.jpg" alt="Login Screenshot" width="300"> </center>|
+| Register | <center><img src="docs/brand/register.jpg" alt="Login Screenshot" width="300"></center>|
 | Catálogo de Modelos | `📱 Placeholder` |
 | Resultado de Predicción | `📱 Placeholder` |
  
