@@ -147,7 +147,9 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 ---
  
 ## Estructura del Monorepo
- 
+
+<details>
+<summary><strong>Repository layout</strong> (click to expand)</summary>
  
 ```
 multiaz/
@@ -205,7 +207,8 @@ multiaz/
 ├── LICENSE
 └── README.md
 ```
- 
+</details>
+
 ---
  
 ## Servicios del Sistema
