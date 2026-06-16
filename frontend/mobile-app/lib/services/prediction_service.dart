@@ -7,8 +7,8 @@ class PredictionService {
     this._apiClient,
   );
 
-  // Future<Map<String, dynamic>> predict(String modelId, Map<String, Object>) async {
-  //  final response = await _apiClient.post("/predictions")
-  //  return 
-  //}
+  Future<Map<String, dynamic>> predict(String modelId, Map<String, Object> inputData) async {
+    final response = await _apiClient.post("/predictions", data: {"modelId": modelId, "inputData": inputData});
+    return response.data;
+  }
 }
