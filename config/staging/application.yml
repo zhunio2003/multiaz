@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://service-discovery-staging:8761/eureka
+      defaultZone: http://service-discovery-multiaz-staging:8761/eureka
 
 rabbitmq:
   host: rabbitmq-staging

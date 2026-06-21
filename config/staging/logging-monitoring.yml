@@ -1,4 +1,4 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://mongodb-staging:27017/logging-monitoring
+      uri: mongodb://mongodb-multiaz-staging:27017/logging-monitoring

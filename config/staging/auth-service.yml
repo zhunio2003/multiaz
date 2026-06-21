@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql-staging:5432/auth
+    url: jdbc:postgresql://postgresql-multiaz-staging:5432/auth
     username: auth_user
     password: auth_password

@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql-staging:5432/dataset-management
+    url: jdbc:postgresql://postgresql-multiaz-staging:5432/dataset-management
     username: dataset_management_user
     password: dataset_management_password

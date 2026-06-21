@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql-prod:5432/scheduler
+    url: jdbc:postgresql://postgresql-multiaz-prod:5432/scheduler
     username: scheduler_user
     password: scheduler_password
