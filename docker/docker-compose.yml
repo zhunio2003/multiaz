@@ -169,6 +169,70 @@ services:
       retries: 5
       start_period: 60s
 
+  job-recommender-multiaz:
+    build:
+      context: ../backend/ia-services/job-recommender
+      dockerfile: Dockerfile
+    container_name: job-recommender-multiaz
+    ports:
+      - "8092:8092"
+    networks:
+      - net-prediction
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8092/health\")'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+  
+  personality-classifier-multiaz:
+    build:
+      context: ../backend/ia-services/personality-classifier
+      dockerfile: Dockerfile
+    container_name: personality-classifier-multiaz
+    ports:
+      - "8093:8093"
+    networks:
+      - net-prediction
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8093/health\")'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  university-ranking-predictor-multiaz:
+    build:
+      context: ../backend/ia-services/university-ranking-predictor
+      dockerfile: Dockerfile
+    container_name: university-ranking-predictor-multiaz
+    ports:
+      - "8094:8094"
+    networks:
+      - net-prediction
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8094/health\")'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  vehicle-price-predictor-multiaz:
+    build:
+      context: ../backend/ia-services/vehicle-price-predictor
+      dockerfile: Dockerfile
+    container_name: vehicle-price-predictor-multiaz
+    ports:
+      - "8095:8095"
+    networks:
+      - net-prediction
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8095/health\")'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
   # MESSAGES
   rabbitmq-multiaz:
     image: rabbitmq:4-management
