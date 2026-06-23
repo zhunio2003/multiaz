@@ -5,7 +5,5 @@ spring:
     import: optional:configserver:http://config-service-multiaz:8888
   profiles:
     active: dev
-  mongodb:
-    uri: mongodb://${MONGODB_USER}:${MONGODB_PASS}@mongodb-multiaz:27017/model_registry?authSource=admin
 server:
   port: 8083

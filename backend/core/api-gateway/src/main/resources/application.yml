@@ -35,11 +35,6 @@ spring:
               predicates:
                 - Path=/predictions/**
 
-eureka: 
-  client: 
-    serviceUrl:
-      defaultZone: http://service-discovery-multiaz:8761/eureka/
-
 server: 
   port: 8080
 

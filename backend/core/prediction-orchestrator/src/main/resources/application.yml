@@ -8,9 +8,3 @@ spring:
 
 server:
   port: 8084
-
-eureka:
-  client: 
-    serviceUrl:
-      defaultZone: http://service-discovery-multiaz:8761/eureka/
-    
