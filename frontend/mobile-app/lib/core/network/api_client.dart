@@ -34,8 +34,12 @@ class ApiClient {
     return _instance ??= ApiClient._internal(onLogout);
   }
 
-  Future<Response> post(String path, {dynamic data}) async {
-    return await _dio.post(path, data: data);
+  Future<Response> post(String path, {dynamic data, Map<String, dynamic>? headers}) async {
+    return await _dio.post(
+      path, 
+      data: data,
+      options: headers != null ? Options(headers: headers): null,
+    );
   } 
 
   Future<Response> get(String path, {Map<String, dynamic>? queryParameters}) async {
