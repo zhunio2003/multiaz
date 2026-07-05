@@ -1,7 +1,7 @@
-  import 'package:flutter/material.dart';
-  import 'package:mobile_app/core/theme/app_colors.dart';
-  import 'package:mobile_app/core/widgets/primary_button.dart';
-  import 'package:mobile_app/core/widgets/secondary_button.dart';
+import 'package:flutter/material.dart';
+import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/widgets/primary_button.dart';
+import 'package:mobile_app/core/widgets/secondary_button.dart';
 import 'package:mobile_app/models/ai_model.dart';
 import 'package:mobile_app/models/prediction_result.dart';
 
