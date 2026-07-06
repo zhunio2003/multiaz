@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/core/network/api_client.dart';
 import 'package:mobile_app/core/theme/app_colors.dart';
 import 'package:mobile_app/core/widgets/primary_button.dart';
 import 'package:mobile_app/core/widgets/secondary_button.dart';
 import 'package:mobile_app/models/ai_model.dart';
 import 'package:mobile_app/models/prediction_result.dart';
+import 'package:mobile_app/services/prediction_service.dart';
+import 'package:mobile_app/services/token_service.dart';
 
   class PredictionScreen extends StatefulWidget {
 
@@ -52,4 +55,33 @@ import 'package:mobile_app/models/prediction_result.dart';
       super.dispose();
     }
     
-  }
+    void _predict() async {
+
+      if (_titleController.text.isEmpty || _textController.text.isEmpty) return;
+
+      setState(() {
+        _isLoading = true;
+      });
+
+      final userId = await TokenService().getUserId();
+
+      if (userId == null) return;
+
+
+      try {
+        final result = await PredictionService(ApiClient(null)).predict(widget.aiModel.id, userId, {"title": _titleController.text, "text": _textController.text});
+        setState(() {
+          _result = result;
+          _isLoading = false;
+        });
+      } catch (e) {
+        
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+
+    
+    }
+}
