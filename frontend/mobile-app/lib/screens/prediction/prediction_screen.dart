@@ -39,7 +39,9 @@ import 'package:mobile_app/services/token_service.dart';
             children: [
               TextField(controller: _titleController, decoration: InputDecoration(labelText: "title")),
               TextField(controller: _textController, decoration: InputDecoration(labelText: "text")),
-              PrimaryButton(label: "Predecir", onPressed: () {}),
+              _isLoading
+                ? CircularProgressIndicator()
+                : PrimaryButton(label: "Predecir", onPressed: _predict),
               SecondaryButton(label: "Volver a predicir", onPressed: () {}),
               _result != null ? Text("Resultado: ${_result?.result}, Score: ${_result?.confidence}") : const SizedBox.shrink(),
             ],
