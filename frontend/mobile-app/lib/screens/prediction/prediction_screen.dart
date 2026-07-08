@@ -25,7 +25,7 @@ import 'package:mobile_app/services/token_service.dart';
   class _PredictionScreenState extends State<PredictionScreen> {
 
     bool _isLoading = false;
-    PredictionResult? _result = null;
+    PredictionResult? _result;
 
     final TextEditingController _titleController = TextEditingController();
     final TextEditingController _textController = TextEditingController();
@@ -77,7 +77,7 @@ import 'package:mobile_app/services/token_service.dart';
           _isLoading = false;
         });
       } catch (e) {
-        
+        debugPrint('Error de prediccion: $e');
       } finally {
         setState(() {
           _isLoading = false;

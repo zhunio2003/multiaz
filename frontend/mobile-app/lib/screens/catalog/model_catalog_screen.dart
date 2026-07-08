@@ -57,6 +57,9 @@ class _ModelCatalogScreenState extends State<ModelCatalogScreen> {
                 title: Text(model.name),
                 subtitle: Text(model.description),
                 trailing: Text(model.type),
+                onTap: () {
+                  Navigator.pushNamed(context, '/predict', arguments: model);
+                },
               );
               
             },
