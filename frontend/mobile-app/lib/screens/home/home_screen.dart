@@ -197,7 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
         vertical: AppSpacing.xs,
       ),
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/catalog');
+        },
         icon: Icon(Icons.bolt),
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
