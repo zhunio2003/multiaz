@@ -217,21 +217,21 @@ services:
       retries: 5
       start_period: 60s
 
-  # vehicle-price-predictor-multiaz:
-  #   build:
-  #     context: ../backend/ia-services/vehicle-price-predictor
-  #     dockerfile: Dockerfile
-  #   container_name: vehicle-price-predictor-multiaz
-  #   ports:
-  #     - "8095:8095"
-  #   networks:
-  #     - net-prediction
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8095/health\")'"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 5
-  #     start_period: 60s
+  vehicle-price-predictor-multiaz:
+    build:
+      context: ../backend/ia-services/vehicle-price-predictor
+      dockerfile: Dockerfile
+    container_name: vehicle-price-predictor-multiaz
+    ports:
+      - "8095:8095"
+    networks:
+      - net-prediction
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8095/health\")'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   # MESSAGES
   rabbitmq-multiaz:
