@@ -113,7 +113,7 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 | 5 | Infraestructura Transversal | 9 | Bases de datos, mensajería, caché, logs, CI/CD |
  
 <!-- TODO: Reemplazar con imagen del diagrama de arquitectura -->
-> 📐 **Diagrama completo:** Ver [`ARQUITECTURA_INICIAL_MULTIAZ.md`](docs/architecture/ARQUITECTURA_INICIAL_MULTIAZ.md)
+> **Diagrama completo:** Ver [`ARQUITECTURA_INICIAL_MULTIAZ.md`](docs/architecture/ARQUITECTURA_INICIAL_MULTIAZ.md)
  
 ---
  
@@ -124,7 +124,7 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 | Lenguaje | Uso | Framework |
 |----------|-----|-----------|
 | Java 21 | Microservicios core + infraestructura Spring Cloud | Spring Boot 3.x |
-| Python 3.x | Servicios de IA y entrenamiento | FastAPI |
+| Python 3.14 | Servicios de IA y entrenamiento | FastAPI |
 | Dart | Aplicación móvil (Android e iOS) | Flutter 3.x |
 | TypeScript | Aplicación web de administración | React 18.x |
  
@@ -146,7 +146,7 @@ El sistema se organiza en **5 capas** con **26 componentes**:
  
 ---
  
-## Estructura del Monorepo
+## Estructura del Repositorio
 
 <details>
 <summary><strong>Repository layout</strong> (click to expand)</summary>
@@ -271,12 +271,19 @@ multiaz/
 # 1. Clonar el repositorio
 git clone https://github.com/zhunio2003/multiaz.git
 cd multiaz
- 
-# 2. Levantar la infraestructura completa
+
+# 2. Agregar credenciales en env-example 
+cp docker/.env-example docker/.env
+
+# 3. Levantar la infraestructura completa
 docker-compose -f docker/docker-compose.yml up -d
  
-# 3. Verificar que los servicios están corriendo
+# 4. Verificar que los servicios están corriendo
 docker-compose -f docker/docker-compose.yml ps
+
+# 5. Verificar en eureka los registros de los microservicios
+http://localhost:8761/
+
 ```
  
 ### Verificación de servicios
