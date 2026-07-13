@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>MultIAZ — Plataforma de Predicción Especializada</h1>
+    <h1>MultIAZ — Plataforma de Predicciónes Especializadas</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo multiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/estado-en%20desarrollo-yellow" alt="Estado"/>
@@ -283,7 +283,6 @@ docker-compose -f docker/docker-compose.yml ps
 
 # 5. Verificar en eureka los registros de los microservicios
 http://localhost:8761/
-
 ```
  
 ### Verificación de servicios
@@ -376,24 +375,24 @@ http://localhost:8761/
 |----------|---------|
 | Login | <center> <img src="docs/brand/login.jpg" alt="Login Screenshot" width="300"> </center>|
 | Register | <center><img src="docs/brand/register.jpg" alt="Login Screenshot" width="300"></center>|
-| Catálogo de Modelos | `📱 Placeholder` |
-| Resultado de Predicción | `📱 Placeholder` |
+| Catálogo de Modelos | ` Placeholder` |
+| Resultado de Predicción | ` Placeholder` |
  
 ### Admin Web App (React)
  
 | Pantalla | Captura |
 |----------|---------|
-| Dashboard | `🖥️ Placeholder` |
-| Gestión de Modelos | `🖥️ Placeholder` |
-| Logs y Monitoreo | `🖥️ Placeholder` |
+| Dashboard | ` Placeholder` |
+| Gestión de Modelos | ` Placeholder` |
+| Logs y Monitoreo | ` Placeholder` |
  
 ### Infraestructura
  
 | Servicio | Captura |
 |----------|---------|
-| Eureka Dashboard | `⚙️ Placeholder` |
-| RabbitMQ Management | `⚙️ Placeholder` |
-| Docker Compose | `⚙️ Placeholder` |
+| Eureka Dashboard | ` Placeholder` |
+| RabbitMQ Management | ` Placeholder` |
+| Docker Compose | ` Placeholder` |
  
 ---
  
