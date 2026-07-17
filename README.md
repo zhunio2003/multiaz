@@ -61,7 +61,7 @@
 </div>
 
 
-> Plataforma genérica, escalable y agnóstica para registrar, orquestar y consumir modelos de IA como plugins independientes. Predicciones en tiempo real y por lotes, accesibles desde una app móvil y un panel de administración web.
+> Plataforma multias, escalable y agnóstica para registrar, orquestar y consumir modelos de IA como plugins independientes. Predicciones en tiempo real y por lotes, accesibles desde una app móvil y un panel de administración web.
 
 ---
  
@@ -346,8 +346,8 @@ http://localhost:8761/
 | [Arquitectura Detallada](docs/architecture/ARQUITECTURA_DETALLADA_MULTIAZ.md) | 26 componentes, 5 capas, responsabilidades de cada servicio |
 | [Diagrama de Arquitectura](docs/diagrams/ARQUITECTURA_INICIAL_MULTIAZ.mermaid) | Diagrama Mermaid del sistema completo |
 | [Design System](docs/guides/DESIGN_SYSTEM_MULTIAZ.md) | Identidad visual, tokens de diseño, componentes base |
-| [Diagramas UML](docs/diagrams/) | Diagramas de componentes, secuencia y clases |  
-| [Diagramas ER](docs/diagrams/) | Modelos de base de datos por microservicio |
+| [Diagramas UML](docs/diagrams/UML/) | Diagramas de componentes, secuencia y clases |  
+| [Diagramas ER](docs/diagrams/data/) | Modelos de base de datos por microservicio |
  
 ### Producto
  
