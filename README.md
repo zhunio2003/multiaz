@@ -347,7 +347,10 @@ http://localhost:8761/
 | [Diagrama de Arquitectura](docs/diagrams/ARQUITECTURA_INICIAL_MULTIAZ.mermaid) | Diagrama Mermaid del sistema completo |
 | [Design System](docs/guides/DESIGN_SYSTEM_MULTIAZ.md) | Identidad visual, tokens de diseño, componentes base |
 | [Diagramas UML](docs/diagrams/UML/) | Diagramas de componentes, secuencia y clases |  
-| [Diagramas ER](docs/diagrams/data/) | Modelos de base de datos por microservicio |
+| [Diagramas DATA](docs/diagrams/data/) | Modelos de base de datos por microservicio |
+| [Manual de usuario](docs/user-manual/) | Manual de usuario y demas |
+| [Architecture Decision Record](docs/adr/) | Registros de decisiones de arquitectura |
+
  
 ### Producto
  
