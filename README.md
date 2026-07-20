@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>MultIAZ — Plataforma de Predicciónes Especializadas </h1>
+    <h1>MultIAZ — Plataforma de Predicciónes Especializadas con IAs</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo multiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/estado-en%20desarrollo-yellow" alt="Estado"/>
@@ -99,7 +99,6 @@ MultIAZ centraliza predicciones especializadas en una única plataforma accesibl
 - **Contrato estándar:** Todas las IAs exponen la misma interfaz genérica.
 - **App movil y web:** El sistema tndra una app movil en la play store y un sitio web.
 
- 
 ---
  
 ## Arquitectura
