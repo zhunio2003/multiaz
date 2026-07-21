@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mc alias set multiaz http://minio:9000 ${MINIO_USER} ${MINIO_PASS}
+mc alias set multiaz http://minio-multiaz:9000 ${MINIO_USER} ${MINIO_PASS}
 
 mc mb --ignore-existing multiaz/backups
 
