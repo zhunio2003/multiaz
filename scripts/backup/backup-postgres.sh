@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PG_HOST="postgresql"
+PG_HOST="postgresql-multiaz"
 PG_USER=${POSTGRESQL_USER}
 PG_PASSWORD=${POSTGRESQL_PASS}
 

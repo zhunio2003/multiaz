@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MG_HOST="mongodb"
+MG_HOST="mongodb-multiaz"
 MG_USER=${MONGODB_USER}
 MG_PASSWORD=${MONGODB_PASS}
 
