@@ -159,6 +159,11 @@ multiaz/
 │   │   ├── api-gateway/
 │   │   ├── auth-service/
 │   │   ├── model-registry/
+│   │   ├── prediction-scheduler/
+│   │   ├── prediction-storage/
+│   │   ├── dataset-management/
+│   │   ├── logging-monitoring/
+│   │   ├── prediction-notification/
 │   │   └── prediction-orchestrator/
 │   ├── ia-services/
 │   │   ├── fake-news-detector/
@@ -169,6 +174,12 @@ multiaz/
 │   ├── infrastructure/
 │   │   ├── backup-service/
 │   │   ├── config-service/
+│   │   ├── message-broker/
+│   │   ├── cache-service/
+│   │   ├── db-principal-service/
+│   │   ├── object-storage-service/
+│   │   ├── log-aggregator-service/
+│   │   ├── container-orchestrator-service/
 │   │   └── service-discovery/
 │   └── training-service/
 ├── config/
