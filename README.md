@@ -149,9 +149,6 @@ El sistema se organiza en **5 capas** con **26 componentes**:
  
 ## Estructura del Repositorio
 
-<details>
-<summary><strong>Repository layout</strong> (click to expand)</summary>
- 
 ```
 multiaz/
 ├── backend/
@@ -219,7 +216,6 @@ multiaz/
 ├── LICENSE
 └── README.md
 ```
-</details>
 
 ---
  
