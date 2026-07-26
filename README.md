@@ -109,7 +109,7 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 |---|------|-------------|-------------|
 | 1 | Capa de Entrada | 1 | API Gateway — punto de acceso único al sistema |
 | 2 | Capa de Servicios Core | 9 | Microservicios Java/Spring Boot (lógica de negocio) |
-| 3 | Capa de IAs | 5 + 1 | Servicios Python/FastAPI de predicción + Training Service |
+| 3 | Capa de IAs | 5 + N... | Servicios Python/FastAPI de predicción + Training Service |
 | 4 | Capa de Clientes | 2 | App Móvil (Flutter) + Admin Web App (React) |
 | 5 | Infraestructura Transversal | 9 | Bases de datos, mensajería, caché, logs, CI/CD |
  
@@ -358,6 +358,7 @@ http://localhost:8761/
 | [Diagramas DATA](docs/diagrams/data/) | Modelos de base de datos por microservicio |
 | [Manual de usuario](docs/user-manual/) | Manual de usuario y demas |
 | [Architecture Decision Record](docs/adr/) | Registros de decisiones de arquitectura |
+| [Artefactos SCRUM](docs/sprints/) | Documentos de SCRUM |
 
  
 ### Producto
