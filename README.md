@@ -113,7 +113,6 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 | 4 | Capa de Clientes | 2 | App Móvil (Flutter) + Admin Web App (React) |
 | 5 | Infraestructura Transversal | 9 | Bases de datos, mensajería, caché, logs, CI/CD |
  
-<!-- TODO: Reemplazar con imagen del diagrama de arquitectura -->
 > **Diagrama completo:** Ver [`ARQUITECTURA_INICIAL_MULTIAZ.md`](docs/architecture/ARQUITECTURA_INICIAL_MULTIAZ.md)
  
 ---
@@ -378,9 +377,7 @@ http://localhost:8761/
 ---
  
 ## Capturas de Pantalla
- 
-<!-- TODO: Reemplazar placeholders con capturas reales -->
- 
+  
 ### App Móvil (Flutter)
  
 | Pantalla | Captura |
@@ -412,6 +409,5 @@ http://localhost:8761/
  
 **Miguel Angel Zhunio Remache**
  
-<!-- TODO: Completar links de contacto -->
 - GitHub: [zhunio2003](https://github.com/zhunio2003)
 - LinkedIn: [miguel-angel-zhunio-remache](https://www.linkedin.com/in/miguel-angel-zhunio-remache-753298330/)
