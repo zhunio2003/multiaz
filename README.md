@@ -384,24 +384,24 @@ http://localhost:8761/
 |----------|---------|
 | Login | <center> <img src="docs/brand/login.jpg" alt="Login Screenshot" width="300"> </center>|
 | Register | <center><img src="docs/brand/register.jpg" alt="Login Screenshot" width="300"></center>|
-| Catálogo de Modelos | ` Placeholder` |
-| Resultado de Predicción | ` Placeholder` |
+| Catálogo de Modelos |  |
+| Resultado de Predicción |  |
  
 ### Admin Web App (React)
  
 | Pantalla | Captura |
 |----------|---------|
-| Dashboard | ` Placeholder` |
-| Gestión de Modelos | ` Placeholder` |
-| Logs y Monitoreo | ` Placeholder` |
+| Dashboard |  |
+| Gestión de Modelos |  |
+| Logs y Monitoreo |  |
  
 ### Infraestructura
  
 | Servicio | Captura |
 |----------|---------|
-| Eureka Dashboard | ` Placeholder` |
-| RabbitMQ Management | ` Placeholder` |
-| Docker Compose | ` Placeholder` |
+| Eureka Dashboard |  |
+| RabbitMQ Management |  |
+| Docker Compose |  |
  
 ---
  
