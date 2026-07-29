@@ -2,7 +2,7 @@
     <h1>MultIAZ — Plataforma de Predicciónes Especializadas con IAs (NLPs)</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo multiIAZ" width="900">
     <br/><br/>
-    <img src="https://img.shields.io/badge/estado-en%20desarrollo-yellow" alt="Estado"/>
+    <img src="https://img.shields.io/badge/estado-en%20desarrollo-greeeb" alt="State"/>
     <br/><br/>
     <!-- ══════ Clientes ══════ -->
     <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
