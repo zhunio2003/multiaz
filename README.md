@@ -2,7 +2,7 @@
     <h1>MultIAZ — Plataforma de Predicciónes Especializadas con IAs (NLPs)</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo multiIAZ" width="900">
     <br/><br/>
-    <img src="https://img.shields.io/badge/estado-en%20desarrollo-greeeb" alt="State"/>
+    <img src="https://img.shields.io/badge/estado-en%20desarrollo-green" alt="State"/>
     <br/><br/>
     <!-- ══════ Clientes ══════ -->
     <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
@@ -262,13 +262,13 @@ multiaz/
  
 | Herramienta | Versión mínima |
 |-------------|----------------|
-| Docker | 24.x |
-| Docker Compose | 2.x |
+| Docker | 29.6.1 |
+| Docker Compose | 5.3.1 |
 | Java JDK | 21 |
-| Node.js | 18.x |
+| Node.js | 24.11.0 |
 | Python | 3.10+ |
 | Flutter SDK | 3.x stable |
-| Git | 2.x |
+| Git | 2.43.0 |
  
 ---
  
@@ -290,6 +290,7 @@ docker-compose -f docker/docker-compose.yml ps
 
 # 5. Verificar en eureka los registros de los microservicios
 http://localhost:8761/
+
 ```
  
 ### Verificación de servicios
