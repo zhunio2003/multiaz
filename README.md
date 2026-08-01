@@ -266,8 +266,8 @@ multiaz/
 | Docker Compose | 5.3.1 |
 | Java JDK | 21 |
 | Node.js | 24.11.0 |
-| Python | 3.10+ |
-| Flutter SDK | 3.x stable |
+| Python | 3.12.6 |
+| Flutter SDK | 3.41.6 |
 | Git | 2.43.0 |
  
 ---
