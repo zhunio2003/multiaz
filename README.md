@@ -246,7 +246,7 @@ multiaz/
 | Componente | Puerto(s) |
 |------------|-----------|
 | Eureka (Service Discovery) | 8761 |
-| Spring Cloud Config | 8888 |
+| Spring Cloud Config (config-service) | 8888 |
 | RabbitMQ | 5672 / 15672 |
 | PostgreSQL | 5432 |
 | MongoDB | 27017 |
