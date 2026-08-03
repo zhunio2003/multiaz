@@ -239,7 +239,7 @@ multiaz/
 | Servicio | Puerto | Descripción |
 |----------|--------|-------------|
 | Training Service | 8090 | Entrenamiento y reentrenamiento de modelos |
-| IA Service 1–5 | 8091–8095 | Servicios de predicción NLP independientes |
+| IA Service 1–n | 8091–n..... | Servicios de predicción NLP independientes |
  
 ### Infraestructura
  
