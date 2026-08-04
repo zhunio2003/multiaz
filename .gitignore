@@ -18,3 +18,6 @@ backend/ia-services/fake-news-detector/data/*.csv
 
 # ML model artifacts
 backend/ia-services/fake-news-detector/model/*.pkl
+
+# Sprints
+docs/sprints/
