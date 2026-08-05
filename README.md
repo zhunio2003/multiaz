@@ -267,7 +267,7 @@ multiaz/
 | Java JDK | 21 |
 | Node.js | 24.11.0 |
 | Python | 3.12.6 |
-| Flutter SDK | 3.41.6 |
+| Flutter SDK | 3.44.8 |
 | Git | 2.43.0 |
  
 ---
