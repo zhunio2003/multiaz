@@ -56,7 +56,7 @@
     <!-- ══════ Herramientas ══════ -->
     <img src="https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?logo=swagger&logoColor=black" alt="Swagger"/>
     <br/>
-    <img src="https://img.shields.io/badge/licencia-privada-red" alt="License"/>
+    <img src="https://img.shields.io/badge/licencia-MIT" alt="License"/>
     <br/><br/>
 </div>
 
