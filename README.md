@@ -40,7 +40,7 @@
     <br/>
     <!-- ══════ DevOps ══════ -->
     <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker"/>
-    <img src="https://img.shields.io/badge/Kubernetes-planned-326CE5?logo=kubernetes&logoColor=white" alt="Kubernetes"/>
+    <!-- <img src="https://img.shields.io/badge/Kubernetes-planned-326CE5?logo=kubernetes&logoColor=white" alt="Kubernetes"/> -->
     <img src="https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions"/>
     <br/>
     <!-- ══════ Seguridad ══════ -->
