@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>MultIAZ — Plataforma de Predicciónes Especializadas con IAs (NLPs)</h1>
+    <h1>MultIAZ — Plataforma de Predicciónes Especializadas con NLPs (IAs)</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo multiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/estado-en%20desarrollo-green" alt="State"/>
@@ -48,7 +48,7 @@
     <img src="https://img.shields.io/badge/jjwt-0.12.6-orange" alt="jjwt"/>
     <br/>
     <!-- ══════ Testing ══════ -->
-    <img src="https://img.shields.io/badge/JUnit%205-+%20Mockito-25A162?logo=junit5&logoColor=white" alt="JUnit"/>
+    <img src="https://img.shields.io/badge/JUnit%205-+%20Mockito4-25A162?logo=junit5&logoColor=white" alt="JUnit"/>
     <img src="https://img.shields.io/badge/Vitest-Testing%20Web-6E9F18?logo=vitest&logoColor=white" alt="Vitest"/>
     <img src="https://img.shields.io/badge/Pytest-Testing%20Python-0A9EDC?logo=pytest&logoColor=white" alt="Pytest"/>
     <img src="https://img.shields.io/badge/Flutter%20Test-Testing%20Mobile-02569B?logo=flutter&logoColor=white" alt="Flutter Test"/>
