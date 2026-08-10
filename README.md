@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>MultIAZ — Plataforma de Predicciónes Especializadas con NLPs (IA)</h1>
+    <h1>MultIAZ — Plataforma de Predicciónes Especializadas(IAs)</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/estado-en%20desarrollo-green" alt="State"/>
@@ -61,7 +61,7 @@
 </div>
 
 
-> Plataforma multias, escalable y agnóstica para registrar, orquestar y consumir modelos de IA como plugins independientes. Predicciones en tiempo real y por lotes, accesibles desde una app móvil y un panel de administración web.
+> Plataforma de predicciones, escalable y agnóstica para registrar, orquestar y consumir modelos de IA como plugins independientes. Predicciones en tiempo real y por lotes, accesibles desde una app móvil y un panel de administración web.
 
 ---
  
