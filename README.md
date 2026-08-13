@@ -2,7 +2,7 @@
     <h1>MultIAZ — Plataforma de Predicciónes Especializadas</h1>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
     <br/><br/>
-    <img src="https://img.shields.io/badge/estado-en%20desarrollo-green" alt="State"/>
+    <img src="https://img.shields.io/badge/state-en%20desarrollo-green" alt="State"/>
     <br/><br/>
     <!-- ══════ Clientes ══════ -->
     <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
@@ -268,6 +268,7 @@ multiaz/
 | Node.js | 24.11.0 |
 | Python | 3.12.6 |
 | Flutter SDK | 3.44.8 |
+| React | 19.2.4 |
 | Git | 2.43.0 |
  
 ---
