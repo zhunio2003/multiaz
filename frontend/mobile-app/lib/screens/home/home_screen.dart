@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: AppSpacing.xs),
               _buildHeader(),
               SizedBox(height: AppSpacing.xs),
               _buildStats(),
