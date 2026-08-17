@@ -56,6 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 "Miguel",
                 style: AppTypography.h6.copyWith(color: AppColors.onBackground),
               ),
+              CircleAvatar(
+                backgroundColor: AppColors.primary,
+                child: Icon(
+                  Icons.person,
+                  color: AppColors.onSurface,
+                ),
+              ),
             ],
           ),
           CircleAvatar(
