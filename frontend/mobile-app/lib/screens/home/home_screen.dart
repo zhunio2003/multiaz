@@ -169,7 +169,6 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.all(AppSpacing.md),
         child: Row(
           children: [
-            Container(child: Icon(Icons.bolt)),
             Expanded(
               child: Column(
                 children: [
