@@ -4,7 +4,16 @@ import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String userName;
+  final String? avatarUrl;
+  final String greeting;
+
+  const HomeScreen({
+    super.key,
+    required this.userName,
+    this.avatarUrl,
+    required this.greeting,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -29,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: AppSpacing.xs),
               _buildCTA(),
               SizedBox(height: AppSpacing.xs),
-              _buildCarousel()
+              _buildCarousel(),
             ],
           ),
         ),
@@ -48,21 +57,30 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Column(
             children: [
-              Text(
-                "Buenos dias",
-                style: AppTypography.h6.copyWith(color: AppColors.onSurface),
-              ),
-              Text(
-                "Miguel",
-                style: AppTypography.h6.copyWith(color: AppColors.onBackground),
-              ),
               CircleAvatar(
                 backgroundColor: AppColors.primary,
-                child: Icon(
-                  Icons.person,
-                  color: AppColors.onSurface,
-                ),
+                backgroundImage: 
+                  widget.avatarUrl != null ? NetworkImage(widget.avatarUrl!) : null,
+                child: widget.avatarUrl == null ? Icon(Icons.person, color: AppColors.onSurface) : null,
               ),
+              SizedBox(width: AppSpacing.sm),
+              Column(
+                children: [
+                  Text(
+                    widget.greeting,
+                    style: AppTypography.h6.copyWith(
+                      color: AppColors.onSurface,
+                    ),
+                  ),
+                  Text(
+                    widget.userName,
+                    style: AppTypography.h6.copyWith(
+                      color: AppColors.onBackground,
+                    ),
+                  ),
+                ],
+              ),
+              
             ],
           ),
           CircleAvatar(
@@ -339,7 +357,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          
         ],
       ),
     );
