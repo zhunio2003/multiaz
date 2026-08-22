@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/badge/Java-21-F80000?logo=openjdk&logoColor=white" alt="Java"/>
     <img src="https://img.shields.io/badge/Spring%20Boot-4.0.4-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot"/>
     <img src="https://img.shields.io/badge/Spring%20Cloud-2025.1.1-6DB33F?logo=spring&logoColor=white" alt="Spring Cloud"/>
-    <img src="https://img.shields.io/badge/Maven-3.9-C71A36?logo=apachemaven&logoColor=white" alt="Maven"/>
+    <img src="https://img.shields.io/badge/Maven-3.8.7-C71A36?logo=apachemaven&logoColor=white" alt="Maven"/>
     <br/>
     <!-- ══════ Backend IA ══════ -->
     <img src="https://img.shields.io/badge/Python-3.12.4-3776AB?logo=python&logoColor=white" alt="Python"/>
