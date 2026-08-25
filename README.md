@@ -1,5 +1,6 @@
 <div align="center">
-    <h1>MultIAZ — Plataforma de Predicciónes Especializadas</h1>
+    <h1>MultIAZ</h1>
+    <h2>Plataforma de Predicciónes Especializadas.</h3>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/state-en%20desarrollo-green" alt="State"/>
