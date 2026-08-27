@@ -1,6 +1,6 @@
 <div align="center">
     <h1>MultIAZ</h1>
-    <h2>Plataforma de Predicciónes Especializadas.</h3>
+    <h2>Plataforma de Predicciónes Especializadas (NLPs).</h3>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
     <br/><br/>
     <!-- ══════ Clientes ══════ -->
