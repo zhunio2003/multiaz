@@ -55,8 +55,7 @@ class AppTypography {
   static const TextStyle button = TextStyle(
     fontFamily: 'Poppins',
     fontSize: 16,
-    fontWeight: FontWeight.w600
+    fontWeight: FontWeight.w700
   );
-  
 
 }
