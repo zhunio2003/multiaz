@@ -3,6 +3,8 @@
     <h2>Plataforma de Predicciónes Especializadas (NLPs).</h3>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
     <br/><br/>
+    <img src="https://img.shields.io/badge/state-en%20desarrollo-green" alt="State"/>
+    <br/><br/>
     <!-- ══════ Clientes ══════ -->
     <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
     <img src="https://img.shields.io/badge/Dart-3.11.4-0175C2?logo=dart&logoColor=white" alt="Dart"/>
