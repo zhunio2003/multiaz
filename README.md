@@ -294,7 +294,8 @@ docker-compose -f docker/docker-compose.yml ps
 http://localhost:8761/
 
 ```
- 
+<!-- 
+
 ### Verificación de servicios
  
 | Servicio | URL |
@@ -305,6 +306,8 @@ http://localhost:8761/
 | Kibana | http://localhost:5601 |
  
 ---
+-->
+
  
 ## Roadmap
  
