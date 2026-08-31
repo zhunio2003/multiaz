@@ -126,8 +126,8 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 |----------|-----|-----------|
 | Java 21 | Microservicios core + infraestructura Spring Cloud | Spring Boot 3.x |
 | Python 3.14 | Servicios de IA y entrenamiento | FastAPI |
-| Dart | Aplicación móvil (Android e iOS) | Flutter 3.x |
-| TypeScript | Aplicación web de administración | React 18.x |
+| Dart | Aplicación móvil (Android e iOS) | Flutter 3.12.2 |
+| TypeScript | Aplicación web de administración | React 19.2.4 |
  
 ### Infraestructura
  
