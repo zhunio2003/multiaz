@@ -1,6 +1,6 @@
 <div align="center">
     <h1>MultIAZ</h1>
-    <h2>Plataforma de Predicciónes Especializadas (NLPs).</h3>
+    <h2>Plataforma de Predicciónes Especializadas.</h3>
     <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
     <br/><br/>
     <img src="https://img.shields.io/badge/state-en%20desarrollo-green" alt="State"/>
@@ -57,7 +57,7 @@
     <!-- ══════ Herramientas ══════ -->
     <img src="https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?logo=swagger&logoColor=black" alt="Swagger"/>
     <br/>
-    <img src="https://img.shields.io/badge/licencia-MIT" alt="License"/>
+    <img src="https://img.shields.io/badge/Licencia-MIT" alt="License"/>
     <br/><br/>
 </div>
 
@@ -294,7 +294,6 @@ docker-compose -f docker/docker-compose.yml ps
 http://localhost:8761/
 
 ```
-<!-- 
 
 ### Verificación de servicios
  
@@ -306,8 +305,6 @@ http://localhost:8761/
 | Kibana | http://localhost:5601 |
  
 ---
--->
-
  
 ## Roadmap
  
