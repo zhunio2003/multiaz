@@ -7,15 +7,12 @@
     <br/><br/>
     <!-- ══════ Clientes ══════ -->
     <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
-    <img src="https://img.shields.io/badge/Dart-3.11.4-0175C2?logo=dart&logoColor=white" alt="Dart"/>
     <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React"/>
-    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
     <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite"/>
     <br/>
     <!-- ══════ Backend Core ══════ -->
     <img src="https://img.shields.io/badge/Java-21-F80000?logo=openjdk&logoColor=white" alt="Java"/>
     <img src="https://img.shields.io/badge/Spring%20Boot-4.0.4-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot"/>
-    <img src="https://img.shields.io/badge/Spring%20Cloud-2025.1.1-6DB33F?logo=spring&logoColor=white" alt="Spring Cloud"/>
     <img src="https://img.shields.io/badge/Maven-3.8.7-C71A36?logo=apachemaven&logoColor=white" alt="Maven"/>
     <br/>
     <!-- ══════ Backend IA ══════ -->
@@ -294,7 +291,6 @@ docker-compose -f docker/docker-compose.yml ps
 http://localhost:8761/
 
 ```
-<!--
 ### Verificación de servicios
  
 | Servicio | URL |
@@ -305,7 +301,6 @@ http://localhost:8761/
 | Kibana | http://localhost:5601 |
  
 ---
--->
  
 ## Roadmap
  
