@@ -28,6 +28,7 @@ public class RefreshToken {
 
   private boolean used;
 
+  @Builder.Default
   @TimeToLive
   private long ttl = 604800L;
 }
