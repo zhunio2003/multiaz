@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-26
+
+### Added
+- resolve container naming conventions
+- remove junk code and organize it
+- organize the entire repository
+
 ## [0.5.0] - 2026-05-08
 
 ### Added
