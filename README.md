@@ -81,13 +81,13 @@
  
 ## Sobre el Proyecto
  
-MultIAZ es una plataforma de predicciones impulsada por modelos de Inteligencia Artificial de tipo NLP. No está acoplada a un número fijo de modelos: su diseño permite registrar, orquestar y consumir modelos de IA como **plugins independientes** sin modificar la arquitectura ni afectar los servicios existentes.
+**MultIAZ** es una plataforma de predicciones impulsada por modelos de Inteligencia Artificial de tipo NLP. No está acoplada a un número fijo de modelos: su diseño permite registrar, orquestar y consumir modelos de IA como **plugins independientes** sin modificar la arquitectura ni afectar los servicios existentes.
  
 ### Problema que resuelve
  
 Las personas que necesitan tomar decisiones basadas en datos enfrentan un proceso frustrante: información dispersa, desactualizada y contradictoria entre múltiples fuentes. Las empresas dependen de costosos estudios manuales que no permiten reaccionar con agilidad.
  
-MultIAZ centraliza predicciones especializadas en una única plataforma accesible en segundos, disponible 24/7, con datos respaldados históricamente y un alto nivel de aproximación.
+**MultIAZ** centraliza predicciones especializadas en una única plataforma accesible en segundos, disponible 24/7, con datos respaldados históricamente y un alto nivel de aproximación.
  
 ### Principios de Diseño
  
