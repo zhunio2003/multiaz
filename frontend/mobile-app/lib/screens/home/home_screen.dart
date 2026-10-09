@@ -338,13 +338,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        "Raking universidades",
+                        "Ranking de universidades",
                         style: AppTypography.body.copyWith(
                           color: AppColors.onBackground,
                         ),
                       ),
                       Text(
-                        "+10 mil prediccionesç",
+                        "+10 mil predicciones",
                         style: AppTypography.body.copyWith(
                           color: AppColors.primary,
                         ),
