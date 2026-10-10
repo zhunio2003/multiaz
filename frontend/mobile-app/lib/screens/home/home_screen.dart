@@ -210,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios),
+            // Icon(Icons.arrow_forward_ios),
           ],
         ),
       ),
