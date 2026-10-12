@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // buildHeader(),
-              // SizedBox(height: AppSpacing.xs),
+              _buildHeader(),
+              SizedBox(height: AppSpacing.xs),
               // _buildStats(),
               // SizedBox(height: AppSpacing.xs),
               // _buildBanner(),
@@ -48,32 +48,35 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildHeader() {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: AppSpacing.xs,
-        vertical: AppSpacing.xs,
+        horizontal: AppSpacing.lg,
+        vertical: AppSpacing.md,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
+          Row(
             children: [
               CircleAvatar(
                 backgroundColor: AppColors.primary,
+                radius: 26,
                 backgroundImage: 
                   widget.avatarUrl != null ? NetworkImage(widget.avatarUrl!) : null,
                 child: widget.avatarUrl == null ? Icon(Icons.person, color: AppColors.onSurface) : null,
               ),
               SizedBox(width: AppSpacing.sm),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     widget.greeting,
-                    style: AppTypography.h6.copyWith(
+                    style: AppTypography.body.copyWith(
                       color: AppColors.onSurface,
+                      fontSize: 12,
                     ),
                   ),
                   Text(
                     widget.userName,
-                    style: AppTypography.h6.copyWith(
+                    style: AppTypography.h5.copyWith(
                       color: AppColors.onBackground,
                     ),
                   ),
@@ -82,11 +85,12 @@ class _HomeScreenState extends State<HomeScreen> {
               
             ],
           ),
-          CircleAvatar(
-            backgroundColor: AppColors.surface,
-            child: Icon(
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
               Icons.notifications_outlined,
               color: AppColors.onSurface,
+              size: 30,
             ),
           ),
         ],
