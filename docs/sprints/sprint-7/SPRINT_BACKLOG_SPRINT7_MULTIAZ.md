@@ -3,7 +3,7 @@
 **Proyecto:** MultIAZ — Plataforma de Predicción Especializada  
 **Metodología:** Scrum | Sprints por capacidad en horas (modelo adoptado en este Planning — ver sección 3)  
 **Sprint:** Sprint 7  
-**Fase:** Fase 2 — Experiencia del Usuario (cierre de EP-02, inicio de EP-03 Historial) + Deuda Técnica (DT-008, DT-009)  
+**Fase:** Fase 2 — Experiencia del Usuario (cierre de EP-02, inicio de EP-03 Historial) + Deuda Técnica (DT-008, DT-009) 
 **Fecha inicio:** 08/10/2026  
 **Fecha fin:** Se define por capacidad — el sprint cierra al cumplir el Sprint Goal o al consumir el presupuesto de 25 h de foco, lo que ocurra primero  
 **Autor:** Miguel Angel Zhunio Remache
