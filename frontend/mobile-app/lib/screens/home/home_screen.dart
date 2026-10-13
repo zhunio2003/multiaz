@@ -226,10 +226,55 @@ class _HomeScreenState extends State<HomeScreen> {
         horizontal: AppSpacing.xs,
         vertical: AppSpacing.xs,
       ),
-      child: ElevatedButton.icon(
-        onPressed: () {
-          Navigator.pushNamed(context, '/catalog');
-        },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(24),
+              onTap: () {
+                Navigator.pushNamed(context, '/catalog');
+              },
+              child: Container(
+                width: double.infinity,
+                height: 190,
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: .25),
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(color: Colors.white.withValues(alpha: .25))
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.bolt,
+                        color: Colors.white,
+                      ),
+                      SizedBox(width: 8,),
+                      Text(
+                        "Nueva predicción",
+                        style: AppTypography.h5.copyWith(
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+                  
+              ),
+            ),
+          ),
+        ),
+      )
+    );
+
+
+      /* child: ElevatedButton.icon(
+        onPressed: ,
         icon: Icon(Icons.bolt),
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
@@ -242,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         label: Text("Nueva predicción"),
       ),
-    );
+    ); */
   }
 
   Widget _buildCarousel() {
