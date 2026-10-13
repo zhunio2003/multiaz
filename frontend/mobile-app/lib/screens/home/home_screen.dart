@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_app/core/theme/app_colors.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
+import 'package:mobile_app/screens/news/news_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String userName;
@@ -20,7 +23,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               _buildHeader(),
               SizedBox(height: AppSpacing.xs),
-              // _buildStats(),
-              // SizedBox(height: AppSpacing.xs),
+              _buildNewsBanner(),
+              SizedBox(height: AppSpacing.xs),
               // _buildBanner(),
               SizedBox(height: AppSpacing.xs),
               _buildCTA(),
@@ -59,9 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
               CircleAvatar(
                 backgroundColor: AppColors.primary,
                 radius: 26,
-                backgroundImage: 
-                  widget.avatarUrl != null ? NetworkImage(widget.avatarUrl!) : null,
-                child: widget.avatarUrl == null ? Icon(Icons.person, color: AppColors.onSurface) : null,
+                backgroundImage: widget.avatarUrl != null
+                    ? NetworkImage(widget.avatarUrl!)
+                    : null,
+                child: widget.avatarUrl == null
+                    ? Icon(Icons.person, color: AppColors.onSurface)
+                    : null,
               ),
               SizedBox(width: AppSpacing.sm),
               Column(
@@ -82,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              
             ],
           ),
           IconButton(
@@ -98,79 +102,75 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildStats() {
+  Widget _buildNewsBanner() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSpacing.xs,
-        vertical: AppSpacing.xs,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.surface,
-                borderRadius: BorderRadius.circular(14),
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
+        child: InkWell(
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/images/news.webp',
+                width: double.infinity,
+                height: 280,
+                fit: BoxFit.cover,
               ),
-              padding: EdgeInsets.all(AppSpacing.md),
-              child: Column(
-                children: [
-                  Text(
-                    "Predicciones",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.onSurface,
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: ClipRect(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: .08),
+                        border: Border(
+                          top: BorderSide(
+                            color: Colors.white.withValues(alpha: 0.15),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppSpacing.lg,
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Nuevo modelo",
+                                    style: AppTypography.caption.copyWith(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(Icons.arrow_forward_ios, color: Colors.white),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  Text(
-                    "142",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.onBackground,
-                    ),
-                  ),
-                  Text(
-                    "+12 esta semana",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.primary,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-          SizedBox(width: AppSpacing.sm),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.surface,
-                borderRadius: BorderRadius.circular(14),
-              ),
-              padding: EdgeInsets.all(AppSpacing.md),
-              child: Column(
-                children: [
-                  Text(
-                    "Última predicción",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.onSurface,
-                    ),
-                  ),
-                  Text(
-                    "Clasificador v2",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.onBackground,
-                    ),
-                  ),
-                  Text(
-                    "Hace 2 horas",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.primary,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NewsScreen()),
+            );
+          },
+        ),
       ),
     );
   }
