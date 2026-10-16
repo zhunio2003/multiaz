@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/core/theme/app_colors.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
+import 'package:mobile_app/core/widgets/app_bottom_bar.dart';
 import 'package:mobile_app/screens/news/news_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,15 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: AppSpacing.xs),
               _buildNewsBanner(),
               SizedBox(height: AppSpacing.xs),
-              // _buildBanner(),
               SizedBox(height: AppSpacing.xs),
               _buildCTA(),
-              // SizedBox(height: AppSpacing.xs),
-              // _buildCarousel(),
+              SizedBox(height: AppSpacing.xs),
+              _buildCarousel(),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: AppBottomBar(currentIndex: 0,),
     );
   }
 
@@ -175,51 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildBanner() {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSpacing.lg,
-        vertical: AppSpacing.lg,
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color(0xFF0A2E1E),
-          border: Border.all(color: AppColors.secondary, width: 0.3),
-          borderRadius: BorderRadius.circular(14),
-        ),
-        padding: EdgeInsets.all(AppSpacing.md),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                children: [
-                  Text(
-                    "Uno",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.primary,
-                    ),
-                  ),
-                  Text(
-                    "Clasificador v2",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.onBackground,
-                    ),
-                  ),
-                  Text(
-                    "Hace 2 horas",
-                    style: AppTypography.body.copyWith(
-                      color: AppColors.onSurface,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _buildCTA() {
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -244,50 +200,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   color: AppColors.primary.withValues(alpha: .25),
                   borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: Colors.white.withValues(alpha: .25))
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: .25),
+                  ),
                 ),
                 child: Center(
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
-                        Icons.bolt,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 8,),
+                      Icon(Icons.bolt, color: Colors.white),
+                      SizedBox(width: 8),
                       Text(
                         "Nueva predicción",
-                        style: AppTypography.h5.copyWith(
-                          color: Colors.white
-                        ),
+                        style: AppTypography.h5.copyWith(color: Colors.white),
                       ),
                     ],
                   ),
-                )
-                  
+                ),
               ),
             ),
           ),
         ),
-      )
-    );
-
-
-      /* child: ElevatedButton.icon(
-        onPressed: ,
-        icon: Icon(Icons.bolt),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: AppColors.onPrimary,
-          textStyle: AppTypography.button,
-          minimumSize: Size(double.infinity, 150),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
-          ),
-        ),
-        label: Text("Nueva predicción"),
       ),
-    ); */
+    );
   }
 
   Widget _buildCarousel() {
@@ -302,6 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [Text("Modelos disponibles"), Text("Explorar modelos")],
             ),
           ),
+          SizedBox(height: AppSpacing.sm),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
