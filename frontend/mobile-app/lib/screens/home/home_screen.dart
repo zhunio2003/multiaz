@@ -5,18 +5,23 @@ import 'package:mobile_app/core/theme/app_colors.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 import 'package:mobile_app/core/widgets/app_bottom_bar.dart';
+import 'package:mobile_app/core/widgets/model_card.dart';
+import 'package:mobile_app/models/ai_model.dart';
 import 'package:mobile_app/screens/news/news_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String userName;
   final String? avatarUrl;
   final String greeting;
+  final List<AiModel> models;
+
 
   const HomeScreen({
     super.key,
     required this.userName,
     this.avatarUrl,
     required this.greeting,
+    required this.models,
   });
 
   @override
@@ -238,110 +243,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(height: AppSpacing.sm),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: AppColors.surface,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  padding: EdgeInsets.all(AppSpacing.md),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Raking",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                      Text(
-                        "Raking universidades",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.onBackground,
-                        ),
-                      ),
-                      Text(
-                        "+10 mil prediccionesç",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(width: AppSpacing.sm),
-                Container(
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: AppColors.surface,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  padding: EdgeInsets.all(AppSpacing.md),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Raking",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                      Text(
-                        "Raking universidades",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.onBackground,
-                        ),
-                      ),
-                      Text(
-                        "+10 mil prediccionesç",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(width: AppSpacing.sm),
-                Container(
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: AppColors.surface,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  padding: EdgeInsets.all(AppSpacing.md),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Raking",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                      Text(
-                        "Ranking de universidades",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.onBackground,
-                        ),
-                      ),
-                      Text(
-                        "+10 mil predicciones",
-                        style: AppTypography.body.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(width: AppSpacing.sm),
-              ],
+          SizedBox(
+            height: 140,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+              itemCount: widget.models.length,
+              separatorBuilder: (_, _) => SizedBox(width: AppSpacing.lg,),
+              itemBuilder: (context, index) {
+                final model = widget.models[index];
+                return ModelCard(model: model);
+              },
             ),
-          ),
+          )
         ],
       ),
     );
   }
+
 }
