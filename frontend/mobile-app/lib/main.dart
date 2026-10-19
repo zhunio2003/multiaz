@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: AppRouter.navigatorKey,
       title: 'MULTIAZ',
       theme: AppTheme.darkTheme,
-      initialRoute: '/login',
+      initialRoute: '/home',
       routes: AppRouter.routes,
       debugShowCheckedModeBanner: false,
     );
