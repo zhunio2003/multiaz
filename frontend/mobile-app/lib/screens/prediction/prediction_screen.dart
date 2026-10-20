@@ -37,8 +37,8 @@ import 'package:mobile_app/services/token_service.dart';
         body: SafeArea(
           child: Column(
             children: [
-              TextField(controller: _titleController, decoration: InputDecoration(labelText: "title")),
-              TextField(controller: _textController, decoration: InputDecoration(labelText: "text")),
+              TextField(controller: _titleController, decoration: InputDecoration(labelText: "Titulo")),
+              TextField(controller: _textController, decoration: InputDecoration(labelText: "Descripción")),
               _isLoading
                 ? CircularProgressIndicator()
                 : PrimaryButton(label: "Predecir", onPressed: _predict),
