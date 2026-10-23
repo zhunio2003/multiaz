@@ -164,7 +164,7 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 | T-DT009.2 | Levantar el stack con Docker Compose y confirmar con `docker compose ps` que los servicios necesarios están `Up` / `healthy` (gateway, auth, model-registry, orchestrator, bases de datos, `fake-news-detector`). Confirmar con `curl` desde el host el health del gateway. Ejecutar el flujo completo en el emulador recorriendo los 5 CA de HU-02.2 con screenshots. Provocar el caso de AI Service no disponible (detener `fake-news-detector`) y verificar el mensaje de error. Consultar `predictions` en PostgreSQL y confirmar la fila. Reconfirmar la estabilidad de `adb devices` durante la sesión. | 1.5 h | — | To Do |
 
 ---
-| 1 | DT-010 | JWT_SECRET en el gateway | Trabajo no planificado (regla 5). Bloquea T-DT009.2 y HU-03.1: ninguna ruta protegida funciona desde la app hasta que el gateway valide los tokens del emisor. |
+
 #### DT-008 — Registro de servicios Python en Eureka
 
 **Story Points:** 1  
@@ -242,16 +242,15 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 | DT-008 | Registro de servicios Python en Eureka | Deuda técnica | 1 | 1.5 h | 2 |
 | DT-010 | Interpretación inconsistente de jwt_secret entre api-gateway y auth-service | Deuda técnica | - | 2.5 h | 5 |
 | HU-03.1 | Consulta de Historial de Predicciones | Historia de Usuario | 7 | 14.5 h | 7 |
-| **Total** | | | **10 SP** | **2.5 h** | **16** |
+| **Total** | | | **10 SP** | **21.5 h** | **16** |
 
 ### Orden de ejecución
 
 | Orden | ID | Item | Justificación |
 |-------|----|------|---------------|
-| 1 | DT-010 | JWT_SECRET en el gateway | Trabajo no planificado (regla 5). Bloquea T-DT009.2 y HU-03.1: ninguna ruta protegida funciona desde la app hasta que el gateway valide los tokens del emisor. |
-| 2 | DT-009 | Verificación de HU-02.2 | Cierra una historia comprometida hace un sprint y valida el entorno bajo uso real antes de construir encima. Confirma que las predicciones se persisten (HU-03.1 necesita filas que leer) y deja resuelta la configuración de URL por entorno, que HU-03.1 reutiliza. |
-| 3 | DT-008 | ADR-007 | Sin dependencias, 1.5 h. Se ejecuta tras DT-010 para liquidar la deuda sin ocupar el tramo de mayor riesgo. |
-| 4 | HU-03.1 | Historial de predicciones | Core del sprint. Orden interno por dependencia: T-HU031.1 → .2 → .3 (backend completo y probado) → .4 → .5 → .6 (Flutter) → .7 (verificación). El frontend no se inicia hasta que los endpoints respondan correctamente. |
+| 1 | DT-009 | Verificación de HU-02.2 | Cierra una historia comprometida hace un sprint y valida el entorno bajo uso real antes de construir encima. Confirma que las predicciones se persisten (HU-03.1 necesita filas que leer) y deja resuelta la configuración de URL por entorno, que HU-03.1 reutiliza. |
+| 2 | DT-008 | ADR-007 | Sin dependencias, 1.5 h. Se ejecuta tras DT-010 para liquidar la deuda sin ocupar el tramo de mayor riesgo. |
+| 3 | HU-03.1 | Historial de predicciones | Core del sprint. Orden interno por dependencia: T-HU031.1 → .2 → .3 (backend completo y probado) → .4 → .5 → .6 (Flutter) → .7 (verificación). El frontend no se inicia hasta que los endpoints respondan correctamente. |
 
 ---
 
