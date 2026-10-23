@@ -3,7 +3,7 @@
 **Proyecto:** MultIAZ — Plataforma de Predicción Especializada  
 **Metodología:** Scrum | Sprints por capacidad en horas (modelo adoptado en este Planning — ver sección 3)  
 **Sprint:** Sprint 7  
-**Fase:** Fase 2 — Experiencia del Usuario (cierre de EP-02, inicio de EP-03 Historial) + Deuda Técnica (DT-008, DT-009) 
+**Fase:** Fase 2 — Experiencia del Usuario (cierre de EP-02, inicio de EP-03 Historial) + Deuda Técnica (DT-008, DT-009, DT-010)  
 **Fecha inicio:** 08/10/2026  
 **Fecha fin:** Se define por capacidad — el sprint cierra al cumplir el Sprint Goal o al consumir el presupuesto de 25 h de foco, lo que ocurra primero  
 **Autor:** Miguel Angel Zhunio Remache
@@ -21,9 +21,9 @@
 | Concepto | Valor |
 |----------|-------|
 | Items comprometidos | 3 |
-| Tareas totales | 11 |
+| Tareas totales | 16 |
 | Story Points comprometidos | 10 SP |
-| Horas estimadas totales | 19 h |
+| Horas estimadas totales | 21.5 h |
 | Presupuesto de horas (tope) | 25 h de foco |
 | Colchón | 6 h (24 % del tope) |
 | Trabajo previo al sprint (fuera del presupuesto) | 2 h — preparación del entorno Android (Acción de mejora #2) |
@@ -83,8 +83,9 @@ Opciones evaluadas en el Planning:
 |------|-----------------|--------------|------------|
 | DT-009 | 3 h | — | — |
 | DT-008 | 1.5 h | — | — |
+| DT-010 | 2.5 h | — | — |
 | HU-03.1 | 14.5 h | — | — |
-| **Total** | **19 h** | **—** | **—** |
+| **Total** | **21.5 h** | **—** | **—** |
 
 ---
 
@@ -183,6 +184,20 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 
 ---
 
+#### DT-010 — Interpretación inconsistente de jwt_secret entre api-gateway y auth-service **(TRABAJO NO PLANIFICADO)** [Documento de detalle](../../dt/DT-010-JWT-SECRET-INTERPRETATION-MISMATCH.md)
+
+| ID Tarea | Descripción | Horas Est. | Horas reales | Estado |
+|---|---|---|---|---|
+| T-DT010.1 | **Pruebas automatizadas (caso positivo)**: crear pruebas que firmen un token como lo hace el emisor (`auth-service`) y verifiquen que el gateway lo acepte correctamente. | 0.5 h | | To Do |
+| T-DT010.2 | **Pruebas automatizadas (caso negativo)**: verificar que un token con la firma alterada, o firmado con otro secreto, sea rechazado con `401`. Sin esta prueba, un arreglo que deja pasar cualquier token también parecería funcionar. | 0.5 h | | To Do |
+| T-DT010.3 | **Ajustar la lectura de `jwt.secret` en `api-gateway`**: modificar la forma en que el servicio lee la propiedad para que interprete el secreto igual que `auth-service` (decodificándolo de Base64) y ambos usen los mismos bytes. | 0.5 h | | To Do |
+| T-DT010.4 | **Reconstruir la imagen del `api-gateway`**: generar de nuevo el `.jar` y la imagen, y recrear el contenedor. Sin este paso el contenedor sigue ejecutando el `.jar` anterior y el `curl` devolvería 401 aunque el arreglo esté hecho. | 0.5 h | | To Do |
+| T-DT010.5 | **Validación manual con `curl`**: enviar una petición a `/models` por el puerto `8080` con un token válido y comprobar que la respuesta sea `200 OK`. | 0.5 h | | To Do |
+| | **Total** | **2.5 h** | | |
+
+
+---
+
 ### EP-03 — Historial de Predicciones
 
 ---
@@ -225,15 +240,16 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 |----|--------|------|----|------------|--------|
 | DT-009 | Verificación end-to-end de HU-02.2 | Deuda técnica | 2 | 3 h | 2 |
 | DT-008 | Registro de servicios Python en Eureka | Deuda técnica | 1 | 1.5 h | 2 |
+| DT-010 | Interpretación inconsistente de jwt_secret entre api-gateway y auth-service | Deuda técnica | - | 2.5 h | 5 |
 | HU-03.1 | Consulta de Historial de Predicciones | Historia de Usuario | 7 | 14.5 h | 7 |
-| **Total** | | | **10 SP** | **19 h** | **11** |
+| **Total** | | | **10 SP** | **21.5 h** | **16** |
 
 ### Orden de ejecución
 
 | Orden | ID | Item | Justificación |
 |-------|----|------|---------------|
 | 1 | DT-009 | Verificación de HU-02.2 | Cierra una historia comprometida hace un sprint y valida el entorno bajo uso real antes de construir encima. Confirma que las predicciones se persisten (HU-03.1 necesita filas que leer) y deja resuelta la configuración de URL por entorno, que HU-03.1 reutiliza. |
-| 2 | DT-008 | ADR-007 | Sin dependencias, 1.5 h. Se ejecuta tras DT-009 para liquidar la deuda sin ocupar el tramo de mayor riesgo. |
+| 2 | DT-008 | ADR-007 | Sin dependencias, 1.5 h. Se ejecuta tras DT-010 para liquidar la deuda sin ocupar el tramo de mayor riesgo. |
 | 3 | HU-03.1 | Historial de predicciones | Core del sprint. Orden interno por dependencia: T-HU031.1 → .2 → .3 (backend completo y probado) → .4 → .5 → .6 (Flutter) → .7 (verificación). El frontend no se inicia hasta que los endpoints respondan correctamente. |
 
 ---
