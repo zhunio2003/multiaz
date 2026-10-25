@@ -81,9 +81,9 @@ Opciones evaluadas en el Planning:
 
 | Item | Horas estimadas | Horas reales | Diferencia |
 |------|-----------------|--------------|------------|
-| DT-009 | 3 h | — | — |
-| DT-008 | 1.5 h | — | — |
-| DT-010 | 2.5 h | — | — |
+| DT-009 | 3 h | 5h | — |
+| DT-008 | 1.5 h | 3 h | — |
+| DT-010 | 2.5 h | 7 h | — |
 | HU-03.1 | 14.5 h | — | — |
 | **Total** | **21.5 h** | **—** | **—** |
 
@@ -160,8 +160,8 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 
 | ID Tarea | Descripción de la Tarea | Horas Est. | Horas reales | Estado |
 |----------|-------------------------|------------|--------------|--------|
-| T-DT009.1 | Configurar la URL base de la app por entorno mediante `--dart-define` (variable `API_BASE_URL`) leída con `String.fromEnvironment`, con valor por defecto coherente. Valor para el emulador: `http://10.0.2.2:<puerto del API Gateway definido en docker/docker-compose.yml>`. Verificar en el `AndroidManifest.xml` que el tráfico HTTP sin cifrar está permitido para desarrollo (Android lo bloquea por defecto desde la API 28). Documentar el comando de ejecución por entorno. | 1.5 h | — | To Do |
-| T-DT009.2 | Levantar el stack con Docker Compose y confirmar con `docker compose ps` que los servicios necesarios están `Up` / `healthy` (gateway, auth, model-registry, orchestrator, bases de datos, `fake-news-detector`). Confirmar con `curl` desde el host el health del gateway. Ejecutar el flujo completo en el emulador recorriendo los 5 CA de HU-02.2 con screenshots. Provocar el caso de AI Service no disponible (detener `fake-news-detector`) y verificar el mensaje de error. Consultar `predictions` en PostgreSQL y confirmar la fila. Reconfirmar la estabilidad de `adb devices` durante la sesión. | 1.5 h | — | To Do |
+| T-DT009.1 | Configurar la URL base de la app por entorno mediante `--dart-define` (variable `API_BASE_URL`) leída con `String.fromEnvironment`, con valor por defecto coherente. Valor para el emulador: `http://10.0.2.2:<puerto del API Gateway definido en docker/docker-compose.yml>`. Verificar en el `AndroidManifest.xml` que el tráfico HTTP sin cifrar está permitido para desarrollo (Android lo bloquea por defecto desde la API 28). Documentar el comando de ejecución por entorno. | 1.5 h | 2.5 h | To Do |
+| T-DT009.2 | Levantar el stack con Docker Compose y confirmar con `docker compose ps` que los servicios necesarios están `Up` / `healthy` (gateway, auth, model-registry, orchestrator, bases de datos, `fake-news-detector`). Confirmar con `curl` desde el host el health del gateway. Ejecutar el flujo completo en el emulador recorriendo los 5 CA de HU-02.2 con screenshots. Provocar el caso de AI Service no disponible (detener `fake-news-detector`) y verificar el mensaje de error. Consultar `predictions` en PostgreSQL y confirmar la fila. Reconfirmar la estabilidad de `adb devices` durante la sesión. | 1.5 h | 2.5 h | To Do |
 
 ---
 
@@ -179,8 +179,8 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 
 | ID Tarea | Descripción de la Tarea | Horas Est. | Horas reales | Estado |
 |----------|-------------------------|------------|--------------|--------|
-| T-DT008.1 | Redactar `ADR-007` siguiendo la plantilla de los ADR anteriores (numeración secuencial tras ADR-006), documentando contexto, las tres alternativas, la decisión y sus consecuencias (incluido qué se pierde: visibilidad de los servicios Python en el dashboard de Eureka y health-checking centralizado). | 1 h | — | To Do |
-| T-DT008.2 | Registrar la enmienda del CA1 de TS-FN.1 en el Product Backlog y en las Adaptaciones del Sprint Review 7, referenciando ADR-007. | 0.5 h | — | To Do |
+| T-DT008.1 | Redactar `ADR-007` siguiendo la plantilla de los ADR anteriores (numeración secuencial tras ADR-006), documentando contexto, las tres alternativas, la decisión y sus consecuencias (incluido qué se pierde: visibilidad de los servicios Python en el dashboard de Eureka y health-checking centralizado). | 1 h | 1.5 h | To Do |
+| T-DT008.2 | Registrar la enmienda del CA1 de TS-FN.1 en el Product Backlog y en las Adaptaciones del Sprint Review 7, referenciando ADR-007. | 0.5 h | 1.5 h | To Do |
 
 ---
 
@@ -188,12 +188,12 @@ Verificado el 08/10/2026, antes de iniciar el sprint:
 
 | ID Tarea | Descripción | Horas Est. | Horas reales | Estado |
 |---|---|---|---|---|
-| T-DT010.1 | **Pruebas automatizadas (caso positivo)**: crear pruebas que firmen un token como lo hace el emisor (`auth-service`) y verifiquen que el gateway lo acepte correctamente. | 0.5 h | | To Do |
-| T-DT010.2 | **Pruebas automatizadas (caso negativo)**: verificar que un token con la firma alterada, o firmado con otro secreto, sea rechazado con `401`. Sin esta prueba, un arreglo que deja pasar cualquier token también parecería funcionar. | 0.5 h | | To Do |
-| T-DT010.3 | **Ajustar la lectura de `jwt.secret` en `api-gateway`**: modificar la forma en que el servicio lee la propiedad para que interprete el secreto igual que `auth-service` (decodificándolo de Base64) y ambos usen los mismos bytes. | 0.5 h | | To Do |
-| T-DT010.4 | **Reconstruir la imagen del `api-gateway`**: generar de nuevo el `.jar` y la imagen, y recrear el contenedor. Sin este paso el contenedor sigue ejecutando el `.jar` anterior y el `curl` devolvería 401 aunque el arreglo esté hecho. | 0.5 h | | To Do |
-| T-DT010.5 | **Validación manual con `curl`**: enviar una petición a `/models` por el puerto `8080` con un token válido y comprobar que la respuesta sea `200 OK`. | 0.5 h | | To Do |
-| | **Total** | **2.5 h** | | |
+| T-DT010.1 | **Pruebas automatizadas (caso positivo)**: crear pruebas que firmen un token como lo hace el emisor (`auth-service`) y verifiquen que el gateway lo acepte correctamente. | 0.5 h | 2 h | To Do |
+| T-DT010.2 | **Pruebas automatizadas (caso negativo)**: verificar que un token con la firma alterada, o firmado con otro secreto, sea rechazado con `401`. Sin esta prueba, un arreglo que deja pasar cualquier token también parecería funcionar. | 0.5 h | 1 h | To Do |
+| T-DT010.3 | **Ajustar la lectura de `jwt.secret` en `api-gateway`**: modificar la forma en que el servicio lee la propiedad para que interprete el secreto igual que `auth-service` (decodificándolo de Base64) y ambos usen los mismos bytes. | 0.5 h | 1 h | To Do |
+| T-DT010.4 | **Reconstruir la imagen del `api-gateway`**: generar de nuevo el `.jar` y la imagen, y recrear el contenedor. Sin este paso el contenedor sigue ejecutando el `.jar` anterior y el `curl` devolvería 401 aunque el arreglo esté hecho. | 0.5 h | 2 h | To Do |
+| T-DT010.5 | **Validación manual con `curl`**: enviar una petición a `/models` por el puerto `8080` con un token válido y comprobar que la respuesta sea `200 OK`. | 0.5 h | 1h | To Do |
+| | **Total** | **2.5 h** | **7 h**| |
 
 
 ---
