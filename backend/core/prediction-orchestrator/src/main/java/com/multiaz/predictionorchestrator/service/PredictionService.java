@@ -1,6 +1,7 @@
 package com.multiaz.predictionorchestrator.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -87,6 +88,12 @@ public class PredictionService {
       predictionRepository.save(prediction);
 
     }
+
+  }
+
+  public List<Prediction> getHistory(String userId) {
+    
+    return predictionRepository.findByUserIdOrderByCreatedAtDesc(userId);
 
   }
 
