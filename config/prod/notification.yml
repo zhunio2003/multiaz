@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql-multiaz-prod:5432/notification
-    username: notification_user
-    password: notification_password
+    url: jdbc:postgresql://postgresql-multiaz:5432/notification
+    username: ${NOTIFICATION_DB_USER}
+    password:  ${POSTGRES_NOTIFICATION_PASS}
