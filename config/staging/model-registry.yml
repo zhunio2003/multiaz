@@ -1,5 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://postgresql-multiaz-staging:5432/model-registry
-    username: model_registry_user
-    password: model_registry_password
+  data:
+    mongodb:
+    uri: mongodb://${MONGODB_USER}:${MONGODB_PASS}@mongodb-multiaz-staging:27017/model_registry?authSource=admin
