@@ -1,8 +1,11 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb://mongodb-multiaz-prod:27017/prediction-storage-details
   datasource:
-    url: jdbc:postgresql://postgresql-multiaz-prod:5432/prediction-storage
-    username: prediction_storage_user
-    password: prediction_storage_password
+    url: jdbc:postgresql://postgresql-multiaz:5432/prediction_orchestrator_db
+    username: ${PREDICTION_ORCHESTRATOR_DB_USER}
+    password: ${POSTGRES_PREDICTION_ORCHESTRATOR_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
