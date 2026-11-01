@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql-multiaz:5432/auth_db
+    url: jdbc:postgresql://postgresql-multiazprod:5432/auth_db
     username: ${AUTH_DB_USER}
     password: ${POSTGRES_AUTH_PASS}
 
