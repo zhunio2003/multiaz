@@ -1,4 +1,4 @@
 spring:
   data:
     mongodb:
-    uri: mongodb://${MONGODB_USER}:${MONGODB_PASS}@mongodb-multiaz:27017/model_registry?authSource=admin
+    uri: mongodb://${MONGODB_USER}:${MONGODB_PASS}@mongodb-multiaz-prod:27017/model_registry?authSource=admin
