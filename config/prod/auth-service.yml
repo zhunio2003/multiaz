@@ -6,7 +6,7 @@ spring:
 
   data:
     redis:
-      host: redis-multiaz
+      host: redis-multiaz-prod
       port: 6379
       password: ${REDIS_PASS}
 
@@ -15,7 +15,7 @@ spring:
       ddl-auto: none
       
   mail:
-    host: mailhog-multiaz
+    host: mailhog-multiaz-prod
     port: 1025
 
   flyway:
