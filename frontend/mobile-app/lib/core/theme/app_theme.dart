@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_light.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
 class AppTheme {
@@ -30,6 +31,37 @@ class AppTheme {
     
     cardTheme: const CardThemeData(
       color: AppColors.surface,
+    ),
+  );
+
+  static ThemeData get lightTheme => ThemeData(
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: AppColorsLight.background,
+    colorScheme: ColorScheme.light(
+      primary: AppColorsLight.primary,
+          onPrimary: AppColorsLight.onPrimary,
+          secondary: AppColorsLight.secondary,
+          error: AppColorsLight.error,
+          surface: AppColorsLight.surface,
+          onSurface: AppColorsLight.onSurface,
+    ),
+    textTheme: TextTheme(
+      displayLarge: AppTypography.h1,
+      displayMedium: AppTypography.h2,
+      headlineLarge: AppTypography.h3,
+      headlineMedium: AppTypography.h4,
+      titleLarge: AppTypography.h5,
+      titleMedium: AppTypography.h6,
+      bodyLarge: AppTypography.body,
+      bodySmall: AppTypography.caption,
+      labelLarge: AppTypography.button      
+    ).apply(
+      displayColor: AppColorsLight.onBackground,
+      bodyColor: AppColorsLight.onBackground,
+    ),
+    cardTheme: const CardThemeData(
+      color: AppColorsLight.surface,
+      elevation: 1,
     ),
   );
 }
