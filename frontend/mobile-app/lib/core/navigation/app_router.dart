@@ -16,7 +16,7 @@ class AppRouter {
 
   static final Map<String, WidgetBuilder> routes = {
     '/register': (context) => RegisterScreen(),
-    '/home': (context) => HomeScreen(userName: 'Miguel Zhunio', greeting: 'Hola 👋', models: List.empty(),),
+    '/home': (context) => HomeScreen(userName: '', greeting: '', models: List.empty(),),
     '/login': (context) => LoginScreen(),
     '/forgot-password': (context) => ForgotPasswordScreen(),
     '/reset-password': (context) => ResetPasswordScreen(),
