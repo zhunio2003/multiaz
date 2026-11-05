@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
@@ -19,7 +19,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title),
-      backgroundColor: AppColors.surface,
+      backgroundColor: AppColorsDark.surface,
       titleTextStyle: AppTypography.h6,
     );
   }
