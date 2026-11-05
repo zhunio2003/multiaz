@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/screens/catalog/model_catalog_screen.dart';
 
 class AppBottomBar extends StatelessWidget {
@@ -13,7 +13,7 @@ class AppBottomBar extends StatelessWidget {
     return Container(
       height: 70,
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: AppColorsDark.surface,
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(25)
         ) 
@@ -28,7 +28,7 @@ class AppBottomBar extends StatelessWidget {
             },
             icon: Icon(
               Icons.home,
-              color: currentIndex == 0 ? AppColors.primary : AppColors.onSurface,
+              color: currentIndex == 0 ? AppColorsDark.primary : AppColorsDark.onSurface,
             ),
           ),
           IconButton(
@@ -38,7 +38,7 @@ class AppBottomBar extends StatelessWidget {
             },
             icon: Icon(
               Icons.person,
-              color: currentIndex == 1 ? AppColors.primary : AppColors.onSurface,
+              color: currentIndex == 1 ? AppColorsDark.primary : AppColorsDark.onSurface,
             ),
           ),
           Transform.translate(
@@ -48,17 +48,17 @@ class AppBottomBar extends StatelessWidget {
               height: 64,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.primary,
+                color: AppColorsDark.primary,
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primary.withValues(alpha: 0.5),
+                    color: AppColorsDark.primary.withValues(alpha: 0.5),
                     blurRadius: 20,
                     spreadRadius: 1,
                   ),
                 ],
               ),
               child: InkWell(
-                child: Icon(Icons.bolt, color: AppColors.onPrimary, size: 30),
+                child: Icon(Icons.bolt, color: AppColorsDark.onPrimary, size: 30),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -77,7 +77,7 @@ class AppBottomBar extends StatelessWidget {
             },
             icon: Icon(
               Icons.history_outlined,
-              color: currentIndex == 2 ? AppColors.primary : AppColors.onSurface,
+              color: currentIndex == 2 ? AppColorsDark.primary : AppColorsDark.onSurface,
             ),
           ),
           IconButton(
@@ -87,7 +87,7 @@ class AppBottomBar extends StatelessWidget {
             },
             icon: Icon(
               Icons.settings,
-              color: currentIndex == 3 ? AppColors.primary : AppColors.onSurface,
+              color: currentIndex == 3 ? AppColorsDark.primary : AppColorsDark.onSurface,
             ),
           ),
         ],
