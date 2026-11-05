@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 import 'package:mobile_app/models/ai_model.dart';
@@ -15,7 +15,7 @@ class ModelCard extends StatelessWidget {
     return Container(
       width: 200,
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: AppColorsDark.surface,
         borderRadius: BorderRadius.circular(14),
       ),
       padding: EdgeInsets.all(AppSpacing.md),
@@ -26,15 +26,15 @@ class ModelCard extends StatelessWidget {
             model.type,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: AppTypography.body.copyWith(color: AppColors.primary),
+            style: AppTypography.body.copyWith(color: AppColorsDark.primary),
           ),
           Text(
             model.name,
-            style: AppTypography.body.copyWith(color: AppColors.onBackground),
+            style: AppTypography.body.copyWith(color: AppColorsDark.onBackground),
           ),
           Text(
             model.description,
-            style: AppTypography.body.copyWith(color: AppColors.primary),
+            style: AppTypography.body.copyWith(color: AppColorsDark.primary),
           ),
         ],
       ),
