@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
 
@@ -22,8 +22,8 @@ class PrimaryButton extends StatelessWidget{
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        foregroundColor: AppColors.onPrimary,
+        backgroundColor: AppColorsDark  .primary,
+        foregroundColor: AppColorsDark.onPrimary,
         textStyle: AppTypography.button,
         minimumSize: Size(double.infinity, 60)
       ), 
