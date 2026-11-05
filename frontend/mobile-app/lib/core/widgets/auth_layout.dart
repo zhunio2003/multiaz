@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
@@ -25,7 +25,7 @@ class AuthLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColorsDark.background,
       body: SafeArea(
         child: SingleChildScrollView(
             padding: EdgeInsets.all(AppSpacing.xxl),
@@ -40,7 +40,7 @@ class AuthLayout extends StatelessWidget {
               SizedBox(height: AppSpacing.sm,),
               Text(
                 title,
-                style: AppTypography.h1.copyWith(color: AppColors.onBackground),
+                style: AppTypography.h1.copyWith(color: AppColorsDark.onBackground),
               ),
               SizedBox(height: AppSpacing.xl,),
               Row(
@@ -48,13 +48,13 @@ class AuthLayout extends StatelessWidget {
                 children: [
                   Text(
                     "If You Nedd Any Support ",
-                    style: AppTypography.caption.copyWith(color: AppColors.onSurface, fontSize: 12),
+                    style: AppTypography.caption.copyWith(color: AppColorsDark.onSurface, fontSize: 12),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.pushReplacementNamed(context, "/help"),
                     child: Text(
                       "Click Here",
-                      style: AppTypography.caption.copyWith(color: AppColors.primary, fontSize: 12),
+                      style: AppTypography.caption.copyWith(color: AppColorsDark.primary, fontSize: 12),
                     ),
                   )
                 ],
@@ -65,16 +65,16 @@ class AuthLayout extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Divider(
-                      color: AppColors.onSurface.withAlpha(50),
+                      color: AppColorsDark.onSurface.withAlpha(50),
                     ),
                   ),
                   Text(
                     " Or ",
-                    style:  AppTypography.caption.copyWith(color: AppColors.onSurface.withAlpha(50)),
+                    style:  AppTypography.caption.copyWith(color: AppColorsDark.onSurface.withAlpha(50)),
                   ),
                   Expanded(
                     child: Divider(
-                      color: AppColors.onSurface.withAlpha(50),
+                      color: AppColorsDark.onSurface.withAlpha(50),
                     ),
                   ),
                 ],
@@ -89,7 +89,7 @@ class AuthLayout extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: AppColors.onSurface.withAlpha(50)
+                          color: AppColorsDark.onSurface.withAlpha(50)
                         ),
                       ),
                       child: FaIcon(FontAwesomeIcons.google),
@@ -103,7 +103,7 @@ class AuthLayout extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: AppColors.onSurface.withAlpha(50)
+                          color: AppColorsDark.onSurface.withAlpha(50)
                         ),
                       ),
                       child: FaIcon(FontAwesomeIcons.github),
@@ -119,13 +119,13 @@ class AuthLayout extends StatelessWidget {
                 children: [
                   Text(
                     subtitle!,
-                    style: AppTypography.caption.copyWith(color: AppColors.onSurface),
+                    style: AppTypography.caption.copyWith(color: AppColorsDark.onSurface),
                   ),
                   GestureDetector(
                     onTap: subtitleLinkTap,
                     child: Text(
                       subtitleLink!,
-                      style: AppTypography.caption.copyWith(color: AppColors.primary),
+                      style: AppTypography.caption.copyWith(color: AppColorsDark.primary),
                     ),
                   )
                 ],
