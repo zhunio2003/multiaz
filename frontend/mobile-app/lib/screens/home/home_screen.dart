@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 import 'package:mobile_app/core/widgets/app_bottom_bar.dart';
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColorsDark.background,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -65,13 +65,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: AppColors.primary,
+                backgroundColor: AppColorsDark.primary,
                 radius: 26,
                 backgroundImage: widget.avatarUrl != null
                     ? NetworkImage(widget.avatarUrl!)
                     : null,
                 child: widget.avatarUrl == null
-                    ? Icon(Icons.person, color: AppColors.onSurface)
+                    ? Icon(Icons.person, color: AppColorsDark.onSurface)
                     : null,
               ),
               SizedBox(width: AppSpacing.sm),
@@ -81,14 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     widget.greeting,
                     style: AppTypography.body.copyWith(
-                      color: AppColors.onSurface,
+                        color: AppColorsDark.onSurface,
                       fontSize: 12,
                     ),
                   ),
                   Text(
                     widget.userName,
                     style: AppTypography.h5.copyWith(
-                      color: AppColors.onBackground,
+                      color: AppColorsDark.onBackground,
                     ),
                   ),
                 ],
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {},
             icon: Icon(
               Icons.notifications_outlined,
-              color: AppColors.onSurface,
+              color: AppColorsDark.onSurface,
               size: 30,
             ),
           ),
@@ -203,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 height: 190,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withValues(alpha: .25),
+                  color: AppColorsDark.primary.withValues(alpha: .25),
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
                     color: Colors.white.withValues(alpha: .25),
