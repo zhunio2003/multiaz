@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_colors_light.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
@@ -9,12 +9,12 @@ class AppTheme {
 
   static ThemeData get darkTheme => ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: AppColors.background,
+    scaffoldBackgroundColor: AppColorsDark.background,
     colorScheme: ColorScheme.dark(
-      primary: AppColors.primary,
-      secondary: AppColors.secondary,
-      error: AppColors.error,
-      surface: AppColors.surface
+      primary: AppColorsDark.primary,
+      secondary: AppColorsDark.secondary,
+      error: AppColorsDark.error,
+      surface: AppColorsDark.surface
     ),
 
     textTheme: TextTheme(
@@ -30,7 +30,7 @@ class AppTheme {
     ), 
     
     cardTheme: const CardThemeData(
-      color: AppColors.surface,
+      color: AppColorsDark.surface,
     ),
   );
 
