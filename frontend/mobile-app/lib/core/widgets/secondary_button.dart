@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
 class SecondaryButton extends StatelessWidget {
@@ -19,8 +19,8 @@ class SecondaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        side: const BorderSide(color: AppColors.secondary),
-        foregroundColor: AppColors.secondary,
+        side: const BorderSide(color: AppColorsDark.secondary),
+        foregroundColor: AppColorsDark.secondary,
         textStyle: AppTypography.button,
         minimumSize: Size(double.infinity, 60),
       ),
