@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 
 class AppTextField extends StatelessWidget{
@@ -36,22 +36,22 @@ class AppTextField extends StatelessWidget{
         label: Text(label),
         hintText: hint,
         errorText: errorText,
-        floatingLabelStyle: AppTypography.body.copyWith(color: AppColors.primary),
+        floatingLabelStyle: AppTypography.body.copyWith(color: AppColorsDark.primary),
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 23),
-        labelStyle: AppTypography.caption.copyWith(color: AppColors.onSurface.withAlpha(75)),
+        labelStyle: AppTypography.caption.copyWith(color: AppColorsDark.onSurface.withAlpha(75)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15)
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide (
-            color: AppColors.onSurface.withAlpha(50)
+            color: AppColorsDark.onSurface.withAlpha(50)
           ),
           
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: AppColors.primary) 
+          borderSide: BorderSide(color: AppColorsDark.primary) 
         ),
       ),
     );
