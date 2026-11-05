@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/core/theme/app_colors.dart';
+import 'package:mobile_app/core/theme/app_colors_dark.dart';
 import 'package:mobile_app/core/theme/app_spacing.dart';
 import 'package:mobile_app/core/theme/app_typography.dart';
 import 'package:mobile_app/core/widgets/base_layout.dart';
@@ -40,13 +40,13 @@ class NewsScreen extends StatelessWidget{
               Text(
                 "Nuevo modelo disponible",
                 textAlign: TextAlign.center,
-                style: AppTypography.h3.copyWith(color: AppColors.primary),
+                style: AppTypography.h3.copyWith(color: AppColorsDark.primary),
               ),
               SizedBox(height: AppSpacing.md,),
               Text(
                 "Texto de prueba de una o dos líneas que explica la noticia.",
                 textAlign: TextAlign.center,
-                style: AppTypography.caption.copyWith(color: AppColors.onSurface),
+                style: AppTypography.caption.copyWith(color: AppColorsDark.onSurface),
               ),
               SizedBox(height: AppSpacing.xxxl,),
               PrimaryButton(
