@@ -33,7 +33,7 @@ import com.multiaz.authservice.security.JwtService;
 import com.multiaz.authservice.service.AuthService;
 
 @ExtendWith(MockitoExtension.class)
-public class AuthServiceTest {
+class AuthServiceTest {
 
   @Mock
   private UserRepository userRepository;
@@ -167,8 +167,6 @@ public class AuthServiceTest {
     authService.register(dto);
 
     verify(passwordEncoder).encode("12345");
-  }
-
-  
+  } 
 
 }
