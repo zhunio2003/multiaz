@@ -37,7 +37,7 @@
     <br/>
     <!-- ══════ DevOps ══════ -->
     <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker"/>
-    <!-- <img src="https://img.shields.io/badge/Kubernetes-planned-326CE5?logo=kubernetes&logoColor=white" alt="Kubernetes"/> -->
+    <img src="https://img.shields.io/badge/Kubernetes-planned-326CE5?logo=kubernetes&logoColor=white" alt="Kubernetes"/>
     <img src="https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions"/>
     <br/>
     <!-- ══════ Seguridad ══════ -->
@@ -106,7 +106,7 @@ El sistema se organiza en **5 capas** con **26 componentes**:
 |---|------|-------------|-------------|
 | 1 | Capa de Entrada | 1 | API Gateway — punto de acceso único al sistema |
 | 2 | Capa de Servicios Core | 9 | Microservicios Java/Spring Boot (lógica de negocio) |
-| 3 | Capa de IAs | 5 + n... | Servicios Python/FastAPI de predicción + Training Service |
+| 3 | Capa de IAs | 5 + n | Servicios Python/FastAPI de predicción + Training Service |
 | 4 | Capa de Clientes | 2 | App Móvil (Flutter) + Admin Web App (React) |
 | 5 | Infraestructura Transversal | 9 | Bases de datos, mensajería, caché, logs, CI/CD |
  
@@ -236,7 +236,7 @@ multiaz/
 | Servicio | Puerto | Descripción |
 |----------|--------|-------------|
 | Training Service | 8090 | Entrenamiento y reentrenamiento de modelos |
-| IA Service 1–n | 8091–n..... | Servicios de predicción NLP independientes |
+| IA Service 1–n | 8091–n | Servicios de predicción NLP independientes |
  
 ### Infraestructura
  
@@ -301,7 +301,7 @@ http://localhost:8761/
  
 ---
  
-## Roadmap
+## ROADMAP
  
 ### Infraestructura Base
  
