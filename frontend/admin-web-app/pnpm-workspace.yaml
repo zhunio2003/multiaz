@@ -1,7 +1,6 @@
 # ============================================================
 # MULTIAZ
 # Software Supply Chain Security
-# ADR-006
 # ============================================================
 
 # Require packages to be at least 7 days old.
