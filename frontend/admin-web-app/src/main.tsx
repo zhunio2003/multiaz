@@ -8,6 +8,7 @@ import { createRoot } from 'react-dom/client'
 // Estilos globales: tokens + reset. Se importan UNA vez aquí y aplican a todo.
 import './core/theme/global.css'
 import App from './App.tsx'
+import { AuthProvider } from './features/auth/AuthProvider.tsx';
 
 /*
  * document.getElementById('root') puede devolver null (si el div no
@@ -18,7 +19,9 @@ import App from './App.tsx'
 */
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </StrictMode>,
 
 );
