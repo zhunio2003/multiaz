@@ -1,0 +1,39 @@
+/*
+ * CSS MODULES (archivo .module.css)
+ * Vite renombra cada clase con un sufijo único, por ejemplo
+ * ".logo" pasa a ser ".Logo_logo_x7f2a". Así otra clase ".logo"
+ * en otro archivo NUNCA choca con esta.
+ * En el componente se usa como: className={styles.logo}
+ */
+
+ .logo {
+    display: inline-flex; /* ícono y texto en fila */
+    align-items: center; /* centrados verticalmente */
+    gap: var(--spacing-3);
+  }
+  
+  .mark {
+    color: var(--color-primary); /* el SVG usa currentColor, así que se pinta de verde */
+    flex-shrink: 0; /* que el ícono nunca se aplaste si falta espacio */
+  }
+  
+  /* Nodos huecos: relleno del color de fondo + borde verde */
+  .hollow {
+    fill: var(--color-background);
+    stroke: currentColor;
+    stroke-width: 2.5;
+  }
+  
+  .wordmark {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0.32em; /* letras separadas, como en el logo original */
+    color: var(--color-on-background);
+  }
+  
+  /* La "I" de IA en verde: la marca resalta la inteligencia artificial */
+  .highlight {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+  
