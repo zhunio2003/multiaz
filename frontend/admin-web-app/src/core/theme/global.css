@@ -1,0 +1,66 @@
+/*
+ * ============================================================
+ *  ESTILOS GLOBALES
+ * ============================================================
+ *  Aquí van SOLO las reglas que afectan a toda la app:
+ *  un "reset" mínimo y los estilos base del <body>.
+ *  Los estilos de cada componente van en su propio
+ *  archivo .module.css (así no chocan entre sí).
+ * ============================================================
+ */
+
+/* Importamos los tokens primero: todo lo de abajo los usa */
+@import './tokens.css';
+
+/*
+ * box-sizing: border-box
+ * Por defecto, si un div mide width: 200px y le pones padding: 20px,
+ * termina midiendo 240px. Con border-box el padding y el borde
+ * quedan DENTRO de los 200px. Es mucho más fácil de razonar.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Los navegadores ponen márgenes por defecto a body, h1, p...: los quitamos */
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+body {
+  min-height: 100dvh; /* dvh = alto REAL de la pantalla (en móvil descuenta la barra del navegador) */
+  background: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  /* Suaviza las letras en Mac; en otros sistemas no hace nada */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Los inputs y botones NO heredan la fuente por defecto. Se la forzamos. */
+input,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/*
+ * Accesibilidad: si el usuario activó "reducir movimiento" en su
+ * sistema operativo (por mareos, epilepsia, etc.), apagamos las animaciones.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
