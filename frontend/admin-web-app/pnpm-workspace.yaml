@@ -1,13 +1,18 @@
 # ============================================================
 # MULTIAZ
 # Software Supply Chain Security
+# Configuración de seguridad de pnpm (ver ADR-006 de MultIAZ).
 # ============================================================
 
-# Require packages to be at least 7 days old.
+
+# No instalar versiones publicadas hace menos de 7 días (10080 minutos).
+# La mayoría de paquetes maliciosos se detectan y se retiran en ese tiempo.
 minimumReleaseAge: 10080
 
-# Prevent exotic sources in transitive dependencies.
+# Prohibir que dependencias transitivas vengan de fuentes "exóticas"
+# (repos git, tarballs sueltos). Todo debe venir del registro npm.
 blockExoticSubdeps: true
 
-# Fail installation when dependency builds are not approved.
+# Si un paquete intenta ejecutar scripts de instalación (postinstall...)
+# y no está aprobado, la instalación FALLA en vez de ignorarlo en silencio.
 strictDepBuilds: true
