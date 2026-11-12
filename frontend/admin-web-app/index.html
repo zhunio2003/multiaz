@@ -1,12 +1,33 @@
 <!doctype html>
-<html lang="en">
+<!-- lang="es": le dice al navegador y a los lectores de pantalla que el contenido está en español -->
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
+  
+    <!-- Ícono de la pestaña. Está en /public, por eso la ruta empieza con "/" -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Sin esta línea, en el celular la página se ve "alejada" y diminuta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>admin-web-app</title>
+
+    <!-- El panel es oscuro: así el navegador pinta scrollbars e inputs nativos en oscuro -->
+    <meta name="color-scheme" content="dark">
+
+    <!--
++      Fuente Poppins desde Google Fonts (lo exige el Design System).
++      - preconnect: abre la conexión con Google antes de pedir la fuente, así carga más rápido.
++      - Solo pedimos los pesos que usamos: 300, 400, 500, 600 y 700. Cada peso extra pesa más.
++      - display=swap: mientras carga, muestra una fuente del sistema para que el texto no quede invisible.
++    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"" rel="stylesheet">
+    <title>MultIAZ - Panel de administración</title>
+
   </head>
   <body>
+    <!-- React dibuja TODA la app dentro de este div (ver src/main.tsx) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
