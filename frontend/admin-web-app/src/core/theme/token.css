@@ -1,0 +1,93 @@
+/*
+ * ============================================================
+ *  TOKENS DE DISEÑO — MultIAZ
+ * ============================================================
+ *  Fuente: docs/guides/DESIGN_SYSTEM_MULTIAZ.md
+ *
+ *  ¿Qué es un token?
+ *  Es una variable con NOMBRE que guarda una decisión de diseño.
+ *  En vez de escribir #25C278 en 40 archivos, escribes
+ *  var(--color-primary). Si mañana cambia el verde, lo cambias
+ *  AQUÍ y se actualiza toda la app.
+ *
+ *  ¿Por qué ":root"?
+ *  :root es el elemento <html>. Las variables CSS se HEREDAN,
+ *  así que lo que declares aquí está disponible en toda la página.
+ *
+ *  Regla del Design System: NINGÚN componente escribe colores,
+ *  tamaños o espacios "a mano". Siempre usa estos tokens.
+ * ============================================================
+ */
+
+:root {
+  /* ---------- 1. Colores de marca ---------- */
+  --color-primary: #25c278; /* verde esmeralda: acción principal */
+  --color-secondary: #1fa362; /* hover / pressed del primario */
+  --color-accent: #0097a7; /* cyan: detalles pequeños, máx. 10% de la UI */
+
+  /* ---------- 2. Fondos y superficies ---------- */
+  --color-background: #121212; /* fondo general */
+  --color-surface: #1e1e1e; /* cards, inputs, modales (una "capa" encima) */
+
+  /* ---------- 3. Texto ---------- */
+  --color-on-primary: #000000; /* texto ENCIMA del verde (botón primario) */
+  --color-on-background: #ffffff; /* texto principal */
+  --color-on-surface: #e0e0e0; /* texto secundario */
+
+  /* ---------- 4. Semánticos ---------- */
+  --color-success: #25c278;
+  --color-error: #f44336;
+  --color-warning: #ffc107;
+
+  /*
+   * ---------- 5. Extensiones ----------
+   *
+   * color-mix() mezcla dos colores. "white 12%" sobre transparente da
+   * un blanco muy tenue: perfecto para bordes en modo oscuro.
+   */
+  --color-border: color-mix(in srgb, white 12%, transparent);
+  --color-border-strong: color-mix(in srgb, white 24%, transparent);
+  --color-text-muted: #9e9e9e; /* texto terciario (pistas, notas) — 6.9:1 sobre #121212 ✅ */
+
+  /* ---------- 6. Tipografía ---------- */
+  --font-family: 'Poppins', system-ui, sans-serif; /* si Poppins no carga, usa la del sistema */
+  /* Extensión: monoespaciada del SISTEMA (no se descarga nada) para datos técnicos */
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', monospace;
+
+  /* Escala tipográfica (tamaños) */
+  --font-size-h1: 32px;
+  --font-size-h2: 28px;
+  --font-size-h3: 24px;
+  --font-size-h4: 20px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+  --font-size-body: 14px;
+  --font-size-caption: 12px; /* el MÍNIMO permitido en la app */
+  --font-size-button: 14px;
+
+  /* Pesos */
+  --font-weight-light: 300;
+  --font-weight-regular: 400; /* solo texto de lectura, NUNCA acciones */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600; /* mínimo para cualquier cosa clicable */
+  --font-weight-bold: 700;
+
+  /* ---------- 7. Espaciado (base 4px) ---------- */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+
+  /* ---------- 8. Extensiones: bordes redondeados y movimiento ---------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px; /* "píldora": un radio enorme siempre da extremos redondos */
+
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1); /* arranca rápido, frena suave */
+}
