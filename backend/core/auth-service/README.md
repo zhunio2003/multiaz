@@ -55,7 +55,8 @@ Documentación completa: `http://localhost:8081/swagger-ui.html`
 
 ## Dependencias con otros servicios
 
-- **servicio-a**: para qué se usa (REST / evento)
+- flyway:
+    enabled: trueervicio-a**: para qué se usa (REST / evento)
 - **servicio-b**: para qué se usa
 
 ## Docker
