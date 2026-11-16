@@ -1,0 +1,326 @@
+/* ============================================================
+ *  Formulario de login (dentro del card de vidrio)
+ * ============================================================ */
+
+ .form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    /*
+     * El contenido termina de "salir de la pared" un poco DESPUÉS
+     * que el card: aparece desenfocado y se vuelve nítido, despacio.
+     * (el card empieza a los 1700ms; el contenido a los 2200ms)
+     */
+    animation: focusIn 1300ms cubic-bezier(0.25, 0.1, 0.25, 1) 2200ms both;
+  }
+  
+  /* ---------- Marca (logo + título + subtítulo) ---------- */
+  
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* todo centrado horizontalmente */
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+    text-align: center;
+  }
+  
+  /*
+   * Animación del logo: se DIBUJA solo.
+   * Logo.tsx es un componente "tonto" que no sabe nada del login.
+   * Desde aquí apuntamos a sus etiquetas SVG con selectores de
+   * descendiente (.brand polyline = "todo polyline dentro de .brand").
+   * Así el mismo Logo puede ir quieto en otras pantallas.
+   */
+  .brand svg {
+    margin-bottom: var(--spacing-2);
+    /* resplandor verde suave: los "nodos" parecen encendidos */
+    filter: drop-shadow(0 0 10px color-mix(in srgb, var(--color-primary) 45%, transparent));
+  }
+  
+  /* Las líneas: el mismo truco de dasharray/dashoffset (pathLength = 1) */
+  .brand polyline,
+  .brand path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 1400ms ease-in-out 2600ms forwards;
+  }
+  
+  /* Los nodos aparecen uno tras otro, como neuronas que se activan */
+  .brand circle {
+    transform-box: fill-box; /* que el scale crezca desde el centro del círculo */
+    transform-origin: center;
+    animation: nodeOn 400ms ease-out both;
+  }
+  
+  /* :nth-of-type(n) = "el círculo número n". Cada uno espera un poco más. */
+  .brand circle:nth-of-type(1) { animation-delay: 2600ms; }
+  .brand circle:nth-of-type(2) { animation-delay: 2950ms; }
+  .brand circle:nth-of-type(3) { animation-delay: 3300ms; }
+  .brand circle:nth-of-type(4) { animation-delay: 3650ms; }
+  
+  .title {
+    font-size: 40px; /* el único título de la pantalla */
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+  }
+  
+  .subtitle {
+    color: color-mix(in srgb, white 72%, transparent);
+    font-size: var(--font-size-body);
+  }
+  
+  /* ---------- Texto solo para lectores de pantalla ----------
+   * Técnica estándar: el elemento existe (el lector lo lee)
+   * pero mide 1px y está recortado, así que no se ve.
+   * OJO: display:none NO sirve, porque también lo oculta al lector.
+   */
+  .srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  
+  /* ---------- Campos ---------- */
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+  
+  /* La "píldora" con borde: el input va adentro, el ícono a la derecha */
+  .inputWrap {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    height: 60px;
+    padding: 0 var(--spacing-6);
+    border: 1.5px solid var(--glass-border);
+    border-radius: var(--radius-pill);
+    transition:
+      border-color var(--duration-fast),
+      background var(--duration-fast);
+  }
+  
+  /*
+   * :focus-within = "cuando ALGO DENTRO de mí tiene el foco".
+   * El input está adentro: al escribir en él, la píldora se resalta.
+   */
+  .inputWrap:focus-within {
+    border-color: white;
+    background: color-mix(in srgb, white 6%, transparent);
+  }
+  
+  /* data-invalid="true" lo pone el componente cuando hay error */
+  .inputWrap[data-invalid='true'] {
+    border-color: var(--color-error);
+  }
+  
+  .input {
+    flex: 1; /* ocupa todo el espacio libre */
+    min-width: 0; /* sin esto, un input dentro de flex puede desbordarse */
+    height: 100%;
+    border: none;
+    outline: none; /* el foco ya lo muestra la píldora */
+    background: transparent;
+    font-size: 17px; /* nunca menos de 16px: en iPhone hace zoom al enfocar */
+  }
+  
+  .input::placeholder {
+    color: color-mix(in srgb, white 80%, transparent);
+  }
+  
+  /*
+   * Chrome pinta de otro color los campos autocompletados.
+   * Este truco lo evita: "retrasa" ese cambio de fondo casi para siempre.
+   */
+  .input:-webkit-autofill {
+    -webkit-text-fill-color: white;
+    transition: background-color 9999s;
+  }
+  
+  .inputIcon {
+    flex-shrink: 0;
+    color: white;
+  }
+  
+  /* Rojo un poco más claro: el rojo puro se lee mal sobre el vidrio azul */
+  .fieldError {
+    padding-left: var(--spacing-6);
+    color: color-mix(in srgb, var(--color-error) 65%, white);
+    font-size: var(--font-size-caption);
+  }
+  
+  /* ---------- Fila "olvidé mi contraseña" ---------- */
+  
+  .row {
+    display: flex;
+    justify-content: flex-end; /* el enlace a la derecha */
+    margin-top: calc(var(--spacing-2) * -1); /* más pegado a los inputs */
+    font-size: 15px;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* ---------- Botón ---------- */
+  
+  .submit {
+    display: grid;
+    place-items: center; /* centra texto o spinner */
+    height: 58px;
+    border: none;
+    border-radius: var(--radius-pill);
+    background: white;
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition:
+      transform var(--duration-fast),
+      box-shadow var(--duration-base);
+  }
+  
+  /* Al pasar el mouse "brilla" con la luz cálida del foco */
+  .submit:hover:not(:disabled) {
+    box-shadow: 0 0 24px color-mix(in srgb, var(--lamp-light) 55%, transparent);
+  }
+  
+  /* :active = mientras se mantiene presionado: se "hunde" un poquito */
+  .submit:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  .submit:disabled {
+    cursor: progress;
+  }
+  
+  /*
+   * :focus-visible = foco SOLO al navegar con teclado (Tab).
+   * Con el mouse no aparece; con el teclado sí.
+   */
+  .submit:focus-visible,
+  .link:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+  }
+  
+  /* Spinner: un círculo con un lado transparente que gira */
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 700ms linear infinite;
+  }
+  
+  /* ---------- Alerta de error ---------- */
+  
+  .alert {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--color-error) 22%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-error) 55%, transparent);
+    animation: shake 320ms ease;
+  }
+  
+  .alert svg {
+    flex-shrink: 0;
+  }
+  
+  /* ---------- Pie del card ---------- */
+  
+  .footer {
+    margin-top: var(--spacing-4);
+    padding-top: var(--spacing-6);
+    border-top: 1px solid color-mix(in srgb, white 14%, transparent); /* línea divisoria */
+    text-align: center;
+    color: color-mix(in srgb, white 55%, transparent);
+    font-size: var(--font-size-caption);
+    letter-spacing: 0.18em;
+  }
+  
+  .footerHighlight {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  /* En pantallas bajas, todo un poco más compacto (ver LoginPage.module.css) */
+  @media (max-height: 820px) {
+    .form {
+      gap: var(--spacing-4);
+    }
+  
+    .brand svg {
+      width: 60px;
+      height: 45px;
+      margin-bottom: 0;
+    }
+  
+    .title {
+      font-size: 34px;
+    }
+  
+    .footer {
+      margin-top: var(--spacing-2);
+      padding-top: var(--spacing-4);
+    }
+  }
+  
+  /* Aviso del modo desarrollo (reemplaza al pie): color de advertencia */
+  .devHint {
+    color: var(--color-warning);
+  }
+  
+  /* ---------- Animaciones ---------- */
+  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes nodeOn {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+  
+  @keyframes focusIn {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(8px);
+    }
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes shake {
+    25% {
+      transform: translateX(-4px);
+    }
+    75% {
+      transform: translateX(4px);
+    }
+  }
+  
