@@ -1,0 +1,310 @@
+/* ============================================================
+ *  Escena del login: pared + foco + card de vidrio
+ * ============================================================ */
+
+/*
+ * @property registra una variable CSS CON TIPO (aquí, un número).
+ * ¿Para qué? Una variable normal no se puede animar suavemente:
+ * salta de golpe. Con un tipo, el navegador sabe interpolar 0 → 1.
+ *
+ * --lamp es "qué tan encendido está el foco":
+ *   0 = apagado, 1 = encendido.
+ * UNA sola variable controla la luz, la oscuridad y el foco.
+ */
+ @property --lamp {
+    syntax: '<number>';
+    inherits: true; /* los hijos (glow, darkness, beam...) la heredan */
+    initial-value: 0;
+  }
+  
+  .scene {
+    position: relative; /* las capas absolutas se ubican respecto a esto */
+    overflow: hidden;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /*
+     * Arriba: 170px para el foco. Abajo: 40px para que el card
+     * no quede pegado al borde de la pantalla.
+     */
+    padding: 170px var(--spacing-4) 40px;
+  
+    /*
+     * LA PARED: una imagen SVG (src/assets/brick-wall.svg) que se repite.
+     * Vite encuentra el archivo por esta ruta relativa y lo incluye en el build.
+     * background-color es el "plan B" mientras la imagen carga.
+     */
+    background-color: var(--wall-mortar);
+    background-image: url('../../../assets/brick-wall.svg');
+    background-size: 360px 384px; /* el tamaño real del azulejo */
+    background-position: center top; /* patrón centrado bajo el foco */
+  
+    /*
+     * El encendido va AQUÍ, en el padre, porque anima --lamp
+     * y todos los hijos la heredan.
+     *   lightUp  → nombre de los @keyframes
+     *   2600ms   → duración (lento: misterio)
+     *   400ms    → espera antes de empezar
+     *   cubic-bezier(0.55, 0, 0.35, 1) → arranca muy despacio, acelera y frena suave,
+     *       como un regulador de luz que alguien gira.
+     *   forwards → al terminar se QUEDA encendido
+     */
+    animation: lightUp 2600ms cubic-bezier(0.55, 0, 0.35, 1) 400ms forwards;
+  }
+  
+  /* ---------- Viñeta (fija) ----------
+   * ::before crea un elemento "fantasma" dentro de .scene, por debajo
+   * de los demás hijos. Oscurece los bordes de la pared, como en una
+   * habitación donde la única luz es el foco.
+   */
+  .scene::before {
+    content: ''; /* sin content, un ::before no aparece */
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 55% 70% at 50% 22%, transparent, rgb(0 0 0 / 0.75));
+    pointer-events: none;
+  }
+  
+  /* ---------- Oscuridad (animada) ----------
+   * Velo negro encima de todo. Apagado (--lamp: 0) tapa casi todo;
+   * encendido (--lamp: 1) queda un poco, para que la luz destaque.
+   * calc() hace la cuenta:
+   *   apagado:   0.2 + (1 - 0) * 0.78 = 0.98
+   *   encendido: 0.2 + (1 - 1) * 0.78 = 0.2
+   */
+  .darkness {
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: calc(0.2 + (1 - var(--lamp)) * 0.78);
+    pointer-events: none;
+  }
+  
+  /* ---------- Luz sobre la pared ----------
+   * La luz REAL no es un círculo parejo: es muy fuerte junto al foco
+   * y se apaga rápido. Por eso usamos 3 degradados apilados:
+   *   1. núcleo: pequeño y casi blanco, pegado al foco
+   *   2. medio: cálido, donde la luz "lava" los ladrillos
+   *   3. ambiente: enorme y tenue, la luz que rebota en la habitación
+   * mix-blend-mode: screen → la luz ACLARA lo de abajo (no lo tapa),
+   * así la textura de los ladrillos sigue viéndose bajo la luz.
+   */
+  .glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 110px 60px at 50% 118px,
+        color-mix(in srgb, var(--lamp-core) 90%, transparent),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 300px 230px at 50% 125px,
+        color-mix(in srgb, var(--lamp-light) 55%, transparent),
+        transparent 75%
+      ),
+      radial-gradient(
+        ellipse 700px 560px at 50% 140px,
+        color-mix(in srgb, var(--lamp-light) 16%, transparent),
+        transparent 70%
+      );
+    mix-blend-mode: screen;
+    opacity: var(--lamp);
+    pointer-events: none;
+  }
+  
+  /* ---------- Haz de luz (cono) ----------
+   * Imita el polvo en el aire que deja ver el rayo de luz.
+   *
+   * OJO, lección aprendida: si pones clip-path y filter: blur en el
+   * MISMO elemento, el navegador primero desenfoca y DESPUÉS recorta,
+   * así que los bordes quedan duros. Solución: el recorte va en el
+   * hijo (::before) y el desenfoque en el padre (.beam), que desenfoca
+   * todo lo que tiene dentro, ya recortado.
+   */
+  .beam {
+    position: absolute;
+    top: 112px;
+    left: 50%;
+    width: 640px;
+    height: 480px;
+    transform: translateX(-50%);
+    filter: blur(22px);
+    mix-blend-mode: screen;
+    opacity: var(--lamp);
+    pointer-events: none;
+  }
+  
+  .beam::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%); /* trapecio: angosto arriba */
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--lamp-light) 26%, transparent),
+      transparent 85%
+    );
+  }
+  
+  /* ---------- El foco ---------- */
+  
+  .lamp {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%); /* truco clásico para centrar algo absoluto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*
+     * drop-shadow sigue la FORMA real del foco (box-shadow solo haría un rectángulo).
+     * Es la sombra que el foco proyecta sobre la pared.
+     */
+    filter: drop-shadow(0 10px 12px rgb(0 0 0 / 0.55));
+  }
+  
+  /* El soporte que lo une a la pared */
+  .lampMount {
+    width: 54px;
+    height: 10px;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(to right, #111, #3a3633 50%, #111);
+  }
+  
+  /*
+   * La carcasa: un trapecio (clip-path) con DOS degradados encima:
+   *   - horizontal: más claro en el centro, oscuro en los lados → parece curvo/metálico
+   *   - vertical: el borde de abajo se aclara con --lamp, porque la luz lo ilumina
+   * filter: brightness → apagado se ve oscuro, encendido recupera su color.
+   */
+  .lampBody {
+    width: 200px;
+    height: 66px;
+    clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 70%,
+        color-mix(in srgb, var(--lamp-light) calc(var(--lamp) * 35%), transparent)
+      ),
+      linear-gradient(
+        to right,
+        #141210 0%,
+        #2b2724 22%,
+        #4a4440 48%,
+        #2e2a27 70%,
+        #141210 100%
+      );
+    filter: brightness(calc(0.35 + var(--lamp) * 0.65));
+  }
+  
+  /* El difusor (el vidrio de abajo): es lo que brilla */
+  .lampDiffuser {
+    width: 186px;
+    height: 8px;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%; /* ligeramente curvo abajo */
+    /*
+     * color-mix con un % que depende de --lamp:
+     * apagado → gris oscuro; encendido → luz casi blanca.
+     */
+    background: color-mix(in srgb, var(--lamp-core) calc(var(--lamp) * 100%), #1d222c);
+    box-shadow:
+      0 2px 6px color-mix(in srgb, var(--lamp-core) calc(var(--lamp) * 90%), transparent),
+      0 6px 30px 8px color-mix(in srgb, var(--lamp-light) calc(var(--lamp) * 60%), transparent);
+  }
+  
+  /* ---------- El card de vidrio ---------- */
+  
+  .card {
+    position: relative; /* para quedar por encima de las capas absolutas */
+    width: 100%;
+    /*
+     * Más angosto que alto: un formulario vertical se ve más elegante
+     * que un cuadrado (y es más cómodo de leer de arriba a abajo).
+     */
+    max-width: 440px; /* el alto lo da el contenido (~630px): queda vertical */
+    padding: 48px 44px 36px;
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    /*
+     * Dos fondos: arriba un toque cálido (la luz del foco cae sobre el card)
+     * y debajo el vidrio normal.
+     */
+    background:
+      linear-gradient(to bottom, color-mix(in srgb, var(--lamp-light) 10%, transparent), transparent 45%),
+      var(--glass-bg),
+      /* capa oscura: mejora la lectura de los campos sobre la pared */
+      color-mix(in srgb, #0c0c0c 50%, transparent);
+    /* backdrop-filter desenfoca lo que hay DETRÁS del card: vidrio esmerilado */
+    backdrop-filter: blur(14px) saturate(1.1);
+    box-shadow:
+      0 30px 70px -25px rgb(0 0 0 / 0.7),
+      inset 0 1px 0 color-mix(in srgb, white 25%, transparent); /* filo de luz arriba */
+  
+    /*
+     * "Sale de la pared": empieza invisible y aparece LENTO.
+     * 1600ms de duración, 1700ms de espera (cuando la luz ya casi está completa).
+     * "both" = antes de empezar usa el primer fotograma (invisible)
+     * y al terminar se queda en el último (visible).
+     */
+    animation: emerge 1600ms cubic-bezier(0.25, 0.1, 0.25, 1) 1700ms both;
+  }
+  
+  /* ---------- Animaciones ---------- */
+  
+  /* El foco se enciende de 0 a 1. La curva (cubic-bezier) ya da el "poco a poco". */
+  @keyframes lightUp {
+    from {
+      --lamp: 0;
+    }
+    to {
+      --lamp: 1;
+    }
+  }
+  
+  /*
+   * El card: de invisible y "hundido" en la pared (más pequeño, sin
+   * borde ni sombra) → a visible y "despegado" de la pared.
+   */
+  @keyframes emerge {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+      border-color: transparent;
+      box-shadow: none;
+      backdrop-filter: blur(0);
+    }
+  }
+  
+  /* ---------- Pantallas BAJAS (laptops de 768px de alto, ventanas chicas) ----------
+   * @media (max-height: ...) mira la ALTURA de la ventana, no el ancho.
+   * Si no hay espacio vertical, compactamos para que no aparezca scroll.
+   */
+  @media (max-height: 820px) {
+    .scene {
+      padding-top: 150px;
+      padding-bottom: 24px;
+    }
+  
+    .card {
+      padding: 36px 40px 28px;
+    }
+  }
+  
+  /* ---------- Móvil ---------- */
+  @media (max-width: 520px) {
+    .scene {
+      padding-top: 160px;
+    }
+  
+    .lamp {
+      top: 20px;
+    }
+  
+    .card {
+      padding: var(--spacing-12) var(--spacing-6);
+    }
+  }
+  
