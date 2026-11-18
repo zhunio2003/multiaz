@@ -87,7 +87,16 @@
   --radius-lg: 20px;
   --radius-pill: 999px; /* "píldora": un radio enorme siempre da extremos redondos */
 
+    /* ---------- 9. Extensiones: escena del login (pared + foco) ---------- */
+  --wall-mortar: #121212; /* color de fondo mientras carga la imagen de la pared */
+  --lamp-light: #ffcf8a; /* luz cálida del foco */
+  --lamp-core: #fff3dc; /* el centro de la luz, casi blanco */
+  --glass-bg: color-mix(in srgb, white 7%, transparent); /* vidrio del card */
+  --glass-border: color-mix(in srgb, white 26%, transparent);
+
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --easing-standard: cubic-bezier(0.2, 0, 0, 1); /* arranca rápido, frena suave */
+
+
 }
