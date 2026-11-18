@@ -1,0 +1,61 @@
+.screen {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-8) var(--spacing-4);
+    text-align: center;
+    background: radial-gradient(
+        ellipse 50% 40% at 50% 40%,
+        color-mix(in srgb, var(--color-primary) 10%, transparent),
+        transparent
+      ),
+      var(--color-background);
+  }
+  
+  /* El código (404) gigante con degradado en el texto */
+  .code {
+    margin-top: var(--spacing-6);
+    font-size: 96px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    /*
+     * Texto con degradado: el fondo es el degradado y
+     * background-clip: text lo recorta con la forma de las letras.
+     */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .title {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .message {
+    max-width: 420px;
+    color: var(--color-text-muted);
+  }
+  
+  .button {
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-8);
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background: var(--color-secondary);
+  }
+  
+  .button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+  
