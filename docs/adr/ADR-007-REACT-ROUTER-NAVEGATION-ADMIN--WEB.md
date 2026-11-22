@@ -1,6 +1,6 @@
 # ADR-007 — Adopción de react-router 8 para la navegación del Admin Web App
 
-**Fecha:** 10 de Noviembre del 2026
+**Fecha:** 10 de Noviembre del 2026  
 **Estado:** Aceptado
 
 ---
