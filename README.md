@@ -1,411 +1,218 @@
 <div align="center">
-    <img src="docs/brand/logo-multiaz.jpg" alt="logo MultiIAZ" width="900">
-    <h2>Plataforma de Predicciónes Especializadas</h3>
-    <br/><br/>
-    <img src="https://img.shields.io/badge/state-en%20desarrollo-green" alt="State"/>
-    <br/><br/>
-    <!-- ══════ Clientes ══════ -->
-    <img src="https://img.shields.io/badge/Flutter-3.41.6-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
-    <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React"/>
-    <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite"/>
+    <img src="docs/brand/logo-multiaz.jpg" alt="Logo de MultIAZ" width="900">
+    <h3>Plataforma para operar modelos de IA como plugins</h3>
     <br/>
-    <!-- ══════ Backend Core ══════ -->
+    <img src="https://img.shields.io/badge/estado-en%20desarrollo-green" alt="Estado"/>
+    <img src="https://img.shields.io/badge/licencia-MIT-blue" alt="Licencia"/>
+    <br/><br/>
     <img src="https://img.shields.io/badge/Java-21-F80000?logo=openjdk&logoColor=white" alt="Java"/>
     <img src="https://img.shields.io/badge/Spring%20Boot-4.0.4-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot"/>
-    <img src="https://img.shields.io/badge/Maven-3.8.7-C71A36?logo=apachemaven&logoColor=white" alt="Maven"/>
+    <img src="https://img.shields.io/badge/Spring%20Cloud-Gateway%20%7C%20Eureka%20%7C%20Config-6DB33F?logo=spring&logoColor=white" alt="Spring Cloud"/>
+    <img src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white" alt="Python"/>
+    <img src="https://img.shields.io/badge/FastAPI-ML%20services-009688?logo=fastapi&logoColor=white" alt="FastAPI"/>
     <br/>
-    <!-- ══════ Backend IA ══════ -->
-    <img src="https://img.shields.io/badge/Python-3.12.4-3776AB?logo=python&logoColor=white" alt="Python"/>
-    <img src="https://img.shields.io/badge/FastAPI-latest-009688?logo=fastapi&logoColor=white" alt="FastAPI"/>
-    <br/>
-    <!-- ══════ Bases de Datos ══════ -->
-    <img src="https://img.shields.io/badge/PostgreSQL-17-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-    <img src="https://img.shields.io/badge/MongoDB-8-47A248?logo=mongodb&logoColor=white" alt="MongoDB"/>
-    <img src="https://img.shields.io/badge/Redis-8-DC382D?logo=redis&logoColor=white" alt="Redis"/>
-    <img src="https://img.shields.io/badge/MinIO-latest-C72E49?logo=minio&logoColor=white" alt="MinIO"/>
-    <br/>
-    <!-- ══════ Infraestructura ══════ -->
-    <img src="https://img.shields.io/badge/Spring%20Cloud%20Gateway-MVC-6DB33F?logo=spring&logoColor=white" alt="Gateway"/>
-    <img src="https://img.shields.io/badge/Eureka-Service%20Discovery-6DB33F?logo=spring&logoColor=white" alt="Eureka"/>
-    <img src="https://img.shields.io/badge/Spring%20Cloud%20Config-Centralizado-6DB33F?logo=spring&logoColor=white" alt="Config"/>
+    <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React"/>
+    <img src="https://img.shields.io/badge/Flutter-3.41-02569B?logo=flutter&logoColor=white" alt="Flutter"/>
+    <img src="https://img.shields.io/badge/PostgreSQL%20%7C%20MongoDB%20%7C%20Redis-datos-4169E1?logo=postgresql&logoColor=white" alt="Datos"/>
     <img src="https://img.shields.io/badge/RabbitMQ-4-FF6600?logo=rabbitmq&logoColor=white" alt="RabbitMQ"/>
-    <br/>
-    <!-- ══════ Observabilidad (ELK) ══════ -->
-    <img src="https://img.shields.io/badge/Elasticsearch-8-005571?logo=elasticsearch&logoColor=white" alt="Elasticsearch"/>
-    <img src="https://img.shields.io/badge/Logstash-8-005571?logo=logstash&logoColor=white" alt="Logstash"/>
-    <img src="https://img.shields.io/badge/Kibana-8-005571?logo=kibana&logoColor=white" alt="Kibana"/>
-    <br/>
-    <!-- ══════ DevOps ══════ -->
     <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker"/>
-    <img src="https://img.shields.io/badge/Kubernetes-planned-326CE5?logo=kubernetes&logoColor=white" alt="Kubernetes"/>
-    <img src="https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions"/>
-    <br/>
-    <!-- ══════ Seguridad ══════ -->
-    <img src="https://img.shields.io/badge/Spring%20Security-JWT%20%2B%20OAuth2-6DB33F?logo=springsecurity&logoColor=white" alt="Spring Security"/>
-    <img src="https://img.shields.io/badge/jjwt-0.12.6-orange" alt="jjwt"/>
-    <br/>
-    <!-- ══════ Testing ══════ -->
-    <img src="https://img.shields.io/badge/JUnit%205-+%20Mockito4-25A162?logo=junit5&logoColor=white" alt="JUnit"/>
-    <img src="https://img.shields.io/badge/Vitest-Testing%20Web-6E9F18?logo=vitest&logoColor=white" alt="Vitest"/>
-    <img src="https://img.shields.io/badge/Pytest-Testing%20Python-0A9EDC?logo=pytest&logoColor=white" alt="Pytest"/>
-    <img src="https://img.shields.io/badge/Flutter%20Test-Testing%20Mobile-02569B?logo=flutter&logoColor=white" alt="Flutter Test"/>
-    <br/>
-    <!-- ══════ Herramientas ══════ -->
-    <img src="https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?logo=swagger&logoColor=black" alt="Swagger"/>
-    <br/>
-    <img src="https://img.shields.io/badge/Licencia-MIT" alt="License"/>
-    <br/><br/>
+    <img src="https://img.shields.io/badge/GitHub%20Actions-CI-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions"/>
 </div>
 
+<br/>
 
-> Plataforma de predicciones, escalable y agnóstica para registrar, orquestar y consumir modelos de IA como plugins independientes. Predicciones en tiempo real y por lotes, accesibles desde una app móvil y un panel de administración web.
+> **MultIAZ** es una plataforma de microservicios para **registrar, servir y operar modelos de IA** detrás de un único punto de entrada. Cada modelo es un servicio independiente que cumple un contrato común, así que se puede agregar, activar o retirar un modelo sin tocar el resto del sistema.
 
 ---
- 
-## Tabla de Contenidos
- 
-- [Sobre el Proyecto](#sobre-el-proyecto)
-- [Arquitectura](#arquitectura)
-- [Stack Tecnológico](#stack-tecnológico)
-- [Estructura del Monorepo](#estructura-del-monorepo)
-- [Servicios del Sistema](#servicios-del-sistema)
-- [Requisitos Previos](#requisitos-previos)
-- [Instalación y Ejecución](#instalación-y-ejecución)
+
+## Tabla de contenidos
+
+- [¿Por qué existe?](#por-qué-existe)
+- [Cómo funciona una predicción](#cómo-funciona-una-predicción)
+- [Estado actual](#estado-actual)
+- [Decisiones de arquitectura](#decisiones-de-arquitectura)
+- [Estructura del monorepo](#estructura-del-monorepo)
+- [Ejecutar en local](#ejecutar-en-local)
 - [Roadmap](#roadmap)
 - [Documentación](#documentación)
-- [Capturas de Pantalla](#capturas-de-pantalla)
 - [Autor](#autor)
- 
----
- 
-## Sobre el Proyecto
- 
-**MultIAZ** es una plataforma de predicciones impulsada por modelos de Inteligencia Artificial de tipo NLP. No está acoplada a un número fijo de modelos: su diseño permite registrar, orquestar y consumir modelos de IA como **plugins independientes** sin modificar la arquitectura ni afectar los servicios existentes.
- 
-### Problema que resuelve
- 
-Las personas que necesitan tomar decisiones basadas en datos enfrentan un proceso frustrante: información dispersa, desactualizada y contradictoria entre múltiples fuentes. Las empresas dependen de costosos estudios manuales que no permiten reaccionar con agilidad.
- 
-**MultIAZ** centraliza predicciones especializadas en una única plataforma accesible en segundos, disponible 24/7, con datos respaldados históricamente y un alto nivel de aproximación.
- 
-### Principios de Diseño
- 
-- **Agnóstico a los modelos:** Las IAs son plugins que se enchufan a la plataforma.
-- **Desacoplamiento total:** Cada microservicio es independiente. Si uno cae, los demás siguen funcionando.
-- **Escalabilidad horizontal:** Cada componente escala de forma independiente según la demanda.
-- **Contrato estándar:** Todas las IAs exponen la misma interfaz genérica.
-- **App movil y web:** El sistema tndra una app movil en la play store y un sitio web.
 
 ---
- 
-## Arquitectura
- 
-El sistema se organiza en **5 capas** con **26 componentes**:
- 
-| # | Capa | Componentes | Descripción |
-|---|------|-------------|-------------|
-| 1 | Capa de Entrada | 1 | API Gateway — punto de acceso único al sistema |
-| 2 | Capa de Servicios Core | 9 | Microservicios Java/Spring Boot (lógica de negocio) |
-| 3 | Capa de IAs | 5 + n | Servicios Python/FastAPI de predicción + Training Service |
-| 4 | Capa de Clientes | 2 | App Móvil (Flutter) + Admin Web App (React) |
-| 5 | Infraestructura Transversal | 9 | Bases de datos, mensajería, caché, logs, CI/CD |
- 
-> **Diagrama completo:** Ver [`ARQUITECTURA_INICIAL_MULTIAZ.md`](docs/architecture/ARQUITECTURA_INICIAL_MULTIAZ.md)
- 
+
+## ¿Por qué existe?
+
+Entrenar un modelo es la parte fácil. Lo difícil empieza cuando hay **varios modelos en producción**, cada uno con su API, su versión, su forma de fallar y su propio consumo. Sin una capa común, cada cliente termina hablando directamente con cada modelo y el sistema se vuelve imposible de mantener.
+
+MultIAZ es esa capa común:
+
+- **Un solo punto de entrada.** Los clientes (app móvil y panel web) solo conocen el API Gateway, nunca la dirección de un modelo.
+- **Modelos como plugins.** Un modelo nuevo se registra en el *Model Registry* y el orquestador lo enruta sin cambios en el código.
+- **Ciclo de vida controlado.** Un modelo puede estar activo o inactivo, y el orquestador rechaza las peticiones a modelos inactivos.
+- **Trazabilidad.** Cada predicción queda guardada con su entrada, su salida, su estado y sus tiempos.
+- **Seguridad centralizada.** La autenticación con JWT se valida en el gateway, no en cada servicio.
+- **Configuración centralizada.** Cada servicio lee su configuración por entorno (dev, staging, prod) desde el Config Service.
+
+El valor del proyecto está en **la plataforma que opera los modelos**, no en un modelo en particular: cualquier servicio que cumpla el contrato común (`GET /health` y `POST /predict`, con respuesta `{ result, confidence }`) se puede conectar.
+
 ---
- 
-## Stack Tecnológico
- 
-### Por Lenguaje
- 
-| Lenguaje | Uso | Framework |
-|----------|-----|-----------|
-| Java 21 | Microservicios core + infraestructura Spring Cloud | Spring Boot 3.x |
-| Python 3.14 | Servicios de IA y entrenamiento | FastAPI |
-| Dart | Aplicación móvil (Android e iOS) | Flutter 3.12.2 |
-| TypeScript | Aplicación web de administración | React 19.2.4 |
- 
-### Infraestructura
- 
-| Componente | Tecnología |
-|------------|------------|
-| API Gateway | Spring Cloud Gateway |
-| Service Discovery | Eureka (Spring Cloud) |
-| Configuración Centralizada | Spring Cloud Config |
-| Message Broker | RabbitMQ |
-| Caché | Redis |
-| BD Relacional | PostgreSQL |
-| BD Documental | MongoDB |
-| Object Storage | MinIO |
-| Logs | ELK Stack (Elasticsearch + Logstash + Kibana) |
-| Contenedores | Docker + Kubernetes |
-| CI/CD | GitHub Actions |
- 
+
+## Cómo funciona una predicción
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as Cliente (móvil / web)
+    participant G as API Gateway
+    participant O as Prediction Orchestrator
+    participant R as Model Registry
+    participant M as Servicio de IA
+    participant DB as PostgreSQL
+
+    C->>G: POST /predictions (JWT)
+    G->>G: Valida el token
+    G->>O: Reenvía la petición
+    O->>R: ¿Existe el modelo? ¿Está activo?
+    R-->>O: Metadatos + endpoint del modelo
+    O->>DB: Guarda la predicción (PENDING)
+    O->>M: POST /predict
+    M-->>O: Resultado + confianza
+    O->>DB: Actualiza (COMPLETED o FAILED)
+    O-->>C: Respuesta
+```
+
+Los servicios se descubren entre sí con **Eureka**, así que ninguno tiene direcciones escritas a mano.
+
+> Diagrama completo de los 26 componentes: [`ARQUITECTURA_INICIAL_MULTIAZ.md`](docs/architecture/ARQUITECTURA_INICIAL_MULTIAZ.md)
+
 ---
- 
-## Estructura del Repositorio
+
+## Estado actual
+
+El proyecto está en desarrollo activo. Esta tabla separa lo que ya funciona de lo que está planeado.
+
+| Componente | Estado |
+|---|---|
+| API Gateway (Spring Cloud Gateway) | ✅ Implementado |
+| Auth Service (registro, login, JWT, Flyway, tests) | ✅ Implementado |
+| Service Discovery (Eureka) y Config Service | ✅ Implementados |
+| Model Registry | ✅ Implementado |
+| Prediction Orchestrator | 🟡 En integración con los servicios de IA |
+| Servicios de IA conectables (FastAPI, contrato común) | 🟡 Contrato definido, en integración con el orquestador |
+| Docker Compose (servicios, bases de datos, RabbitMQ, MinIO, backups) | ✅ Implementado |
+| CI con GitHub Actions (backend y frontend) | ✅ Implementado |
+| Admin Web App (React + TypeScript) | 🟡 Login listo, dashboard en desarrollo |
+| App móvil (Flutter) | 🟡 Login, registro e inicio |
+| Dataset Management, Prediction Storage, Scheduler, Notification, Logging & Monitoring | ⚪ Estructura base creada |
+| Training Service | ⚪ Planeado |
+| Observabilidad con ELK, Kubernetes | ⚪ Planeado |
+
+---
+
+## Decisiones de arquitectura
+
+Cada decisión importante está documentada como ADR en [`docs/adr/`](docs/adr/), con contexto, alternativas y consecuencias.
+
+| ADR | Decisión |
+|---|---|
+| 001 | Refinamiento progresivo de la arquitectura |
+| 002 | Docker en desarrollo, Kubernetes diferido a producción |
+| 003 | Vitest en lugar de Jest |
+| 004 | Versión fija de axios ante ataques a la cadena de suministro |
+| 005 | Flyway como estándar de migraciones |
+| 006 | pnpm en lugar de npm por seguridad de dependencias |
+| 007 | React Router para la navegación del panel |
+
+### ¿Por qué microservicios?
+
+Con pocos modelos, un monolito sería más simple. Elegí microservicios porque el objetivo es que **cada modelo se despliegue, escale y falle por separado**: un modelo de Python que se cae o tarda no debe tumbar la autenticación ni a los demás modelos. El costo es real: más infraestructura, más latencia entre servicios y depuración distribuida. Por eso Kubernetes y ELK están diferidos hasta que el flujo principal esté completo ([ADR-002](docs/adr/)).
+
+---
+
+## Estructura del monorepo
 
 ```
 multiaz/
 ├── backend/
-│   ├── core/
-│   │   ├── api-gateway/
-│   │   ├── auth-service/
-│   │   ├── model-registry/
-│   │   ├── prediction-scheduler/
-│   │   ├── prediction-storage/
-│   │   ├── dataset-management/
-│   │   ├── logging-monitoring/
-│   │   ├── prediction-notification/
-│   │   └── prediction-orchestrator/
-│   ├── ia-services/
-│   │   ├── fake-news-detector/
-│   │   ├── job-recommender/
-│   │   ├── personality-classifier/
-│   │   ├── university-ranking-predictor/
-│   │   └── vehicle-price-predictor/
-│   ├── infrastructure/
-│   │   ├── backup-service/
-│   │   ├── config-service/
-│   │   ├── message-broker/
-│   │   ├── cache-service/
-│   │   ├── db-principal-service/
-│   │   ├── object-storage-service/
-│   │   ├── log-aggregator-service/
-│   │   ├── container-orchestrator-service/
-│   │   └── service-discovery/
+│   ├── core/              # Microservicios Java / Spring Boot
+│   ├── ia-services/       # Un servicio FastAPI por modelo
+│   ├── infrastructure/    # Eureka, Config Service, backups
 │   └── training-service/
-├── config/
-│   ├── dev/
-│   ├── prod/
-│   └── staging/
-├── docker/
-│   ├── .env
-│   ├── .env.example
-│   └── docker-compose.yml
-├── docs/
-│   ├── adr/
-│   ├── api/
-│   ├── architecture/
-│   ├── brand/
-│   ├── diagrams/
-│   ├── dt/
-│   ├── guides/
-│   ├── models/
-│   ├── product/
-│   ├── runbooks/
-│   └── sprints/
 ├── frontend/
-│   ├── admin-web-app/
-│   └── mobile-app/
-├── infra/
-├── scripts/
-│   ├── backup/
-│   |   ├── backup-mongo.sh
-│   |   ├── backup-postgres.sh
-│   |   ├── entrypoint.sh
-│   └── postgres/
-│       └── init-databases.sh
-├── .gitignore
-├── CHANGELOG.md
-├── CONTRIBUTING.md
-├── LICENSE
-└── README.md
+│   ├── admin-web-app/     # Panel de administración (React + TS)
+│   └── mobile-app/        # App para usuarios finales (Flutter)
+├── config/                # Configuración por entorno (dev, staging, prod)
+├── docker/                # docker-compose y variables de entorno
+├── docs/                  # Arquitectura, ADRs, producto, sprints
+└── scripts/               # Backups e inicialización de bases de datos
 ```
 
 ---
- 
-## Servicios del Sistema
- 
-### Servicios Core (Java/Spring Boot)
- 
-| Servicio | Puerto | Responsabilidad |
-|----------|--------|-----------------|
-| API Gateway | 8080 | Punto de entrada único, autenticación, rate limiting, routing |
-| Auth Service | 8081 | Registro, login, JWT, roles, perfiles |
-| Model Registry | 8082 | Catálogo de modelos de IA, versiones, metadata |
-| Prediction Orchestrator | 8083 | Orquestación de predicciones en tiempo real |
-| Scheduler Service | 8084 | Programación y ejecución de predicciones batch |
-| Prediction Storage | 8085 | Almacenamiento y consulta de resultados |
-| Dataset Management | 8086 | Carga, versionado y validación de datasets |
-| Logging & Monitoring | 8087 | Logs centralizados, métricas, alertas |
-| Notification Service | 8088 | Notificaciones push, email e in-app |
- 
-### Servicios de IA (Python/FastAPI)
- 
-| Servicio | Puerto | Descripción |
-|----------|--------|-------------|
-| Training Service | 8090 | Entrenamiento y reentrenamiento de modelos |
-| IA Service 1–n | 8091–n | Servicios de predicción NLP independientes |
- 
-### Infraestructura
- 
-| Componente | Puerto(s) |
-|------------|-----------|
-| Eureka (Service Discovery) | 8761 |
-| Spring Cloud Config (config-service) | 8888 |
-| RabbitMQ | 5672 / 15672 |
-| PostgreSQL | 5432 |
-| MongoDB | 27017 |
-| Redis | 6379 |
-| MinIO | 9000 / 9001 |
-| Elasticsearch | 9200 |
-| Logstash | 5044 |
-| Kibana | 5601 |
- 
----
- 
-## Requisitos Previos
- 
-| Herramienta | Versión mínima |
-|-------------|----------------|
-| Docker | 29.6.1 |
-| Docker Compose | 5.3.1 |
-| Java JDK | 21 |
-| Node.js | 24.11.0 |
-| Python | 3.12.6 |
-| Flutter SDK | 3.44.8 |
-| React | 19.2.4 |
-| Git | 2.43.0 |
- 
----
- 
-## Instalación y Ejecución
- 
+
+## Ejecutar en local
+
+**Requisitos:** Docker y Docker Compose, Java 21, Python 3.12, Node.js 24 con pnpm, Flutter 3.41.
+
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/zhunio2003/multiaz.git
 cd multiaz
 
-# 2. Agregar credenciales en env-example 
-cp docker/.env-example docker/.env
+# 2. Crear el archivo de variables de entorno y completar las credenciales
+cp docker/.env.example docker/.env
 
-# 3. Levantar la infraestructura completa
-docker-compose -f docker/docker-compose.yml up -d
- 
-# 4. Verificar que los servicios están corriendo
-docker-compose -f docker/docker-compose.yml ps
+# 3. Levantar todo el sistema
+docker compose -f docker/docker-compose.yml up -d
 
-# 5. Verificar en eureka los registros de los microservicios
-http://localhost:8761/
-
+# 4. Verificar que los contenedores estén corriendo
+docker compose -f docker/docker-compose.yml ps
 ```
-### Verificación de servicios
- 
+
 | Servicio | URL |
-|----------|-----|
-| Eureka Dashboard | http://localhost:8761 |
+|---|---|
+| API Gateway | http://localhost:8080 |
+| Eureka (servicios registrados) | http://localhost:8761 |
+| Config Service | http://localhost:8888 |
 | RabbitMQ Management | http://localhost:15672 |
 | MinIO Console | http://localhost:9001 |
-| Kibana | http://localhost:5601 |
- 
----
- 
-## ROADMAP
- 
-### Infraestructura Base
- 
-| Épica | Descripción |
-|-------|-------------|
-| Comunicación y Configuración | Message Broker (RabbitMQ), Service Discovery (Eureka), Config Service |
-| Almacenamiento | Cache Service (Redis), Bases de Datos (PostgreSQL, MongoDB), Object Storage (MinIO) |
-| Operaciones | Container Orchestrator (Docker/Kubernetes), CI/CD Pipeline (GitHub Actions) |
-| Fundación Frontend | Inicialización Mobile App (Flutter), Admin Web App (React), Design System |
- 
-### Autenticación y Predicciones
- 
-| Épica | Descripción |
-|-------|-------------|
-| Autenticación de Usuarios | Registro, login, recuperación de contraseña, gestión de tokens |
-| Realización de Predicciones | Flujo completo de predicción en tiempo real: selección de modelo, ingreso de datos, resultado |
-| Historial de Predicciones | Consulta de predicciones realizadas previamente con búsqueda y filtros |
-| Gestión de Perfil de Usuario | Edición de datos personales, preferencias y plan actual |
-| Predicciones Automáticas | Ejecución programada batch, monitoreo continuo y resultados automáticos |
- 
-### Panel de Administración
- 
-| Épica | Descripción |
-|-------|-------------|
-| Gestión de Modelos de IA | Registro, activación/desactivación, metadata y versiones de modelos |
-| Gestión de Datasets | Carga, versionado, validación de calidad y asociación con modelos |
-| Entrenamiento de Modelos | Reentrenamientos, monitoreo de progreso, comparación de métricas, rollback |
-| Logs y Monitoreo | Consulta centralizada de logs, salud del sistema, alertas y dashboard |
-| Gestión de Usuarios | Visualización, roles, actividad y suspensión/eliminación de cuentas |
-| Análisis de Predicciones Globales | Estadísticas de uso por modelo/usuario/período y tendencias |
- 
-### Notificaciones y Recomendaciones
- 
-| Épica | Descripción |
-|-------|-------------|
-| Notificaciones | Push, email e in-app sobre predicciones, nuevos modelos y alertas |
-| Recomendaciones Automatizadas | Sistema proactivo basado en tendencias detectadas |
- 
----
- 
-## Documentación
- 
-### Arquitectura y Diseño
- 
-| Documento | Descripción |
-|-----------|-------------|
-| [Arquitectura Detallada](docs/architecture/ARQUITECTURA_DETALLADA_MULTIAZ.md) | 26 componentes, 5 capas, responsabilidades de cada servicio |
-| [Diagrama de Arquitectura](docs/diagrams/ARQUITECTURA_INICIAL_MULTIAZ.mermaid) | Diagrama Mermaid del sistema completo |
-| [Design System](docs/guides/DESIGN_SYSTEM_MULTIAZ.md) | Identidad visual, tokens de diseño, componentes base |
-| [Diagramas UML](docs/diagrams/UML/) | Diagramas de componentes, secuencia y clases |  
-| [Diagramas DATA](docs/diagrams/data/) | Modelos de base de datos por microservicio |
-| [Manual de usuario](docs/user-manual/) | Manual de usuario y demas |
-| [Architecture Decision Record](docs/adr/) | Registros de decisiones de arquitectura |
-| [Artefactos SCRUM](docs/sprints/) | Documentos de SCRUM |
 
- 
-### Producto
- 
-| Documento | Descripción |
-|-----------|-------------|
-| [Product Vision Board](docs/product/PRODUCT_VISION_BOARD_MULTIAZ.md) | Visión, usuarios, necesidades y objetivos |
-| [Technology Stack](docs/product/TECHNOLOGY_STACK_MULTIAZ.md) | Decisiones tecnológicas por componente |
-| [Definition of Done](docs/product/DEFINITION_OF_DONE_MULTIAZ.md) | Criterios de completitud por tipo de historia |
- 
-### Infraestructura
- 
-| Documento | Descripción |
-|-----------|-------------|
-| [Despliegue Docker](docs/architecture/deployment/DIAGRAMA_DESPLIEGUE_MULTIAZ.md) | Contenedores, puertos, redes y volúmenes |
- 
 ---
- 
-## Capturas de Pantalla
-  
-### App Móvil (Flutter)
- 
-| Pantalla | Captura |
-|----------|---------|
-| Login | <center> <img src="docs/brand/login.jpg" alt="Login Screenshot" width="300"> </center>|
-| Register | <center><img src="docs/brand/register.jpg" alt="Register Screenshot" width="300"></center>|
-| Catálogo de Modelos |  |
-| Resultado de Predicción |  |
- 
-### Admin Web App (React)
- 
-| Pantalla | Captura |
-|----------|---------|
-| Dashboard |  |
-| Gestión de Modelos |  |
-| Logs y Monitoreo |  |
- 
-### Infraestructura
- 
-| Servicio | Captura |
-|----------|---------|
-| Eureka Dashboard |  |
-| RabbitMQ Management |  |
-| Docker Compose |  |
- 
+
+## Roadmap
+
+1. **Flujo de predicción de punta a punta:** cliente → gateway → orquestador → modelo → resultado guardado.
+2. **Panel de administración conectado al backend:** dashboard con datos reales, gestión de modelos y usuarios.
+3. **Operación de modelos:** activar y desactivar, versiones, métricas de latencia y errores por modelo.
+4. **Datasets y reentrenamiento:** carga y versionado de datasets, entrenamiento y comparación de métricas.
+5. **Observabilidad y despliegue:** logs centralizados con ELK y despliegue en Kubernetes.
+
 ---
- 
+
+## Documentación
+
+| Documento | Contenido |
+|---|---|
+| [Arquitectura detallada](docs/architecture/ARQUITECTURA_DETALLADA_MULTIAZ.md) | Los 26 componentes y las responsabilidades de cada uno |
+| [Diagrama de despliegue](docs/architecture/deployment/DIAGRAMA_DESPLIEGUE_MULTIAZ.md) | Contenedores, puertos, redes y volúmenes |
+| [Design System](docs/guides/DESIGN_SYSTEM_MULTIAZ.md) | Identidad visual y tokens de diseño |
+| [Product Vision Board](docs/product/PRODUCT_VISION_BOARD_MULTIAZ.md) | Visión, usuarios y objetivos |
+| [Technology Stack](docs/product/TECHNOLOGY_STACK_MULTIAZ.md) | Tecnología elegida para cada componente |
+| [Definition of Done](docs/product/DEFINITION_OF_DONE_MULTIAZ.md) | Criterios para dar una historia por terminada |
+| [ADRs](docs/adr/) | Registro de decisiones de arquitectura |
+| [Sprints](docs/sprints/) | Artefactos de Scrum |
+
+---
+
+## Capturas
+
+| Login (móvil) | Registro (móvil) |
+|---|---|
+| <img src="docs/brand/login.jpg" alt="Pantalla de login de la app móvil" width="280"> | <img src="docs/brand/register.jpg" alt="Pantalla de registro de la app móvil" width="280"> |
+
+---
+
 ## Autor
- 
+
 **Miguel Angel Zhunio Remache**
- 
+
 - GitHub: [zhunio2003](https://github.com/zhunio2003)
 - LinkedIn: [miguel-angel-zhunio-remache](https://www.linkedin.com/in/miguel-angel-zhunio-remache-753298330/)
