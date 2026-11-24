@@ -215,4 +215,4 @@ docker compose -f docker/docker-compose.yml ps
 **Miguel Angel Zhunio Remache**
 
 - GitHub: [zhunio2003](https://github.com/zhunio2003)
-- LinkedIn: [miguel-angel-zhunio-remache](https://www.linkedin.com/in/miguel-angel-zhunio-remache-753298330/)
+- LinkedIn: [Miguel Angel Zhunio Remache](https://www.linkedin.com/in/miguel-angel-zhunio-remache-753298330/)
