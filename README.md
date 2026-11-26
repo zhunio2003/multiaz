@@ -1,3 +1,5 @@
+<p align="center"><strong>Español</strong> · <a href="README.en.md">English</a></p>
+
 <div align="center">
     <img src="docs/brand/logo-multiaz.jpg" alt="Logo de MultIAZ" width="900">
     <h3>Plataforma para operar modelos de IA como plugins</h3>
